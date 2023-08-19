@@ -243,10 +243,33 @@ def test_offsets(student: Any, expected: Any, crash: bool) -> bool:
             raise
         return False
 
+def test_assign(student: Any, expected: Any, crash: bool) -> bool:
+    from .asts import (
+        AST,
+        Expr,
+    )
+
+    def assign_checker(student: AST, expected: AST) -> bool:
+        if isinstance(expected, Expr):
+            assert isinstance(student, Expr)
+            assert (
+                student.register == expected.register
+            ), f"{student.register} != {expected.register}"
+        return True
+
+    try:
+        v = test_offsets(student, expected, crash)
+        assert_equal(student, expected, assign_checker)
+        return v
+    except:
+        if crash:
+            raise
+        return False
+
 
 def test_codegen(student: Any, expected: Any, crash: bool) -> bool:
     try:
-        v = test_offsets(student, expected, crash)
+        v = test_assign(student, expected, crash)
         return v
     except:
         if crash:
@@ -293,30 +316,25 @@ def run_offsets(input: str):
     offsets.process(tree)
     return tree
 
-
-def Xrun_codegen(input: str):
-    tree = run_offsets(input)
-    import codegen
-    from stack_vm import vm_utils
-    from stack_vm.vm_insns import Insn
-
-    insns: List[Insn] = codegen.generate(tree)
-
-    vm_utils.invoke_vm(insns, [], False)
-    return tree
-
-
-def run_codegen(input: str):
+def run_assign(input: str):
     tree = run_offsets(input)
     import assign
 
     assign.process(tree)
+    return tree
 
-    import reg_gen
+
+def run_codegen(input: str):
+    tree = run_assign(input)
+    import assign
+
+    assign.process(tree)
+
+    import codegen
     from vm import vm_utils
     from vm.vm_insns import Insn
 
-    insns: List[Insn] = reg_gen.generate(tree)
+    insns: List[Insn] = codegen.generate(tree)
 
     vm_utils.invoke_vm(insns, [], False)
     return tree

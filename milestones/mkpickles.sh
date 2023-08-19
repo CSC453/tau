@@ -26,5 +26,5 @@ for test in $MILESTONEDIR/*.toml; do
         --output "$picklefile" \
         $(cat "$listname")
 
-    python3 -m testerator.main run "$picklefile" >> "$picklefile.verify"
+    python3 -m testerator.main run "$picklefile" > /tmp/"$basename.verify"
 done
