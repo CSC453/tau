@@ -50,13 +50,13 @@ def mk_fn() -> tuple[Callable[[asts.AST], None], list[dict[str, str]]]:
                 vtype is not None
             ), f"{ast.__class__.__name__}:{slot} is None"
             if isinstance(v, list):
-                if len(v) == 0:
+                if len(v) == 0: # type: ignore
                     field_type = "<empty>"
                     log(cls, slot, field_type, "")
                 else:
-                    for i in v:
-                        assert isinstance(i.__class__, type)
-                        field_type = i.__class__.__name__
+                    for i in v: # type: ignore
+                        assert isinstance(i.__class__, type) # type: ignore
+                        field_type = i.__class__.__name__ # type: ignore
                         log(cls, slot, field_type, "")
                 continue
             kind = getattr(v, "kind", "")
