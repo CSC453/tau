@@ -1,0 +1,50 @@
+func m9(a:int, b:int):int{
+    {
+        print 10
+        print 11
+    }
+    {
+        {
+            {   
+                var m : int
+                print 12
+            }
+        }
+    }
+    return 20
+}
+func m10(a:int, b : int, c: int):int{
+    var j: int
+    var k : int
+    j = 0
+    k = 0
+    print a 
+    {
+        print b
+        {
+            print j
+        }
+    }
+    print m9(a, j)
+    return 12
+}
+func main() : void{
+    var a : int 
+    a = 0
+    {
+        var b : int 
+	b = 0
+        print m9(a,b)
+    }
+    {
+        var b : int 
+	b = 0
+        {
+            var c: int
+	    c = 0
+            {
+                print m10(a,b,c)
+            }
+        }
+    }
+}
