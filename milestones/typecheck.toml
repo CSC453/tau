@@ -1,0 +1,11 @@
+[[exclude]]
+error = "ParseErrorException"
+
+[[exclude]]
+error = "ScanError"
+
+[[exclude]]
+error = "NameError"
+
+[[exclude]]
+error = "TypeError"

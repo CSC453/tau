@@ -1,0 +1,6 @@
+[[exclude]]
+error = "ParseErrorException"
+
+[[exclude]]
+error = "ScanException"
+
