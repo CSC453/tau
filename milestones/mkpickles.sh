@@ -1,9 +1,11 @@
 MILESTONEDIR=tau/milestones
+LISTDIR=$MILESTONEDIR/lists
+SPECSDIR=$MILESTONEDIR/specs
 
-for test in $MILESTONEDIR/*.toml; do
+for test in $SPECSDIR/*.toml; do
     fname="${test%.toml}"
     basename="${fname##*/}"
-    listname="$MILESTONEDIR/$basename.list"
+    listname="$LISTDIR/$basename.list"
     picklefile="$MILESTONEDIR/$basename.pickle"
     if [ ! -f "$listname" ]; then
         echo "ERROR: $listname missing"

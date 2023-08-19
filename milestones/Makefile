@@ -6,4 +6,4 @@ all:
 	grep -v passed /tmp/*.verify || true
 
 clean:
-	rm -f *.pickle *.list ./info/*.toml
+	rm -f *.pickle ./lists/*.list ./info/*.toml

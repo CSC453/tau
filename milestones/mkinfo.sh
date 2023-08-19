@@ -1,4 +1,4 @@
-TESTDIR=tau/all_tests
+TESTDIR=tau/tests
 OUTDIR=tau/milestones/info
 
 for test in $TESTDIR/*.tau; do

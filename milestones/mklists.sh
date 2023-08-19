@@ -1,10 +1,14 @@
 MILESTONEDIR=tau/milestones
-INFODIR=tau/milestones/info
+MILESTONESPECDIR=$MILESTONEDIR/specs
+INFODIR=$MILESTONEDIR/info
+LISTSDIR=$MILESTONEDIR/lists
 
-for test in $MILESTONEDIR/*.toml; do
+for test in $MILESTONESPECDIR/*.toml; do
     fname="${test%.toml}"
     basename="${fname##*/}"
-    listname="$MILESTONEDIR/$basename.list"
+    listname="$LISTSDIR/$basename.list"
     echo Processing $test $listname
+    echo python3 -m tau.utilities.mkcharacter match --pattern $test "$INFODIR"/*.toml > "$listname"
+
     python3 -m tau.utilities.mkcharacter match --pattern $test "$INFODIR"/*.toml > "$listname"
 done
