@@ -1,0 +1,16 @@
+function = "tau.testers.run_parser"
+compare = "tau.testers.test_generic"
+
+[[exclude]]
+error = "ParseErrorException"
+
+[[exclude]]
+error = "ScanException"
+
+[[exclude]]
+[[exclude.nodes]]
+class = "BinaryOp"
+
+[[exclude]]
+[[exclude.nodes]]
+class = "UnaryOp"

@@ -48,7 +48,7 @@ def match(pattern: Container, subject: Container) -> bool:
     if "tokens" in pattern:
         if "tokens" not in subject:
             return False
-        if not all(t in subject["tokens"] for t in pattern["tokens"]):
+        if not any(t in subject["tokens"] for t in pattern["tokens"]):
             return False
     if "nodes" in pattern:
         if "nodes" not in subject:

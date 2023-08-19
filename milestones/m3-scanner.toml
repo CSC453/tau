@@ -1,0 +1,5 @@
+function = "tau.testers.run_scanner"
+compare = "tau.testers.test_scanner"
+
+[[exclude]]
+error = "ScanError"

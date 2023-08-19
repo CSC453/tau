@@ -24,6 +24,7 @@ from .asts import (
     IdExpr,
     IntLiteral,
     BoolLiteral,
+    Argument,
 )
 
 
@@ -132,6 +133,9 @@ def assert_equal(
             fn(correct, other)
         case (IdExpr(), IdExpr()):
             assert_equal(correct.id, other.id, fn)
+            fn(correct, other)
+        case (Argument(), Argument()):
+            assert_equal(correct.expr, other.expr, fn)
             fn(correct, other)
         case (None, None):
             pass
