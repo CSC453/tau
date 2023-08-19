@@ -6,7 +6,7 @@ import bindings
 import typecheck
 import offsets
 import assign
-import reg_gen
+import codegen
 from vm.vm_insns import Insn
 
 
@@ -20,5 +20,5 @@ def compile(
     typecheck.process(tree)
     offsets.process(tree)
     assign.process(tree)
-    insns = reg_gen.generate(tree)
+    insns = codegen.generate(tree)
     return lexer, psr, tree, insns
