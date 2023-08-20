@@ -334,7 +334,7 @@ def run_codegen(input: str):
     from vm import vm_utils
     from vm.vm_insns import Insn
 
-    insns: List[Insn] = codegen.generate(tree)
+    insns: List[Insn] = codegen.process(tree)
 
     vm_utils.invoke_vm(insns, [], False)
     return tree
@@ -348,13 +348,13 @@ def run_errors(input: str):
         bindings.process(tree)
         import typecheck
 
-        typecheck.program(tree)
+        typecheck.process(tree)
         import offsets
 
-        offsets.program(tree)
+        offsets.process(tree)
         import codegen
 
-        codegen.generate(tree)
+        codegen.process(tree)
     except CompileError as e:
         return "CompileError"
     except Exception as e:

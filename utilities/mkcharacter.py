@@ -162,7 +162,7 @@ def characterize(fname: str, outname: str):
         assign.process(tree)
         container["nodes"] = do_tree(tree)
 
-        _: list[Insn] = codegen.generate(tree)
+        _: list[Insn] = codegen.process(tree)
 
     except CompileError as e:
         container["error"] = str(e.__class__.__name__)

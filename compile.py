@@ -20,5 +20,5 @@ def compile(
     typecheck.process(tree)
     offsets.process(tree)
     assign.process(tree)
-    insns = codegen.generate(tree)
+    insns = codegen.process(tree)
     return lexer, psr, tree, insns
