@@ -1,0 +1,82 @@
+source = "tau/tests/t100.tau"
+hash = "558a9f534ba1cd9608f0ebb4257ae41a70ef9f061debcdc20eb9bd08e09a9008"
+tokens = ["ID", "EOF", ":", "void", "{", "(", ")", "func", "}"]
+error = "NameError"
+
+[[nodes]]
+class = "Program"
+field = "decls"
+field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "NoneType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "NoneType"
+
+[[nodes]]
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "NoneType"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "NoneType"
+
+[[nodes]]
+class = "VoidType"
+field = "token"
+field_type = "Token"
+token = "void"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "NoneType"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "NoneType"
+

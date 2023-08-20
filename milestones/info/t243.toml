@@ -1,0 +1,5 @@
+source = "tau/tests/t243.tau"
+hash = "30a161676fd6b8f9a551de6165ef8d2e0af95c9cd25ad7dd84b0abff38005772"
+tokens = ["int", "]", "}", "var", ":", "ID", "void", ")", "[", "+", "=", "EOF", "{", "INT", "func", "("]
+error = "ParseErrorException"
+

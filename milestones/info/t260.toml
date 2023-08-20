@@ -1,0 +1,251 @@
+source = "tau/tests/t260.tau"
+hash = "785711b37c6aaab6d1b3420c4f15010ddf5b109a6fc8d0570c18a3105bf121bc"
+tokens = ["{", "false", "void", "EOF", ")", "bool", "true", "ID", "func", "INT", "}", "and", "print", ":", "return", "=", "var", "("]
+
+[[nodes]]
+class = "Program"
+field = "decls"
+field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "BoolType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
+
+[[nodes]]
+class = "BoolType"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "BoolType"
+field = "token"
+field_type = "Token"
+token = "bool"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "ReturnStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "PrintStmt"
+field = "expr"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
+class = "IntLiteral"
+field = "token"
+field_type = "Token"
+token = "INT"
+
+[[nodes]]
+class = "ReturnStmt"
+field = "expr"
+field_type = "BoolLiteral"
+
+[[nodes]]
+class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "FuncDecl"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "token"
+field_type = "Token"
+token = "true"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "value"
+field_type = "bool"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "VoidType"
+
+[[nodes]]
+class = "VoidType"
+field = "token"
+field_type = "Token"
+token = "void"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "AssignStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
+
+[[nodes]]
+class = "VarDecl"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "VarDecl"
+field = "type_ast"
+field_type = "BoolType"
+
+[[nodes]]
+class = "VarDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "AssignStmt"
+field = "rhs"
+field_type = "BoolLiteral"
+
+[[nodes]]
+class = "AssignStmt"
+field = "lhs"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "IdExpr"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "IdExpr"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "token"
+field_type = "Token"
+token = "false"
+
+[[nodes]]
+class = "AssignStmt"
+field = "rhs"
+field_type = "BinaryOp"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "BoolLiteral"
+
+[[nodes]]
+class = "BinaryOp"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "BinaryOp"
+field = "right"
+field_type = "CallExpr"
+
+[[nodes]]
+class = "BinaryOp"
+field = "op"
+field_type = "Token"
+token = "and"
+
+[[nodes]]
+class = "CallExpr"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "CallExpr"
+field = "args"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CallExpr"
+field = "fn"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "IdExpr"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "PrintStmt"
+field = "expr"
+field_type = "IdExpr"
+

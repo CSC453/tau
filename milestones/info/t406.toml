@@ -1,0 +1,164 @@
+source = "tau/tests/t406.tau"
+hash = "a491ad5861f5cc9139a292fe20d41e5525e3267486b22d5d0ae96a1521076412"
+tokens = [":", "EOF", "true", "}", "void", "if", "INT", "print", "func", "ID", ")", "(", "{", "=="]
+
+[[nodes]]
+class = "Program"
+field = "decls"
+field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "VoidType"
+
+[[nodes]]
+class = "VoidType"
+field = "token"
+field_type = "Token"
+token = "void"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "IfStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "IfStmt"
+field = "elseStmt"
+field_type = "NoneType"
+
+[[nodes]]
+class = "IfStmt"
+field = "thenStmt"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "IfStmt"
+field = "expr"
+field_type = "BoolLiteral"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "value"
+field_type = "bool"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "token"
+field_type = "Token"
+token = "true"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "PrintStmt"
+field = "expr"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
+class = "IntLiteral"
+field = "token"
+field_type = "Token"
+token = "INT"
+
+[[nodes]]
+class = "IfStmt"
+field = "expr"
+field_type = "BinaryOp"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "BinaryOp"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "BinaryOp"
+field = "right"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "BinaryOp"
+field = "op"
+field_type = "Token"
+token = "=="
+

@@ -1,0 +1,129 @@
+source = "tau/tests/t165.tau"
+hash = "974ab61ae25ad9263cc75a6b7f44905984c8da4a8567e6ab6e06dcacf09afc60"
+tokens = [")", "return", "{", "int", "true", "EOF", ":", "ID", "}", "INT", "(", "func", "print"]
+error = "TypeError"
+
+[[nodes]]
+class = "Program"
+field = "decls"
+field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "IntType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "NoneType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "NoneType"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
+class = "IntType"
+field = "token"
+field_type = "Token"
+token = "int"
+
+[[nodes]]
+class = "IntType"
+field = "semantic_type"
+field_type = "NoneType"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "ReturnStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "PrintStmt"
+field = "expr"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "IntLiteral"
+field = "token"
+field_type = "Token"
+token = "INT"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "NoneType"
+
+[[nodes]]
+class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "NoneType"
+
+[[nodes]]
+class = "ReturnStmt"
+field = "expr"
+field_type = "BoolLiteral"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "token"
+field_type = "Token"
+token = "true"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "value"
+field_type = "bool"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "semantic_type"
+field_type = "NoneType"
+
