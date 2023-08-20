@@ -20,8 +20,8 @@ from tau import asts
 from vm.vm_insns import *
 
 
-def process(ast: asts.Program) -> None:
-    _Program(ast)
+def process(ast: asts.Program) -> list[Insn]:
+    return _Program(ast)
 
 """
 
