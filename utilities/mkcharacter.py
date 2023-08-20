@@ -170,7 +170,7 @@ def characterize(fname: str, outname: str):
         container["error"] = str(e.__class__.__name__)
 
     with open(outname, "w") as f:
-        print(dumps(container), file=f)
+        print(dumps(container), file=f) # type: ignore
 
 
 def get_args() -> Namespace:

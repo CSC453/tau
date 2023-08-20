@@ -1,7 +1,7 @@
 # This bash script initializes a student's new repository with stub versions of the files they
 # will need to complete the project.
 #
-# Any file of the form 'foo.template' will be copied to 'foo.py' if 'foo.py' does not.
+# Any file of the form 'foo.template' will be copied to 'foo' if 'foo' does not.
 #
 # Any file of the form 'foo.toml' will be used to generate 'foo.py' if 'foo.py' does not.
 # The command used to generate 'foo.py' is:
@@ -10,12 +10,10 @@
 for file in tau/stubs/*.template; do
     fname="${file%.template}"
     basename="${fname##*/}"
-    pyname="$basename.py"
-    if [ ! -f "$pyname" ]; then
-        cp "$file" "$pyname"
-        black --quiet "$pyname"
+    if [ ! -f "$basename" ]; then
+        cp "$file" "$basename"
     else
-        echo "$pyname already exists"
+        echo "$basename already exists"
     fi
 done
 
