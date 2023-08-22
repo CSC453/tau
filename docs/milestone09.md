@@ -5,12 +5,10 @@ author: Todd Proebsting
 
 # WARNING: THIS IS A DRAFT---DO NOT USE
 
-# CSC 453 Milestone 9 (Offsets and Register Assignment)
+# CSC 453 Milestone 9 (Offsets)
 
 ## Goal:
-Half of this milestone is to decorate/annotate an Tau's variable and parameter symbols with their offsets. This phase directly follows typechecking.
-
-Half of this milestone is to decorate/annotate an Tau's `Expr` AST with register assignments. This phase directly follows offset assignment.
+This milestone is to decorate/annotate an Tau's variable and parameter symbols with their offsets. This phase directly follows typechecking.
 
 ## Specifications
 
@@ -23,7 +21,7 @@ Symbols and types are defined in `symbols.py`.
 
 ## Create `offsets.py`
 
-You will create a new file called `offsets.py` that will contain the code for annotating the AST and Symbols with computed offsets.
+You will start with the supplied stub file called `offsets.py` that will contain the code for annotating the AST and Symbols with computed offsets.
 
 To accomplish this, you will walk the AST built by your parser (after doing typechecking).
 
@@ -54,14 +52,6 @@ func f(
 }     // size = 6
 ```
 
-## Create `assign.py`
-
-You will create a new file called `assign.py` that will contain the code for annotating the `Expr` AST and Symbols with computed register assignments.
-
-EVERY `Expr` AST node must have a `reg` field that is a string (e.g., `"r1"`, `"r2"`).  The registers are assigned in the following way:
-
-1. The registers are numbered from `r1` to `rN`.  There are an infinite number of registers available.
-2. The registers are assigned Left-to-Right, using as few registers as possible.
 
 ## Errors
 
