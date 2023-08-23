@@ -5,5 +5,8 @@ all:
 	(cd ../..; ./tau/milestones/mkpickles.sh)
 	grep -v passed /tmp/*.verify || true
 
+%.json: %.toml
+	yq -p toml $< -oj > $@
+
 clean:
 	rm -f *.pickle ./lists/*.list ./info/*.toml
