@@ -57,16 +57,19 @@ Turn in your program via Gradescope.
 
 I am providing a test program and test input.  More input will come as we get closer to the due date.
 
-The tests for each milestone are in `tau/mN/tests.pickle`, where `N` is the milestone number.
+The tests for each milestone has a test "pickle" is a name like in `tau/milestones/m2-scanner-simple.pickle`.
 
 ```
-$ python3 testerator.py run --input tau/mN/tests.pickle
+$ python3 -m testerator.main run tau/milestones/m2-scanner-simple.pickle
 ```
 
-In the example above, `test.pickle` is the test input.  You can use this to test your code.
+NOTE: The you can add `--verbose` and `--crash` flags to the command line to get more information about what is happening.  E.g.,
 
-NOTE: The you can add `--verbose` and `--crash` flags to the command line to get more information about what is happening.
+```
+$ python3 -m testerator.main run --verbose --crash tau/milestones/m2-scanner-simple.pickle
+```
 
+The pickles are found in `tau/milestones/`.
 
 ## Grading
 
