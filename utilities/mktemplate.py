@@ -324,12 +324,19 @@ class Template:
             if orig == "list":
                 singular = fieldname[:-1]
                 retval = f"for {singular} in ast.{fieldname}: {self.selfie_call}{params.prefix}{ty.__name__}({singular}{arg_call})"
+                if "$FIELD$" in arg_call:
+                    retval = f"for index, {singular} in enumerate(ast.{fieldname}): {self.selfie_call}{params.prefix}{ty.__name__}({singular}{arg_call})"
+                    retval = retval.replace(
+                        "$FIELD$", f'f"{fieldname}[{{index}}]"'
+                    )
             elif orig == "optional":
                 retval = f"if ast.{fieldname}:{self.selfie_call}{params.prefix}{ty.__name__}(ast.{fieldname}{arg_call})"
+                retval = retval.replace("$FIELD$", f'"{fieldname}"')
             else:
                 raise NotImplementedError(f"Unknown type constructor {orig}")
         else:
             retval = f"{self.selfie_call}{params.prefix}{fieldtype.__name__}(ast.{fieldname}{arg_call}){suffix}"
+            retval = retval.replace("$FIELD$", f'"{fieldname}"')
         retval = f"{indent}{retval}"
         return retval
 
