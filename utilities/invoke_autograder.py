@@ -27,17 +27,20 @@ def main() -> None:
             )
             late: datetime.timedelta = created_date_time - due_date_time
             minutes = late.total_seconds() / 60
-            minutes = max(minutes, 0)
+            # minutes = max(minutes, 0)
             previous_submissions: list[dict[str, Any]] = submission[
                 "previous_submissions"
             ]
-            print(f"Minutes late: {minutes}")
+            if minutes > 0:
+                print(f"Minutes late: {minutes}")
+            else:
+                print(f"Minutes early: {-minutes}")
             previous_score: float = 0.0
             if len(previous_submissions) > 0:
                 most_recent = max(
                     previous_submissions, key=lambda x: x["submission_time"]
                 )
-                previous_score: float = most_recent["score"]
+                previous_score: float = float(most_recent["score"])
                 print(f"Previous score: {previous_score}")
 
     print(f"Assignment/Milestone title: {title}")
