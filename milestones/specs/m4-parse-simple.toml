@@ -14,3 +14,11 @@ class = "BinaryOp"
 [[exclude]]
 [[exclude.nodes]]
 class = "UnaryOp"
+
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayType"
+
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayCell"
