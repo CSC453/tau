@@ -289,7 +289,7 @@ def run_ast(input: str) -> Any:
     from parse import Parser
     from .asts import Program
 
-    psr: Parser = Parser(lexer.tokens)
+    psr: Parser = Parser(lexer)
     tree: Program = psr.parse()
     return tree
 
