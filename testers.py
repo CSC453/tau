@@ -46,7 +46,7 @@ def run_parser(input: str):
     lexer: Scanner = Scanner(input)
     from parse import Parser
 
-    psr: Parser = Parser(lexer.tokens)
+    psr: Parser = Parser(lexer)
     tree: Any = psr.parse()
     return None  # need to remove after m5
 
@@ -243,6 +243,7 @@ def test_offsets(student: Any, expected: Any, crash: bool) -> bool:
             raise
         return False
 
+
 def test_assign(student: Any, expected: Any, crash: bool) -> bool:
     from .asts import (
         AST,
@@ -315,6 +316,7 @@ def run_offsets(input: str):
 
     offsets.process(tree)
     return tree
+
 
 def run_assign(input: str):
     tree = run_offsets(input)
