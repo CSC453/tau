@@ -110,6 +110,8 @@ There are examples above.
 
 Return statements terminate the execution of the currently executing function and returns control to the calling function.  Return statements optionally include an expression that represents the return value of the function.
 
+Syntactically, return statements may only appear as the last statement in a compound statement.
+
 ## Compound Statement
 Compound statements consist of an optional sequence of variable declarations followed by an optional sequence of statements.  Compound statements are delimited by curly braces.
 
