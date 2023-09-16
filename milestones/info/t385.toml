@@ -1,11 +1,16 @@
 source = "tau/tests/t385.tau"
 hash = "4965ef2b42623a8f0bbfa3eac3d067c1aa2ab79090a0bc909ef4e3c13cb06334"
-tokens = ["void", "var", "INT", "(", "while", "}", "print", "ID", "else", "{", "bool", ")", "func", "EOF", "if", ":"]
+tokens = [")", "func", "else", "ID", "bool", "{", ":", "(", "print", "void", "}", "while", "EOF", "var", "INT", "if"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,6 +24,11 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
 
@@ -28,16 +38,6 @@ field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
 class = "Id"
 field = "token"
 field_type = "Token"
@@ -45,13 +45,13 @@ token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "VoidType"
@@ -66,6 +66,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "stmts"
+field_type = "WhileStmt"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "decls"
 field_type = "VarDecl"
 
@@ -73,16 +78,6 @@ field_type = "VarDecl"
 class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "WhileStmt"
-
-[[nodes]]
-class = "VarDecl"
-field = "semantic_type"
-field_type = "BoolType"
 
 [[nodes]]
 class = "VarDecl"
@@ -93,6 +88,11 @@ field_type = "BoolType"
 class = "VarDecl"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "VarDecl"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "Id"
@@ -122,13 +122,18 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "IdExpr"
 field = "semantic_type"
 field_type = "BoolType"
 
 [[nodes]]
-class = "IdExpr"
-field = "id"
-field_type = "Id"
+class = "CompoundStmt"
+field = "stmts"
+field_type = "IfStmt"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -136,9 +141,9 @@ field = "decls"
 field_type = "<empty>"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "IfStmt"
+class = "IfStmt"
+field = "thenStmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "IfStmt"
@@ -149,11 +154,6 @@ field_type = "CompoundStmt"
 class = "IfStmt"
 field = "expr"
 field_type = "IdExpr"
-
-[[nodes]]
-class = "IfStmt"
-field = "thenStmt"
-field_type = "CompoundStmt"
 
 [[nodes]]
 class = "CompoundStmt"

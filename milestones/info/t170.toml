@@ -1,6 +1,6 @@
 source = "tau/tests/t170.tau"
 hash = "d83444d5d84c11d2f16003ab4c825eca0d16edb7db25cd0371c6d4d4155c6e30"
-tokens = ["-", "+", "{", "}", "print", "*", "/", "EOF", "ID", "true", ")", "INT", "func", "(", "void", ":"]
+tokens = ["func", "(", ":", "{", "void", ")", "ID", "-", "}", "+", "*", "print", "INT", "EOF", "true", "/"]
 error = "TypeError"
 
 [[nodes]]
@@ -15,13 +15,18 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "NoneType"
 
 [[nodes]]
 class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,20 +39,15 @@ field = "params"
 field_type = "<empty>"
 
 [[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "NoneType"
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -67,6 +67,11 @@ field_type = "NoneType"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "PrintStmt"
 
@@ -76,14 +81,14 @@ field = "local_scope"
 field_type = "LocalScope"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
-
-[[nodes]]
 class = "PrintStmt"
 field = "expr"
 field_type = "BinaryOp"
+
+[[nodes]]
+class = "BinaryOp"
+field = "semantic_type"
+field_type = "NoneType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -92,19 +97,14 @@ field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "+"
-
-[[nodes]]
-class = "BinaryOp"
 field = "left"
 field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "NoneType"
+field = "op"
+field_type = "Token"
+token = "+"
 
 [[nodes]]
 class = "BinaryOp"
@@ -157,12 +157,12 @@ field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "token"
-field_type = "Token"
-token = "true"
+field = "semantic_type"
+field_type = "NoneType"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "semantic_type"
-field_type = "NoneType"
+field = "token"
+field_type = "Token"
+token = "true"
 

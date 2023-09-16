@@ -1,6 +1,6 @@
 source = "tau/tests/t326.tau"
 hash = "93b03fe61334ca23e1086c45b422f1562a4964e85a1d69798859486149b45b2d"
-tokens = ["and", "EOF", "if", "ID", "or", "INT", "}", "void", ")", "{", "print", "int", "(", ":", "false", "func", "return", "true"]
+tokens = ["and", "true", "ID", "{", "(", "false", ":", "int", "void", "EOF", "print", "}", "func", "return", "INT", "if", ")", "or"]
 
 [[nodes]]
 class = "Program"
@@ -14,8 +14,8 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "IntType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +29,13 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "ret_type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
@@ -66,11 +66,6 @@ field_type = "IntType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
 
@@ -78,6 +73,11 @@ field_type = "<empty>"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "ReturnStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "ReturnStmt"
@@ -123,11 +123,6 @@ field_type = "IfStmt"
 
 [[nodes]]
 class = "IfStmt"
-field = "expr"
-field_type = "BinaryOp"
-
-[[nodes]]
-class = "IfStmt"
 field = "thenStmt"
 field_type = "CompoundStmt"
 
@@ -137,9 +132,19 @@ field = "elseStmt"
 field_type = "NoneType"
 
 [[nodes]]
+class = "IfStmt"
+field = "expr"
+field_type = "BinaryOp"
+
+[[nodes]]
 class = "BinaryOp"
 field = "semantic_type"
 field_type = "BoolType"
+
+[[nodes]]
+class = "BinaryOp"
+field = "right"
+field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BinaryOp"
@@ -153,9 +158,9 @@ field = "left"
 field_type = "BoolLiteral"
 
 [[nodes]]
-class = "BinaryOp"
-field = "right"
-field_type = "BoolLiteral"
+class = "BoolLiteral"
+field = "value"
+field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -167,11 +172,6 @@ class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "false"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "value"
-field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"

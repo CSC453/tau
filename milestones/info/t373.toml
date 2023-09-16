@@ -1,6 +1,6 @@
 source = "tau/tests/t373.tau"
 hash = "91d0bf20b54c003603aabba278f0b6db2f1d475edc9410a12861a0bd72c4975c"
-tokens = ["INT", "}", "(", "func", "void", "ID", "return", "print", "{", "EOF", ")", "int", ":", "var"]
+tokens = [")", "{", "var", "void", "print", "func", "return", "EOF", "int", "}", ":", "INT", "(", "ID"]
 
 [[nodes]]
 class = "Program"
@@ -9,18 +9,18 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "IntType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "params"
+field_type = "ParamDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,23 +29,23 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
-
-[[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
 field = "symbol"
 field_type = "Symbol"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -183,6 +183,11 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
+field = "fn"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "CallExpr"
 field = "semantic_type"
 field_type = "IntType"
 
@@ -190,11 +195,6 @@ field_type = "IntType"
 class = "CallExpr"
 field = "args"
 field_type = "Argument"
-
-[[nodes]]
-class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"

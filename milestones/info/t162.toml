@@ -1,6 +1,6 @@
 source = "tau/tests/t162.tau"
 hash = "0b43835340a440ec23ecf71621830209c7a1de8de4f35c2de06971d1e7a0d830"
-tokens = ["{", ":", "}", ")", "EOF", "(", "void", "func", "ID", "print"]
+tokens = [")", "}", "EOF", "{", "void", ":", "func", "ID", "(", "print"]
 error = "NameError"
 
 [[nodes]]
@@ -10,13 +10,18 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "NoneType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,8 +30,8 @@ field_type = "NoneType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "NoneType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,18 +39,13 @@ field = "params"
 field_type = "<empty>"
 
 [[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
 class = "Id"
-field = "symbol"
+field = "semantic_type"
 field_type = "NoneType"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
+field = "symbol"
 field_type = "NoneType"
 
 [[nodes]]
@@ -67,13 +67,13 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "NoneType"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+field = "local_scope"
+field_type = "NoneType"
 
 [[nodes]]
 class = "CompoundStmt"

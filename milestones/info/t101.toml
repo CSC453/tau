@@ -1,6 +1,6 @@
 source = "tau/tests/t101.tau"
 hash = "3cd30ed7b3e2c8f4dc7a7e2f37b3243cd23e53ad8490315a07fffdd4c02d61e5"
-tokens = [")", "ID", "int", "void", "{", ":", "func", "(", "EOF", "}"]
+tokens = ["EOF", "(", ":", ")", "ID", "}", "{", "func", "int", "void"]
 error = "NameError"
 
 [[nodes]]
@@ -10,8 +10,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "func_scope"
+field_type = "NoneType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,13 +30,8 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "NoneType"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"

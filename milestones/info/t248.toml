@@ -1,27 +1,12 @@
 source = "tau/tests/t248.tau"
 hash = "486acfd00a9055cca71b798b056cbd91c969a242e3b8da43e3c0ce1f930bbb07"
-tokens = ["bool", "or", "=", "(", "var", "int", "func", "EOF", ")", "ID", "{", "+", "}", "void", ":"]
+tokens = ["func", ":", "bool", "=", ")", "{", "}", "or", "EOF", "ID", "(", "+", "int", "void", "var"]
 error = "TypeError"
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -35,8 +20,23 @@ field_type = "NoneType"
 
 [[nodes]]
 class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "Id"
@@ -72,13 +72,18 @@ field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "stmts"
+field_type = "AssignStmt"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "decls"
 field_type = "VarDecl"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "AssignStmt"
+class = "VarDecl"
+field = "type_ast"
+field_type = "BoolType"
 
 [[nodes]]
 class = "VarDecl"
@@ -89,11 +94,6 @@ field_type = "Id"
 class = "VarDecl"
 field = "semantic_type"
 field_type = "NoneType"
-
-[[nodes]]
-class = "VarDecl"
-field = "type_ast"
-field_type = "BoolType"
 
 [[nodes]]
 class = "BoolType"
@@ -134,23 +134,18 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
+field = "semantic_type"
+field_type = "NoneType"
+
+[[nodes]]
+class = "IdExpr"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
-class = "IdExpr"
-field = "semantic_type"
-field_type = "NoneType"
-
-[[nodes]]
 class = "BinaryOp"
 field = "semantic_type"
 field_type = "NoneType"
-
-[[nodes]]
-class = "BinaryOp"
-field = "right"
-field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
@@ -160,12 +155,12 @@ token = "or"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "IdExpr"
+field = "right"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
+field = "left"
 field_type = "IdExpr"
 
 [[nodes]]
@@ -173,4 +168,9 @@ class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "+"
+
+[[nodes]]
+class = "BinaryOp"
+field = "right"
+field_type = "IdExpr"
 

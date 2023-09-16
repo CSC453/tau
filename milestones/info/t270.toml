@@ -1,6 +1,6 @@
 source = "tau/tests/t270.tau"
 hash = "2a1293d6a851369f99f43b3d21412b07a4216abf565f0f75b485f8bc7f9f3838"
-tokens = ["(", "var", "bool", "=", "and", "print", ")", "EOF", "int", ":", "}", "{", "ID", "void", "func"]
+tokens = ["=", "and", ")", "void", "}", "ID", "EOF", "{", "print", "(", "func", "bool", "int", "var", ":"]
 error = "TypeError"
 
 [[nodes]]
@@ -10,13 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "NoneType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,18 +20,23 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "semantic_type"
+field_type = "NoneType"
 
 [[nodes]]
 class = "Id"
@@ -67,6 +67,11 @@ field_type = "NoneType"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "decls"
 field_type = "VarDecl"
 
@@ -79,11 +84,6 @@ field_type = "AssignStmt"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "PrintStmt"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
 
 [[nodes]]
 class = "VarDecl"
@@ -149,6 +149,11 @@ field_type = "NoneType"
 
 [[nodes]]
 class = "BinaryOp"
+field = "right"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "BinaryOp"
 field = "left"
 field_type = "BinaryOp"
 
@@ -157,11 +162,6 @@ class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "and"
-
-[[nodes]]
-class = "BinaryOp"
-field = "right"
-field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"

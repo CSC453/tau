@@ -1,12 +1,17 @@
 source = "tau/tests/t392.tau"
 hash = "50aaceaf097c855b6b0ff53f5c947924cca67e19aaa792bfbbfee29c9930a5aa"
-tokens = ["+", ":", ",", "}", "{", "int", "(", "ID", ")", "void", "var", "=", "func", "EOF"]
+tokens = ["var", "ID", "+", "}", ")", "int", "{", "=", "func", ":", "(", "EOF", ",", "void"]
 error = "NameError"
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "NoneType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,6 +25,11 @@ field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
@@ -27,21 +37,6 @@ field_type = "Id"
 class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "NoneType"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "NoneType"
 
 [[nodes]]
 class = "Id"
@@ -55,6 +50,16 @@ field = "semantic_type"
 field_type = "NoneType"
 
 [[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "NoneType"
+
+[[nodes]]
+class = "ParamDecl"
+field = "type_ast"
+field_type = "IntType"
+
+[[nodes]]
 class = "ParamDecl"
 field = "id"
 field_type = "Id"
@@ -63,11 +68,6 @@ field_type = "Id"
 class = "ParamDecl"
 field = "semantic_type"
 field_type = "NoneType"
-
-[[nodes]]
-class = "ParamDecl"
-field = "type_ast"
-field_type = "IntType"
 
 [[nodes]]
 class = "IntType"
@@ -113,6 +113,11 @@ field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
+field = "type_ast"
+field_type = "IntType"
+
+[[nodes]]
+class = "VarDecl"
 field = "id"
 field_type = "Id"
 
@@ -122,19 +127,14 @@ field = "semantic_type"
 field_type = "NoneType"
 
 [[nodes]]
-class = "VarDecl"
-field = "type_ast"
-field_type = "IntType"
+class = "AssignStmt"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "AssignStmt"
 field = "rhs"
 field_type = "BinaryOp"
-
-[[nodes]]
-class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -150,6 +150,12 @@ field_type = "NoneType"
 class = "BinaryOp"
 field = "semantic_type"
 field_type = "NoneType"
+
+[[nodes]]
+class = "BinaryOp"
+field = "op"
+field_type = "Token"
+token = "+"
 
 [[nodes]]
 class = "BinaryOp"
@@ -160,10 +166,4 @@ field_type = "IdExpr"
 class = "BinaryOp"
 field = "right"
 field_type = "IdExpr"
-
-[[nodes]]
-class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "+"
 

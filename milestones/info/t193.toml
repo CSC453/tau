@@ -1,6 +1,6 @@
 source = "tau/tests/t193.tau"
 hash = "48c4ba6144ca8514efb0ab292eb54eb92774021dd5d0455d35a62b981a06a51c"
-tokens = ["EOF", ":", "func", "ID", "call", "int", "INT", "(", ")", "{", "print", "void", "}"]
+tokens = ["{", "INT", "ID", "(", "EOF", ":", "void", ")", "int", "}", "func", "call", "print"]
 error = "NameError"
 
 [[nodes]]
@@ -15,18 +15,8 @@ field_type = "NoneType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
 field = "func_scope"
 field_type = "NoneType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -35,13 +25,18 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "NoneType"
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "ParamDecl"
 
 [[nodes]]
 class = "Id"
@@ -55,9 +50,9 @@ field = "symbol"
 field_type = "NoneType"
 
 [[nodes]]
-class = "ParamDecl"
-field = "id"
-field_type = "Id"
+class = "Id"
+field = "semantic_type"
+field_type = "NoneType"
 
 [[nodes]]
 class = "ParamDecl"
@@ -70,9 +65,9 @@ field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
-class = "IntType"
-field = "semantic_type"
-field_type = "NoneType"
+class = "ParamDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "IntType"
@@ -81,7 +76,7 @@ field_type = "Token"
 token = "int"
 
 [[nodes]]
-class = "VoidType"
+class = "IntType"
 field = "semantic_type"
 field_type = "NoneType"
 
@@ -92,14 +87,19 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+class = "VoidType"
+field = "semantic_type"
+field_type = "NoneType"
 
 [[nodes]]
 class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -113,13 +113,13 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "NoneType"
 
 [[nodes]]
 class = "IdExpr"
-field = "semantic_type"
-field_type = "NoneType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -153,16 +153,11 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "Argument"
-field = "semantic_type"
-field_type = "NoneType"
-
-[[nodes]]
-class = "Argument"
 field = "expr"
 field_type = "IntLiteral"
 
 [[nodes]]
-class = "IntLiteral"
+class = "Argument"
 field = "semantic_type"
 field_type = "NoneType"
 
@@ -171,4 +166,9 @@ class = "IntLiteral"
 field = "token"
 field_type = "Token"
 token = "INT"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "NoneType"
 

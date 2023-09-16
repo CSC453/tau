@@ -1,11 +1,31 @@
 source = "tau/tests/t387.tau"
 hash = "9f9fb668593c79da76347cacf25bd098fe6720e9d312663d01c25cae374eea7a"
-tokens = [":", "+", "EOF", ")", "/", "void", "INT", "ID", "<", "}", "*", "func", "{", "print", "!=", "(", "=="]
+tokens = ["{", "/", ")", ":", "<", "void", "print", "INT", "}", "*", "!=", "ID", "EOF", "+", "==", "func", "("]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -16,26 +36,6 @@ field_type = "VoidType"
 class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "Id"
@@ -71,6 +71,11 @@ field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "PrintStmt"
 
@@ -80,13 +85,13 @@ field = "stmts"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
-
-[[nodes]]
 class = "PrintStmt"
 field = "expr"
+field_type = "BinaryOp"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
 field_type = "BinaryOp"
 
 [[nodes]]
@@ -108,7 +113,7 @@ token = "<"
 [[nodes]]
 class = "BinaryOp"
 field = "left"
-field_type = "BinaryOp"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
@@ -125,11 +130,6 @@ class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "+"
-
-[[nodes]]
-class = "BinaryOp"
-field = "left"
-field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"

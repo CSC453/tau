@@ -1,6 +1,6 @@
 source = "tau/tests/t390.tau"
 hash = "475b05791f6a07a8a2a6cd500876ab6ef3a0869e9259ae98b82291e22901da95"
-tokens = ["int", ")", "ID", "false", "EOF", ":", "==", "func", "INT", "while", "return", "{", "void", "=", "-", "else", "bool", "print", "<=", "(", "true", "+", "}", "if", "var"]
+tokens = ["func", "return", "bool", "=", "==", "false", "EOF", "}", "void", "-", "ID", "print", "int", "<=", ")", "+", "if", "(", "else", "{", "while", "var", ":", "INT", "true"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,23 +19,23 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "BoolType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
@@ -122,13 +122,13 @@ token = "int"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "IntLiteral"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -194,14 +194,14 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
-field = "expr"
-field_type = "IdExpr"
-
-[[nodes]]
-class = "UnaryOp"
 field = "op"
 field_type = "Token"
 token = "-"
+
+[[nodes]]
+class = "UnaryOp"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "UnaryOp"
@@ -267,6 +267,11 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "BoolLiteral"
+field = "value"
+field_type = "bool"
+
+[[nodes]]
+class = "BoolLiteral"
 field = "semantic_type"
 field_type = "BoolType"
 
@@ -275,11 +280,6 @@ class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "true"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "value"
-field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
