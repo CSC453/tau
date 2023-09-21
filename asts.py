@@ -25,6 +25,7 @@ class Expr(AST):
 @dataclass(slots=True)
 class Id(AST):
     token: Token
+
     symbol: Symbol = field(init=False)
     semantic_type: SemanticType = field(init=False)
 
@@ -86,6 +87,7 @@ class PrintStmt(Stmt):
 class CompoundStmt(Stmt):
     decls: list[VarDecl]
     stmts: list[Stmt]
+
     local_scope: Scope = field(init=False)
 
 
@@ -95,6 +97,7 @@ class FuncDecl(Decl):
     params: list[ParamDecl]
     ret_type_ast: TypeAST
     body: CompoundStmt
+
     func_scope: Scope = field(init=False)
     size: int = field(init=False)
     register_pool: list[str] = field(init=False)
@@ -103,6 +106,7 @@ class FuncDecl(Decl):
 @dataclass(slots=True)
 class Argument(AST):
     expr: Expr
+
     semantic_type: SemanticType = field(init=False)
 
 
