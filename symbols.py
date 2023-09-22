@@ -12,6 +12,11 @@ class SemanticType:
         return f"{self.__class__.__name__}()"
 
 
+class Phony_Type(SemanticType):
+    def __repr__(self) -> str:
+        return "Phony_Type()"
+
+
 class VoidType(SemanticType):
     __slots__: list[str] = []
 
@@ -90,6 +95,14 @@ class Symbol:
         return f"{self.__class__.__name__}(name={self.name}, offset={self.offset}, type={self._semantic_type.shallow_representation()}, scope={self.scope.shallow_representation()})"
 
 
+class Phony_Symbol(Symbol):
+    def __init__(self):
+        pass
+
+    def __repr__(self) -> str:
+        return "Phony_Symbol()"
+
+
 class Scope:
     symtab: dict[str, Symbol]
     parent: Optional["Scope"]
@@ -112,6 +125,10 @@ class Scope:
         parent = self.parent.shallow_representation() if self.parent else ""
         keys = sorted(list(self.symtab.keys()))
         return f"{self.__class__.__name__}(values={keys}, span={self.span}, parent={parent})"
+
+
+class Phony_Scope(Scope):
+    pass
 
 
 # holds parameters

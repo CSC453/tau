@@ -5,6 +5,9 @@ from typing import Optional
 
 from .tokens import Token, Span
 from .symbols import (
+    Phony_Type,
+    Phony_Scope,
+    Phony_Symbol,
     Symbol,
     SemanticType,
     Scope,
@@ -18,26 +21,26 @@ class AST:
 
 @dataclass(slots=True)
 class Expr(AST):
-    semantic_type: SemanticType = field(init=False)
-    register: str = field(init=False)
+    semantic_type: SemanticType = field(init=False, default_factory=Phony_Type)
+    register: str = field(init=False, default="PHONY_REGISTER")
 
 
 @dataclass(slots=True)
 class Id(AST):
     token: Token
 
-    symbol: Symbol = field(init=False)
-    semantic_type: SemanticType = field(init=False)
+    symbol: Symbol = field(init=False, default_factory=Phony_Symbol)
+    semantic_type: SemanticType = field(init=False, default_factory=Phony_Type)
 
 
 @dataclass(slots=True)
 class TypeAST(AST):
-    semantic_type: SemanticType = field(init=False)
+    semantic_type: SemanticType = field(init=False, default_factory=Phony_Type)
 
 
 @dataclass(slots=True)
 class Decl(AST):
-    semantic_type: SemanticType = field(init=False)
+    semantic_type: SemanticType = field(init=False, default_factory=Phony_Type)
 
 
 @dataclass(slots=True)
@@ -88,7 +91,7 @@ class CompoundStmt(Stmt):
     decls: list[VarDecl]
     stmts: list[Stmt]
 
-    local_scope: Scope = field(init=False)
+    local_scope: Scope = field(init=False, default_factory=Phony_Scope)
 
 
 @dataclass(slots=True)
@@ -98,16 +101,16 @@ class FuncDecl(Decl):
     ret_type_ast: TypeAST
     body: CompoundStmt
 
-    func_scope: Scope = field(init=False)
-    size: int = field(init=False)
-    register_pool: list[str] = field(init=False)
+    func_scope: Scope = field(init=False, default_factory=Phony_Scope)
+    size: int = field(init=False, default=9999999999)
+    register_pool: list[str] = field(init=False, default_factory=list)
 
 
 @dataclass(slots=True)
 class Argument(AST):
     expr: Expr
 
-    semantic_type: SemanticType = field(init=False)
+    semantic_type: SemanticType = field(init=False, default_factory=Phony_Type)
 
 
 @dataclass(slots=True)
@@ -144,7 +147,7 @@ class CallStmt(Stmt):
 class ReturnStmt(Stmt):
     expr: Optional[Expr]
 
-    enclosing_function: FuncDecl = field(init=False)
+    enclosing_function: Optional[FuncDecl] = field(init=False, default=None)
 
 
 @dataclass(slots=True)
@@ -186,4 +189,4 @@ class IdExpr(Expr):
 class Program(AST):
     decls: list[FuncDecl]
 
-    register_pool: list[str] = field(init=False)
+    register_pool: list[str] = field(init=False, default_factory=list)

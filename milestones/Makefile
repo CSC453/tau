@@ -1,7 +1,13 @@
-all:
-	rm -fr /tmp/*.verify
+all: info lists pickles
+
+info:
 	(cd ../..; ./tau/milestones/mkinfo.sh)
+
+lists:
 	(cd ../..; ./tau/milestones/mklists.sh)
+
+pickles:
+	rm -fr /tmp/*.verify
 	(cd ../..; ./tau/milestones/mkpickles.sh)
 	grep -v passed /tmp/*.verify || true
 
