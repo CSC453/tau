@@ -1,9 +1,9 @@
 all: info lists pickles
 
-info:
+mkinfo:
 	(cd ../..; ./tau/milestones/mkinfo.sh)
 
-lists:
+mklists:
 	(cd ../..; ./tau/milestones/mklists.sh)
 
 pickles:

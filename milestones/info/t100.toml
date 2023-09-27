@@ -1,6 +1,6 @@
 source = "tau/tests/t100.tau"
 hash = "558a9f534ba1cd9608f0ebb4257ae41a70ef9f061debcdc20eb9bd08e09a9008"
-tokens = ["func", "ID", ")", "EOF", "{", "}", "void", "(", ":"]
+tokens = [")", "}", "EOF", "(", "ID", "func", "void", "{", ":"]
 error = "NameError"
 
 [[nodes]]
@@ -10,18 +10,23 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
 field = "func_scope"
-field_type = "NoneType"
+field_type = "Phony_Scope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
@@ -30,23 +35,18 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "NoneType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "Id"
 field = "semantic_type"
-field_type = "NoneType"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "Id"
 field = "symbol"
-field_type = "NoneType"
+field_type = "Phony_Symbol"
 
 [[nodes]]
 class = "Id"
@@ -57,7 +57,7 @@ token = "ID"
 [[nodes]]
 class = "VoidType"
 field = "semantic_type"
-field_type = "NoneType"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "VoidType"
@@ -68,15 +68,15 @@ token = "void"
 [[nodes]]
 class = "CompoundStmt"
 field = "local_scope"
-field_type = "NoneType"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "CompoundStmt"
 field = "stmts"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
 field_type = "<empty>"
 

@@ -1,6 +1,6 @@
 source = "tau/tests/t105.tau"
 hash = "955941648399738f258833b8f4bd6961d2285cf734e5fde8c3ed601aa2137d85"
-tokens = ["EOF", "print", "{", "func", "}", "(", "-", ":", "INT", "ID", "void", ")"]
+tokens = [":", "INT", "-", "print", "ID", "}", "func", "{", "void", "(", "EOF", ")"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,8 +34,8 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
@@ -44,14 +44,19 @@ field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "Id"
+class = "VoidType"
 field = "semantic_type"
-field_type = "FuncType"
+field_type = "VoidType"
 
 [[nodes]]
 class = "VoidType"
@@ -60,14 +65,9 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
-class = "VoidType"
-field = "semantic_type"
-field_type = "VoidType"
-
-[[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -76,11 +76,21 @@ field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "PrintStmt"
+field = "expr"
+field_type = "UnaryOp"
+
+[[nodes]]
+class = "UnaryOp"
+field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
+class = "UnaryOp"
 field = "expr"
 field_type = "UnaryOp"
 
@@ -93,26 +103,16 @@ token = "-"
 [[nodes]]
 class = "UnaryOp"
 field = "expr"
-field_type = "UnaryOp"
+field_type = "IntLiteral"
 
 [[nodes]]
-class = "UnaryOp"
+class = "IntLiteral"
 field = "semantic_type"
 field_type = "IntType"
-
-[[nodes]]
-class = "UnaryOp"
-field = "expr"
-field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
 field = "token"
 field_type = "Token"
 token = "INT"
-
-[[nodes]]
-class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
 

@@ -1,6 +1,6 @@
 source = "tau/tests/t101.tau"
 hash = "3cd30ed7b3e2c8f4dc7a7e2f37b3243cd23e53ad8490315a07fffdd4c02d61e5"
-tokens = ["EOF", "(", ":", ")", "ID", "}", "{", "func", "int", "void"]
+tokens = ["void", "}", "int", "func", ")", "{", ":", "EOF", "(", "ID"]
 error = "NameError"
 
 [[nodes]]
@@ -11,17 +11,17 @@ field_type = "FuncDecl"
 [[nodes]]
 class = "FuncDecl"
 field = "func_scope"
-field_type = "NoneType"
+field_type = "Phony_Scope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "NoneType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -41,7 +41,12 @@ field_type = "ParamDecl"
 [[nodes]]
 class = "Id"
 field = "semantic_type"
-field_type = "NoneType"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Phony_Symbol"
 
 [[nodes]]
 class = "Id"
@@ -50,19 +55,14 @@ field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "NoneType"
+class = "ParamDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "ParamDecl"
 field = "semantic_type"
-field_type = "NoneType"
-
-[[nodes]]
-class = "ParamDecl"
-field = "id"
-field_type = "Id"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "ParamDecl"
@@ -72,7 +72,7 @@ field_type = "IntType"
 [[nodes]]
 class = "IntType"
 field = "semantic_type"
-field_type = "NoneType"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntType"
@@ -83,7 +83,7 @@ token = "int"
 [[nodes]]
 class = "VoidType"
 field = "semantic_type"
-field_type = "NoneType"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "VoidType"
@@ -98,11 +98,11 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "NoneType"
+field = "stmts"
+field_type = "<empty>"
 

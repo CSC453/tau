@@ -1,4 +1,3 @@
-tau/tests/error100.tau
 tau/tests/error101.tau
 tau/tests/error102.tau
 tau/tests/error103.tau
@@ -25,7 +24,6 @@ tau/tests/syntax_error_t310.tau
 tau/tests/syntax_error_t311.tau
 tau/tests/syntax_error_t312.tau
 tau/tests/syntax_error_t313.tau
-tau/tests/syntax_error_t314.tau
 tau/tests/syntax_error_t315.tau
 tau/tests/syntax_error_t316.tau
 tau/tests/syntax_error_t317.tau
@@ -254,7 +252,6 @@ tau/tests/t239.tau
 tau/tests/t240.tau
 tau/tests/t241.tau
 tau/tests/t242.tau
-tau/tests/t243.tau
 tau/tests/t244.tau
 tau/tests/t245.tau
 tau/tests/t246.tau

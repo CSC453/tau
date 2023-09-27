@@ -1,6 +1,6 @@
 source = "tau/tests/t239.tau"
 hash = "d537a828512fccb54d660db0cb92dd94c53d1dd07b90dfc6ba5c28a581ed2b93"
-tokens = ["bool", "ID", "false", "EOF", "*", "void", ")", "(", "func", "{", "var", "}", "true", "=", ":"]
+tokens = ["ID", "*", "var", "(", "void", "}", ":", "func", "{", "bool", ")", "false", "true", "EOF", "="]
 error = "TypeError"
 
 [[nodes]]
@@ -10,23 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "semantic_type"
-field_type = "NoneType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
@@ -35,18 +20,28 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
 
 [[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "NoneType"
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "Id"
@@ -55,20 +50,20 @@ field_type = "Token"
 token = "ID"
 
 [[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
 class = "VoidType"
 field = "semantic_type"
-field_type = "NoneType"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -81,14 +76,14 @@ field = "decls"
 field_type = "VarDecl"
 
 [[nodes]]
-class = "VarDecl"
-field = "semantic_type"
-field_type = "NoneType"
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "VarDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "VarDecl"
@@ -96,9 +91,14 @@ field = "type_ast"
 field_type = "BoolType"
 
 [[nodes]]
+class = "VarDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
 class = "BoolType"
 field = "semantic_type"
-field_type = "NoneType"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "BoolType"
@@ -119,7 +119,7 @@ field_type = "IdExpr"
 [[nodes]]
 class = "IdExpr"
 field = "semantic_type"
-field_type = "NoneType"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IdExpr"
@@ -129,7 +129,7 @@ field_type = "Id"
 [[nodes]]
 class = "BoolLiteral"
 field = "semantic_type"
-field_type = "NoneType"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -155,7 +155,12 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
 field_type = "IdExpr"
 
 [[nodes]]
@@ -166,11 +171,6 @@ token = "*"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "NoneType"
-
-[[nodes]]
-class = "BinaryOp"
-field = "left"
+field = "right"
 field_type = "IdExpr"
 

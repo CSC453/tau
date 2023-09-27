@@ -1,6 +1,6 @@
 source = "tau/tests/t296.tau"
 hash = "e585eab992cffb63341eebbf4989404ab9cdd0c596a74d30a89491b3ff86a7eb"
-tokens = [")", "{", "bool", "(", "ID", "}", "INT", "var", "if", "call", ":", "EOF", "func", "return", "else", "void", "int"]
+tokens = ["EOF", "bool", "ID", "func", ":", "if", "call", "var", "else", "}", "int", "(", "return", "{", "INT", ")", "void"]
 
 [[nodes]]
 class = "Program"
@@ -19,8 +19,13 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +34,8 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
@@ -66,11 +66,6 @@ token = "int"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "stmts"
 field_type = "ReturnStmt"
 
@@ -78,6 +73,11 @@ field_type = "ReturnStmt"
 class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "ReturnStmt"
@@ -128,6 +128,11 @@ field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "VarDecl"
 field = "type_ast"
 field_type = "BoolType"
 
@@ -135,11 +140,6 @@ field_type = "BoolType"
 class = "VarDecl"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "VarDecl"
-field = "semantic_type"
-field_type = "BoolType"
 
 [[nodes]]
 class = "Id"
@@ -159,7 +159,7 @@ token = "bool"
 
 [[nodes]]
 class = "IfStmt"
-field = "elseStmt"
+field = "thenStmt"
 field_type = "CompoundStmt"
 
 [[nodes]]
@@ -169,18 +169,18 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "IfStmt"
-field = "thenStmt"
+field = "elseStmt"
 field_type = "CompoundStmt"
-
-[[nodes]]
-class = "IdExpr"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "IdExpr"
 field = "semantic_type"
 field_type = "BoolType"
+
+[[nodes]]
+class = "IdExpr"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -194,13 +194,13 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "IntType"
+field = "args"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "<empty>"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "CallExpr"
