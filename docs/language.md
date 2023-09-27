@@ -9,8 +9,10 @@ fontsize: 12pt
 # Tau Language Reference
 [Initial draft: January 25, 2023]
 
+[Updated September 27, 2023: (1) Programs are **one** or more declarations; (2) Single-dimensional arrays only; (3) Array sizes are given as integer literals; (4) Array sizes must be specified. ]
+
 ## Program
-Tau programs consist of a sequence of zero or more function declarations.
+Tau programs consist of a sequence of one or more function declarations.
 
 The function named, "main", will be the function automatically invoked to initiate the program.
 
@@ -41,10 +43,10 @@ Integer and Boolean types are denoted by the reserved words, `int` and `bool`.
 Array types are expressed with square brackets before their type:
 
 ```
-func dummy(a : [][]int) {
-    var b : [2+3] int
+func dummy(a : []int) {
+    var b : [5] int
 
-    b[2] = a[3][0]
+    b[2] = a[3]
 }
 ```
 
@@ -60,7 +62,7 @@ Integer typed values represent 64-bit 2's-complement integer values.  Tau progra
 
 ## Array Type
 
-Array typed values represent a sequence of either integer or boolean values.  Tau programs refer to array types using `[]` or `[` *expr* `]` prior to the base type.  The expression denotes the original size to be allocated.  The size is optional with a default value of 1.
+Array typed values represent a sequence of either integer or boolean values.  Tau programs refer to array types  `[` *INT* `]` prior to the base type.  The INT denotes the original size to be allocated as an integer literal.
 
 ## Void Type
 
