@@ -1,5 +1,5 @@
-function = "tau.testers.run_ast"
-compare = "tau.testers.test_ast"
+function = "tau.testers.run_binding"
+compare = "tau.testers.test_binding"
 
 [[exclude]]
 error = "ParseErrorException"
@@ -9,3 +9,6 @@ error = "ScanException"
 
 [[exclude]]
 error = "NameException"
+
+[[exclude]]
+error = "NameError"

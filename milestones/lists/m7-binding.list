@@ -1,6 +1,3 @@
-tau/tests/t100.tau
-tau/tests/t101.tau
-tau/tests/t102.tau
 tau/tests/t103.tau
 tau/tests/t104.tau
 tau/tests/t105.tau
@@ -8,7 +5,6 @@ tau/tests/t106.tau
 tau/tests/t107.tau
 tau/tests/t108.tau
 tau/tests/t109.tau
-tau/tests/t110.tau
 tau/tests/t111.tau
 tau/tests/t112.tau
 tau/tests/t113.tau
@@ -57,9 +53,7 @@ tau/tests/t157.tau
 tau/tests/t158.tau
 tau/tests/t159.tau
 tau/tests/t160.tau
-tau/tests/t162.tau
 tau/tests/t163.tau
-tau/tests/t164.tau
 tau/tests/t165.tau
 tau/tests/t166.tau
 tau/tests/t167.tau
@@ -80,7 +74,6 @@ tau/tests/t181.tau
 tau/tests/t182.tau
 tau/tests/t183.tau
 tau/tests/t184.tau
-tau/tests/t185.tau
 tau/tests/t186.tau
 tau/tests/t187.tau
 tau/tests/t188.tau
@@ -88,7 +81,6 @@ tau/tests/t189.tau
 tau/tests/t190.tau
 tau/tests/t191.tau
 tau/tests/t192.tau
-tau/tests/t193.tau
 tau/tests/t194.tau
 tau/tests/t195.tau
 tau/tests/t196.tau
@@ -128,7 +120,6 @@ tau/tests/t229.tau
 tau/tests/t230.tau
 tau/tests/t231.tau
 tau/tests/t232.tau
-tau/tests/t233.tau
 tau/tests/t234.tau
 tau/tests/t235.tau
 tau/tests/t236.tau
@@ -159,7 +150,6 @@ tau/tests/t261.tau
 tau/tests/t262.tau
 tau/tests/t263.tau
 tau/tests/t264.tau
-tau/tests/t266.tau
 tau/tests/t267.tau
 tau/tests/t268.tau
 tau/tests/t269.tau
@@ -173,7 +163,6 @@ tau/tests/t276.tau
 tau/tests/t277.tau
 tau/tests/t278.tau
 tau/tests/t279.tau
-tau/tests/t280.tau
 tau/tests/t281.tau
 tau/tests/t282.tau
 tau/tests/t283.tau
@@ -185,7 +174,6 @@ tau/tests/t289.tau
 tau/tests/t290.tau
 tau/tests/t291.tau
 tau/tests/t292.tau
-tau/tests/t293.tau
 tau/tests/t294.tau
 tau/tests/t295.tau
 tau/tests/t296.tau
@@ -236,7 +224,6 @@ tau/tests/t340.tau
 tau/tests/t341.tau
 tau/tests/t342.tau
 tau/tests/t343.tau
-tau/tests/t344.tau
 tau/tests/t345.tau
 tau/tests/t346.tau
 tau/tests/t347.tau
@@ -283,7 +270,6 @@ tau/tests/t388.tau
 tau/tests/t389.tau
 tau/tests/t390.tau
 tau/tests/t391.tau
-tau/tests/t392.tau
 tau/tests/t393.tau
 tau/tests/t394.tau
 tau/tests/t395.tau

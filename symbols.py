@@ -79,7 +79,7 @@ class Symbol:
     def __init__(self, name: str, scope: "Scope") -> None:
         self.name: str = name
         self.scope: Scope = scope
-        self._semantic_type: SemanticType
+        self._semantic_type: SemanticType = Phony_Type()
         self.offset = -999999
 
     def set_type(self, t: SemanticType) -> None:
@@ -89,7 +89,7 @@ class Symbol:
         return self._semantic_type
 
     def __repr__(self) -> str:
-        return "Symbol(%r, %r)" % (self.name, self._semantic_type)
+        return f"Symbol({self.name}, {self._semantic_type})"
 
     def shallow_representation(self) -> str:
         return f"{self.__class__.__name__}(name={self.name}, offset={self.offset}, type={self._semantic_type.shallow_representation()}, scope={self.scope.shallow_representation()})"
