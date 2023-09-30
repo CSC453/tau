@@ -126,6 +126,9 @@ class Scope:
         keys = sorted(list(self.symtab.keys()))
         return f"{self.__class__.__name__}(values={keys}, span={self.span}, parent={parent})"
 
+    def __repr__(self) -> str:
+        return self.shallow_representation()
+
 
 class Phony_Scope(Scope):
     pass

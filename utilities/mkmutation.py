@@ -18,11 +18,11 @@ def main():
     args: argparse.Namespace = parse_args()
     input_file: str = args.input
     with open(input_file, "r") as f:
-        str = f.read()
+        input = f.read()
     output_file: str = args.output
     if os.path.exists(output_file) and not args.force:
         raise Exception("Output file already exists")
-    mutated = mutate(str)
+    mutated = mutate(input)
     with open(output_file, "w") as f:
         f.write(mutated)
 
@@ -31,12 +31,9 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Create a mutation file for TAU"
     )
-    parser.add_argument(
-        "--input", metavar="input", type=str, required=True, help="input file"
-    )
+    parser.add_argument("--input", type=str, required=True, help="input file")
     parser.add_argument(
         "--output",
-        metavar="output",
         type=str,
         required=True,
         help="output file",
