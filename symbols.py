@@ -131,7 +131,8 @@ class Scope:
 
 
 class Phony_Scope(Scope):
-    pass
+    def __init__(self) -> None:
+        self.parent = None
 
 
 # holds parameters
