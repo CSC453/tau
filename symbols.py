@@ -23,6 +23,9 @@ class VoidType(SemanticType):
     def size(self) -> int:
         return 0
 
+    def __repr__(self) -> str:
+        return "VoidType()"
+
 
 class IntType(SemanticType):
     __slots__: list[str] = []
@@ -30,12 +33,18 @@ class IntType(SemanticType):
     def size(self) -> int:
         return 1
 
+    def __repr__(self) -> str:
+        return "IntType()"
+
 
 class BoolType(SemanticType):
     __slots__: list[str] = []
 
     def size(self) -> int:
         return 1
+
+    def __repr__(self) -> str:
+        return "BoolType()"
 
 
 class ArrayType(SemanticType):
@@ -53,6 +62,11 @@ class ArrayType(SemanticType):
     def shallow_representation(self) -> str:
         return f"{self.__class__.__name__}(element_type={self.element_type.shallow_representation()})"
 
+    def __repr__(self):
+        return (
+            f"ArrayType(count={self.count}, element_type={self.element_type})"
+        )
+
 
 class FuncType(SemanticType):
     params: list[SemanticType]
@@ -66,6 +80,9 @@ class FuncType(SemanticType):
         self.ret: SemanticType = ret
         self.param_size: int = 0
         self.frame_size: int = 0
+
+    def __repr__(self):
+        return f"Functype(params={self.params}, ret={self.ret})"
 
 
 class Symbol:
