@@ -62,7 +62,7 @@ class ArrayType(SemanticType):
     def shallow_representation(self) -> str:
         return f"{self.__class__.__name__}(element_type={self.element_type.shallow_representation()})"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"ArrayType(count={self.count}, element_type={self.element_type})"
         )
@@ -81,7 +81,7 @@ class FuncType(SemanticType):
         self.param_size: int = 0
         self.frame_size: int = 0
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Functype(params={self.params}, ret={self.ret})"
 
 
@@ -113,7 +113,7 @@ class Symbol:
 
 
 class Phony_Symbol(Symbol):
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def __repr__(self) -> str:
@@ -148,7 +148,7 @@ class Scope:
 
 
 class Phony_Scope(Scope):
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def __repr__(self) -> str:
