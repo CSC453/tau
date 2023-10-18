@@ -53,7 +53,7 @@ def main() -> None:
             if title.startswith(grader_title):
                 found = grader
                 break
-
+    print(f"Found grader: {found}")
     assert found is not None
 
     if args.output:

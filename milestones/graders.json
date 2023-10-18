@@ -1,7 +1,7 @@
 {
   "graders": [
     {
-      "name": "M1",
+      "name": "M1:",
       "tester": "pass"
     },
     {
@@ -61,19 +61,19 @@
     {
       "name": "M11",
       "tester": "testerator",
-      "pickle": "m11-codegen-1.pickle",
+      "pickle": "m11-codegen.pickle",
       "threshold": 0.8
     },
     {
       "name": "M12",
       "tester": "testerator",
-      "pickle": "m12-codegen-2.pickle",
+      "pickle": "m12-codegen.pickle",
       "threshold": 0.8
     },
     {
       "name": "M13",
       "tester": "testerator",
-      "pickle": "m13-codegen-3.pickle",
+      "pickle": "m13-codegen.pickle",
       "threshold": 0.8
     },
     {

@@ -2,6 +2,10 @@ function = "tau.testers.run_assign"
 compare = "tau.testers.test_assign"
 
 [[exclude]]
+[[exclude.nodes]]
+class = "ArrayType"
+
+[[exclude]]
 error = "ParseErrorException"
 
 [[exclude]]
