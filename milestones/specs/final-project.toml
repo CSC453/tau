@@ -1,14 +1,9 @@
-function = "tau.testers.run_ast"
-compare = "tau.testers.test_ast"
+function = "tau.testers.run_codegen"
+compare = "tau.testers.test_codegen"
+
 
 [[exclude]]
 error = "ParseErrorException"
 
 [[exclude]]
 error = "ScanError"
-
-[[exclude]]
-error = "NameError"
-
-[[exclude]]
-error = "TypeError"
