@@ -6,7 +6,7 @@ author: Todd Proebsting
 # WARNING: THIS IS A DRAFT---DO NOT USE
 
 
-# CSC 453 Milestones 10-12, and Final Project
+# CSC 453 Milestones 11-14, and Final Project
 
 ## Goal:
 
@@ -22,77 +22,78 @@ def generate(p: ast.Program) -> [Insn]:
 The code generator will be implemented in the file `codegen.py`.
 
 
-## Milestone 10
+## Milestone 11: Just calls and prints
 
-Milestone 10 may be the hardest milestone.  Start early.
+Milestone 11 may be the hardest milestone.  Start early.
 
-Milestone 10 will generate code for the following AST declaration, statement, and expression nodes:
+Milestone 11 will generate code for the following AST declaration, statement, and expression nodes:
 
 * `Program(AST)`
-* `FuncDecl(AST)`  (for m10, exclude parameter passing)
+* `FuncDecl(AST)`  (for m11, exclude parameter passing)
 * `PrintStmt(Stmt)`
 * `CompoundStmt(Stmt)` 
 * `IntLiteral(Expr)`
-* `IdExpr(Expr)` (for m10, only function names as identifiers)
-* `BinaryOp(Expr)` (for m10, exclude short-circuit `and` and `or`)
-* `UnaryOp(Expr)` (for m10, exclude `not`)
+* `IdExpr(Expr)` (for m11, only function names as identifiers)
+* `CallStmt(Stmt)`
+* `CallExpr(Expr)` (for m11, no parameters/arguments)
 
-A complex program the compiler should handle for M8:
+
+A complex program the compiler should handle for M11:
 
 ```
+func g(): void {
+    print 1
+}
+func f(): void {
+    print 3
+    call g()
+    print 5
+}
 func main(): void {
-    print 4 * 3 + -2 / (2+4)
-    print true
+    print 4
+    call f()
+    print 6
+    call g()
+    print 7
 }
 ```
 
-Because this milestone excludes the ability to call functions, only `main()` can be called.
 
-
-## Milestone 11
-
-Milestone 9 will add the following:
-
-* `ReturnStmt(Stmt)` (including return values)
-* `IdExpr(Expr)` (include local variables)
-* `CallStmt(Stmt)`
-* `CallExpr(Expr)` (for m11, exclude parameter passing)
-* `AssignStmt(Stmt)`
-* `IfStmt(Stmt)`
-* `WhileStmt(Stmt)`
-* `BinaryOp(Expr)` (for m11, add short-circuit `and` and `or`)
-* `UnaryOp(Expr)` (for m11, add `not`)
-
-This milestone adds the ability to call functions, but not to pass parameters.
-
-There will be no binary or unary expressions that include function calls in this milestone.  (You may want to test this anyway.)
-
-## Milestone 12
+## Milestone 12: Adding locals, parameters, returns, and assignments
 
 Milestone 12 will add the following:
 
-* `FuncDecl(AST)`  (include parameter passing)
-* `CallExpr(Expr)` (include parameter passing)
+* `ReturnStmt(Stmt)` (including return values)
+* `IdExpr(Expr)` (include local variables and parameters)
+* `CallStmt(Stmt)`
+* `CallExpr(Expr)` (for m11, **include** parameter passing)
+* `AssignStmt(Stmt)`
+* `BoolLiteral(Expr)`
 
-This milestone adds parameter passing.
+I would recommend adding the unary and binary operators if you have time, to get a head start on Milestone 13.
 
-Like the previous milestone, there will be no binary or unary expressions that include function calls in this milestone.  (You may want to test this anyway.)
 
-## Milestone 13
+## Milestone 13: Expressions and control flow
+
+Milestone 13 will add the following:
+
+* `IfStmt(Stmt)`
+* `WhileStmt(Stmt)`
+* `BinaryOp(Expr)` 
+* `UnaryOp(Expr)` 
+
 
 ## Milestone 14
 
+Milestone 14 will add the following:
+
+* Recursion
+
 ## Final Project
 
-The final project will add the following:
+Same as Milestone 14, but with the following additions:
 
-* Binary and unary expressions that include function calls.  E.g.,
-    * `print 4 * f(3) + -2 / (2+4)`
-    * `print f(3) and g(4+3)`
-    * `print not f(g(3)+h(4))`
-    * `x = f(3) + g(f(4))`
-* Better Error reporting (More details to come.)
-* More test cases
+* Error messages
 
 ## Specifications
 
@@ -117,10 +118,11 @@ The calling convention for Tau has been described in class.  This is a summary:
 Caller Invocation:
 
 * Caller put's outgoing arguments at negative offsets from its frame pointer.  (The first is at offset -2, the second at offset -3, etc.)
-* Caller has an empty evaluation stack when it does the `Call` instruction. [optional]
 * Caller uses `Call` instruction to call a function.
+
 Caller Upon Return:
-* Caller makes sure the return value is put at offset `-1` from the `FP/SP` stack if appropriate.  (See below.)
+
+* Caller makes sure the return value is fetched from offset `-1` from the `FP/SP` stack if appropriate.  (See below.)
 
 
 Callee Prologue:
@@ -134,11 +136,7 @@ Callee Prologue:
 Callee Epilogue:
 
 * Callee must restore the caller's FP and SP before returning.
-
-Return Values:
-
-* Your compiler **must** implement return values as follows:
-    * At offset -1 from the caller's SP, which is offset -1 from the callee's FP.
+* Callee must put the return value at offset -1 from its FP if appropriate.
 
 
 

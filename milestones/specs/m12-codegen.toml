@@ -28,18 +28,6 @@ class = "UnaryOp"
 
 [[exclude]]
 [[exclude.nodes]]
-class = "UnaryOp"
-
-[[exclude]]
-[[exclude.nodes]]
-class = "ParamDecl"
-
-[[exclude]]
-[[exclude.nodes]]
-class = "VarDecl"
-
-[[exclude]]
-[[exclude.nodes]]
 class = "ArrayType"
 
 [[exclude]]
@@ -54,14 +42,3 @@ class = "IfStmt"
 [[exclude.nodes]]
 class = "WhileStmt"
 
-[[exclude]]
-[[exclude.nodes]]
-class = "ReturnStmt"
-
-[[exclude]]
-[[exclude.nodes]]
-class = "AssignStmt"
-
-[[exclude]]
-[[exclude.nodes]]
-class = "BoolLiteral"
