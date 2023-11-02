@@ -1,6 +1,6 @@
 source = "tau/tests/t245.tau"
 hash = "6e99feaee48019ae3ab714dc647b4db773a8f444c27d7616e8bfd74f720c2d26"
-tokens = ["call", "=", "}", "{", "not", "ID", "(", "void", ")", "int", "INT", "EOF", ":", "print", ",", "func"]
+tokens = [")", "void", "ID", "EOF", ",", "{", "call", "(", ":", "}", "int", "func", "print", "=", "not", "INT"]
 error = "TypeError"
 
 [[nodes]]
@@ -10,13 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,8 +20,13 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
@@ -35,13 +35,8 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
@@ -53,6 +48,11 @@ class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "ParamDecl"
@@ -93,16 +93,6 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "AssignStmt"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
 
@@ -110,6 +100,16 @@ field_type = "LocalScope"
 class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "AssignStmt"
 
 [[nodes]]
 class = "PrintStmt"
@@ -138,12 +138,6 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
-field = "op"
-field_type = "Token"
-token = "not"
-
-[[nodes]]
-class = "UnaryOp"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -151,6 +145,12 @@ field_type = "Phony_Type"
 class = "UnaryOp"
 field = "expr"
 field_type = "IdExpr"
+
+[[nodes]]
+class = "UnaryOp"
+field = "op"
+field_type = "Token"
+token = "not"
 
 [[nodes]]
 class = "FuncDecl"

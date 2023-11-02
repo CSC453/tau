@@ -1,6 +1,6 @@
 source = "tau/tests/t102.tau"
 hash = "7a18e70a353c6d899cd8a983e9a351f4f0df8b8268a6168b421feb2bc4d92eca"
-tokens = ["func", ":", "void", "int", "var", ")", "ID", "EOF", "(", "}", "{"]
+tokens = ["void", ")", "int", "ID", "{", ":", "EOF", "(", "func", "}", "var"]
 error = "NameError"
 
 [[nodes]]
@@ -10,13 +10,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,21 +25,16 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "Phony_Scope"
-
-[[nodes]]
-class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "func_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
-class = "Id"
+class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -55,7 +50,7 @@ field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "VoidType"
+class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -64,6 +59,16 @@ class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -76,9 +81,9 @@ field = "stmts"
 field_type = "<empty>"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
+class = "VarDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
@@ -87,16 +92,6 @@ field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "VarDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "IntType"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -105,4 +100,9 @@ class = "IntType"
 field = "token"
 field_type = "Token"
 token = "int"
+
+[[nodes]]
+class = "IntType"
+field = "semantic_type"
+field_type = "Phony_Type"
 

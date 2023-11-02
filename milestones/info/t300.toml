@@ -1,6 +1,6 @@
 source = "tau/tests/t300.tau"
 hash = "2413cc417cfd885d1f8e27d1a71b5959b182e70d4dc577fee64e456494d64419"
-tokens = [")", "+", "(", "==", "bool", "{", "}", ":", "EOF", "false", "true", "func", "var", "ID", "int", "if", "return", "and", "INT", "void", "print"]
+tokens = ["{", "ID", "void", "true", "EOF", "print", "(", "false", "var", "INT", "return", "func", ")", "==", "and", "bool", "int", "+", ":", "}", "if"]
 error = "TypeError"
 
 [[nodes]]
@@ -10,23 +10,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -39,6 +29,21 @@ field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
@@ -48,11 +53,6 @@ class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
 
 [[nodes]]
 class = "BoolType"
@@ -67,6 +67,16 @@ token = "bool"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "IfStmt"
 
@@ -76,14 +86,9 @@ field = "stmts"
 field_type = "ReturnStmt"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
+class = "VarDecl"
+field = "type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
@@ -94,11 +99,6 @@ field_type = "Phony_Type"
 class = "VarDecl"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "VarDecl"
-field = "type_ast"
-field_type = "IntType"
 
 [[nodes]]
 class = "IntType"
@@ -113,11 +113,6 @@ token = "int"
 
 [[nodes]]
 class = "IfStmt"
-field = "thenStmt"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "IfStmt"
 field = "elseStmt"
 field_type = "NoneType"
 
@@ -127,14 +122,19 @@ field = "expr"
 field_type = "BinaryOp"
 
 [[nodes]]
+class = "IfStmt"
+field = "thenStmt"
+field_type = "CompoundStmt"
+
+[[nodes]]
 class = "BinaryOp"
 field = "right"
 field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "left"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
@@ -144,8 +144,8 @@ token = "=="
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IdExpr"
@@ -175,13 +175,13 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "NoneType"
+field = "expr"
+field_type = "BoolLiteral"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "expr"
-field_type = "BoolLiteral"
+field = "enclosing_function"
+field_type = "NoneType"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -238,6 +238,11 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
+field = "left"
+field_type = "BoolLiteral"
+
+[[nodes]]
+class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "and"
@@ -245,7 +250,7 @@ token = "and"
 [[nodes]]
 class = "BinaryOp"
 field = "left"
-field_type = "BoolLiteral"
+field_type = "CallExpr"
 
 [[nodes]]
 class = "BinaryOp"
@@ -254,14 +259,9 @@ field_type = "Token"
 token = "+"
 
 [[nodes]]
-class = "BinaryOp"
-field = "left"
-field_type = "CallExpr"
-
-[[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "args"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CallExpr"
@@ -270,6 +270,6 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "<empty>"
+field = "semantic_type"
+field_type = "Phony_Type"
 

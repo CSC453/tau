@@ -1,6 +1,6 @@
 source = "tau/tests/t133.tau"
 hash = "c9d18129db82e415140061376d1dd6c0ac62bf31813f2bef41dd0ab8f0a52d04"
-tokens = ["{", ")", ":", "void", "}", "print", "INT", "EOF", "(", "func", "ID"]
+tokens = ["print", "{", "INT", "EOF", "(", "}", "void", "ID", "func", ")", ":"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,23 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -23,29 +38,14 @@ field = "id"
 field_type = "Id"
 
 [[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
 class = "Id"
 field = "symbol"
 field_type = "Symbol"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"

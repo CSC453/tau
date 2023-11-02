@@ -1,6 +1,6 @@
 source = "tau/tests/t139.tau"
 hash = "30dfd18d2f62ee958a119d717123fbbe7406ce1748782320b7759c2bb4ba9396"
-tokens = ["void", "func", "{", "var", "=", "}", "<", "INT", ":", "(", ")", "EOF", "bool", "ID"]
+tokens = ["func", "<", "INT", "=", "ID", "bool", "{", "var", "(", "EOF", "}", "void", ":", ")"]
 
 [[nodes]]
 class = "Program"
@@ -24,13 +24,13 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -66,11 +66,6 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
 
@@ -78,6 +73,11 @@ field_type = "LocalScope"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
@@ -112,13 +112,13 @@ token = "bool"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "BinaryOp"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -132,16 +132,6 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
-
-[[nodes]]
-class = "BinaryOp"
-field = "semantic_type"
-field_type = "BoolType"
-
-[[nodes]]
-class = "BinaryOp"
 field = "left"
 field_type = "IntLiteral"
 
@@ -150,6 +140,16 @@ class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "<"
+
+[[nodes]]
+class = "BinaryOp"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "BinaryOp"
+field = "right"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"

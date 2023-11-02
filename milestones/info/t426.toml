@@ -1,11 +1,16 @@
 source = "tau/tests/t426.tau"
 hash = "eca3fb1a4fce6a44121c4758420662a7c820dadea7c3c2ef60a5a58a2ed881cd"
-tokens = ["var", "void", "EOF", "func", "ID", ":", "print", ",", "int", "{", ")", "return", "}", "INT", "("]
+tokens = ["print", ":", "(", "EOF", ",", ")", "func", "int", "}", "var", "INT", "{", "return", "ID", "void"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,18 +29,13 @@ field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "IntType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
@@ -55,17 +55,17 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "ParamDecl"
+field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
+class = "ParamDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "ParamDecl"
 field = "type_ast"
-field_type = "IntType"
-
-[[nodes]]
-class = "ParamDecl"
-field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
@@ -86,13 +86,13 @@ field_type = "IntType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -111,6 +111,11 @@ field_type = "ReturnStmt"
 
 [[nodes]]
 class = "VarDecl"
+field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
+class = "VarDecl"
 field = "id"
 field_type = "Id"
 
@@ -120,24 +125,19 @@ field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
-class = "VarDecl"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
 class = "PrintStmt"
 field = "expr"
 field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IdExpr"
-field = "semantic_type"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -162,23 +162,23 @@ field_type = "IntType"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "expr"
-field_type = "IntLiteral"
-
-[[nodes]]
-class = "ReturnStmt"
 field = "enclosing_function"
 field_type = "FuncDecl"
 
 [[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+class = "ReturnStmt"
+field = "expr"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "VoidType"
@@ -203,6 +203,11 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
+field = "args"
+field_type = "Argument"
+
+[[nodes]]
+class = "CallExpr"
 field = "fn"
 field_type = "IdExpr"
 
@@ -212,22 +217,17 @@ field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
-class = "CallExpr"
-field = "args"
-field_type = "Argument"
-
-[[nodes]]
 class = "IdExpr"
 field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
 class = "Argument"
-field = "expr"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "Argument"
-field = "semantic_type"
-field_type = "IntType"
+field = "expr"
+field_type = "IdExpr"
 

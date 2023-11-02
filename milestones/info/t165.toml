@@ -1,6 +1,6 @@
 source = "tau/tests/t165.tau"
 hash = "974ab61ae25ad9263cc75a6b7f44905984c8da4a8567e6ab6e06dcacf09afc60"
-tokens = ["INT", "ID", "true", ")", "}", "func", "{", "print", "(", "return", "EOF", "int", ":"]
+tokens = ["true", "(", "ID", ":", "EOF", "{", "print", "func", "int", "INT", "return", ")", "}"]
 error = "TypeError"
 
 [[nodes]]
@@ -10,18 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "IntType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -30,18 +20,23 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
@@ -51,13 +46,13 @@ token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
-class = "IntType"
 field = "semantic_type"
 field_type = "Phony_Type"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "IntType"
@@ -66,9 +61,9 @@ field_type = "Token"
 token = "int"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+class = "IntType"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -86,14 +81,14 @@ field = "decls"
 field_type = "<empty>"
 
 [[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
 class = "PrintStmt"
 field = "expr"
 field_type = "IntLiteral"
-
-[[nodes]]
-class = "IntLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntLiteral"
@@ -102,9 +97,9 @@ field_type = "Token"
 token = "INT"
 
 [[nodes]]
-class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "NoneType"
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "ReturnStmt"
@@ -112,15 +107,20 @@ field = "expr"
 field_type = "BoolLiteral"
 
 [[nodes]]
-class = "BoolLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
+class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "NoneType"
 
 [[nodes]]
 class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "true"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "BoolLiteral"

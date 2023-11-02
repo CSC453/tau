@@ -1,5 +1,5 @@
 source = "tau/tests/t265.tau"
 hash = "5fb38418775503772d3777db11058a525ceb55a8a27c756a18f53956bf121b38"
-tokens = ["=", "(", "+", "return", "int", "print", "var", "ID", "}", ")", "void", "EOF", ":", "INT", "{", "func"]
+tokens = ["func", "+", "void", "(", ")", "INT", "}", "EOF", "var", "int", "print", ":", "return", "=", "ID", "{"]
 error = "ParseErrorException"
 

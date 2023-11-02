@@ -1,5 +1,5 @@
 source = "tau/tests/syntax_error_t357.tau"
 hash = "9a45561a53b5f22adc8d98217843b871aa9b74fd99e81576733a47ba8e19466d"
-tokens = ["ID", "{", "EOF", "void", "return", "INT", ")", "print", "var", "=", "+", ":", "int", "}", "(", "func"]
+tokens = ["func", "print", "=", "EOF", "{", "var", "int", "(", "ID", "return", "}", "+", ":", "void", "INT", ")"]
 error = "ParseErrorException"
 

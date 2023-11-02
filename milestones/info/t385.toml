@@ -1,11 +1,26 @@
 source = "tau/tests/t385.tau"
 hash = "4965ef2b42623a8f0bbfa3eac3d067c1aa2ab79090a0bc909ef4e3c13cb06334"
-tokens = ["bool", "INT", "}", ":", "EOF", "if", "(", "ID", "while", "{", "var", "func", "void", "print", "else", ")"]
+tokens = ["if", "ID", "var", "func", ":", "else", ")", "INT", "bool", "EOF", "void", "}", "(", "while", "print", "{"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -21,21 +36,6 @@ field_type = "FuncType"
 class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
@@ -81,8 +81,8 @@ field_type = "WhileStmt"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
-field_type = "BoolType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
@@ -91,8 +91,8 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "VarDecl"
-field = "id"
-field_type = "Id"
+field = "type_ast"
+field_type = "BoolType"
 
 [[nodes]]
 class = "Id"
@@ -112,23 +112,23 @@ token = "bool"
 
 [[nodes]]
 class = "WhileStmt"
-field = "expr"
-field_type = "IdExpr"
-
-[[nodes]]
-class = "WhileStmt"
 field = "stmt"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "IdExpr"
-field = "semantic_type"
-field_type = "BoolType"
+class = "WhileStmt"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "IdExpr"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -142,11 +142,6 @@ field_type = "IfStmt"
 
 [[nodes]]
 class = "IfStmt"
-field = "expr"
-field_type = "IdExpr"
-
-[[nodes]]
-class = "IfStmt"
 field = "elseStmt"
 field_type = "CompoundStmt"
 
@@ -154,6 +149,11 @@ field_type = "CompoundStmt"
 class = "IfStmt"
 field = "thenStmt"
 field_type = "CompoundStmt"
+
+[[nodes]]
+class = "IfStmt"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "CompoundStmt"

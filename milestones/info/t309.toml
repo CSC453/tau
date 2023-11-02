@@ -1,6 +1,6 @@
 source = "tau/tests/t309.tau"
 hash = "f53568d6583e6b7369e18be6cd54ea60798147457b28c1a82486f3fb1f8b3f54"
-tokens = ["var", "*", "(", "!=", "-", "void", "INT", "ID", "print", "int", "}", "func", "while", ":", "EOF", "=", "{", ")"]
+tokens = ["int", "{", "(", "EOF", "void", "func", "ID", "!=", "INT", "while", "*", "=", "}", "var", ":", ")", "print", "-"]
 
 [[nodes]]
 class = "Program"
@@ -14,18 +14,18 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,8 +34,8 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "Id"
@@ -66,6 +66,11 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
 
@@ -83,11 +88,6 @@ field_type = "PrintStmt"
 class = "CompoundStmt"
 field = "decls"
 field_type = "VarDecl"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
 
 [[nodes]]
 class = "VarDecl"

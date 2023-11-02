@@ -1,7 +1,7 @@
 source = "tau/tests/t217.tau"
 hash = "e81ded0ccb8f8055ad56935942034024ba884cc6060417516eb6581a9b0808ff"
 pragmas = ["recursive"]
-tokens = ["-", "int", "if", "INT", "print", "(", ":", "{", "<=", "}", "+", "EOF", "void", "ID", ")", "func", "return"]
+tokens = ["func", "if", "}", "INT", "+", ")", "print", "EOF", "return", "void", "-", "ID", "(", "int", "<=", ":", "{"]
 
 [[nodes]]
 class = "Program"
@@ -15,18 +15,18 @@ field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "IntType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -35,18 +35,18 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "ret_type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -107,23 +107,18 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "IfStmt"
-field = "thenStmt"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "IfStmt"
 field = "expr"
 field_type = "BinaryOp"
 
 [[nodes]]
 class = "IfStmt"
-field = "elseStmt"
-field_type = "NoneType"
+field = "thenStmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
-class = "BinaryOp"
-field = "left"
-field_type = "IdExpr"
+class = "IfStmt"
+field = "elseStmt"
+field_type = "NoneType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -140,6 +135,11 @@ class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "<="
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -179,11 +179,6 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "CallExpr"
-
-[[nodes]]
-class = "BinaryOp"
 field = "semantic_type"
 field_type = "IntType"
 
@@ -199,9 +194,14 @@ field_type = "Token"
 token = "+"
 
 [[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "CallExpr"
+
+[[nodes]]
 class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
+field = "args"
+field_type = "Argument"
 
 [[nodes]]
 class = "CallExpr"
@@ -210,8 +210,8 @@ field_type = "IntType"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "Argument"
+field = "fn"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
