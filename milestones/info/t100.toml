@@ -1,12 +1,17 @@
 source = "tau/tests/t100.tau"
 hash = "558a9f534ba1cd9608f0ebb4257ae41a70ef9f061debcdc20eb9bd08e09a9008"
-tokens = ["}", ":", "ID", "{", ")", "func", "void", "(", "EOF"]
+tokens = ["{", ")", "EOF", "void", "}", ":", "ID", "func", "("]
 error = "NameError"
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,13 +25,8 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "func_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -35,13 +35,8 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "Phony_Scope"
-
-[[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "Id"
@@ -55,7 +50,7 @@ field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "VoidType"
+class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -64,6 +59,11 @@ class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"

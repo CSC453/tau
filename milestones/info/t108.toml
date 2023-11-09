@@ -1,6 +1,6 @@
 source = "tau/tests/t108.tau"
 hash = "18c520c563355f9b297875742d0a64a65edb1d9d864dda26bee90952f852051e"
-tokens = ["(", ":", "INT", ")", "EOF", "func", "void", "}", "{", "print", "ID"]
+tokens = ["INT", "EOF", "ID", "}", ":", "print", "{", "(", ")", "void", "func"]
 
 [[nodes]]
 class = "Program"
@@ -14,18 +14,13 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,8 +29,13 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"

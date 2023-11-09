@@ -1,6 +1,6 @@
 source = "tau/tests/t185.tau"
 hash = "86a2c40ffb3a09f3647b041b87d64250b28f3c81f995576425c93cd58bc9582b"
-tokens = ["print", "func", "EOF", "void", "INT", "ID", ":", "}", "{", "(", ")"]
+tokens = ["print", "func", ")", "INT", "EOF", "(", "ID", "}", "{", "void", ":"]
 error = "NameError"
 
 [[nodes]]
@@ -10,8 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,8 +20,8 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -30,19 +30,18 @@ field_type = "Phony_Scope"
 
 [[nodes]]
 class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
 
 [[nodes]]
-class = "FuncDecl"
+class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
-
-[[nodes]]
-class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
 
 [[nodes]]
 class = "Id"
@@ -51,6 +50,12 @@ field_type = "Phony_Symbol"
 
 [[nodes]]
 class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
+
+[[nodes]]
+class = "VoidType"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -61,24 +66,19 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
-class = "VoidType"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
 class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+field = "local_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "Phony_Scope"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "PrintStmt"
@@ -87,12 +87,12 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
-field = "token"
-field_type = "Token"
-token = "INT"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "token"
+field_type = "Token"
+token = "INT"
 

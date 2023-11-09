@@ -1,6 +1,6 @@
 source = "tau/tests/t245.tau"
 hash = "6e99feaee48019ae3ab714dc647b4db773a8f444c27d7616e8bfd74f720c2d26"
-tokens = ["INT", "int", "}", "(", "call", "EOF", "ID", ")", "=", "func", "void", "{", ":", ",", "print", "not"]
+tokens = ["=", "int", ",", "print", "not", "{", ":", "func", "void", "EOF", "ID", "INT", "call", ")", "(", "}"]
 error = "TypeError"
 
 [[nodes]]
@@ -10,13 +10,18 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -27,11 +32,6 @@ field_type = "ParamDecl"
 class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -128,19 +128,18 @@ field_type = "Id"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
-
-[[nodes]]
-class = "AssignStmt"
 field = "rhs"
 field_type = "UnaryOp"
 
 [[nodes]]
+class = "AssignStmt"
+field = "lhs"
+field_type = "IdExpr"
+
+[[nodes]]
 class = "UnaryOp"
-field = "op"
-field_type = "Token"
-token = "not"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "UnaryOp"
@@ -149,8 +148,9 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "UnaryOp"
-field = "expr"
-field_type = "IdExpr"
+field = "op"
+field_type = "Token"
+token = "not"
 
 [[nodes]]
 class = "FuncDecl"
@@ -174,13 +174,13 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "args"
+field_type = "Argument"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "Argument"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "Argument"

@@ -1,16 +1,11 @@
 source = "tau/tests/t158.tau"
 hash = "2c36d79848ec95bde4f595f7556b7c776280f144f5ae09b47e3fb2ad0cecff9f"
-tokens = [":", "void", "ID", "var", "EOF", "(", "INT", "print", "}", "func", ")", "=", "{", "int", "-"]
+tokens = [")", "}", "=", "print", "-", "var", "int", "INT", "EOF", "(", "void", "ID", "{", ":", "func"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +24,18 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
@@ -86,13 +86,13 @@ field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
-field = "id"
-field_type = "Id"
+field = "type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
@@ -117,13 +117,13 @@ field_type = "IntType"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "UnaryOp"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "UnaryOp"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -137,6 +137,11 @@ field_type = "IntType"
 
 [[nodes]]
 class = "UnaryOp"
+field = "expr"
+field_type = "UnaryOp"
+
+[[nodes]]
+class = "UnaryOp"
 field = "semantic_type"
 field_type = "IntType"
 
@@ -145,11 +150,6 @@ class = "UnaryOp"
 field = "op"
 field_type = "Token"
 token = "-"
-
-[[nodes]]
-class = "UnaryOp"
-field = "expr"
-field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"

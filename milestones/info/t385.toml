@@ -1,6 +1,6 @@
 source = "tau/tests/t385.tau"
 hash = "4965ef2b42623a8f0bbfa3eac3d067c1aa2ab79090a0bc909ef4e3c13cb06334"
-tokens = ["var", "else", "EOF", "}", "print", ")", ":", "bool", "void", "INT", "if", "while", "{", "(", "func", "ID"]
+tokens = ["if", "(", ")", "EOF", "else", "ID", "INT", "void", "}", "while", "{", "var", "func", "bool", "print", ":"]
 
 [[nodes]]
 class = "Program"
@@ -9,23 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,18 +19,33 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -71,13 +71,13 @@ field_type = "WhileStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
@@ -112,23 +112,23 @@ token = "bool"
 
 [[nodes]]
 class = "WhileStmt"
-field = "stmt"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "WhileStmt"
 field = "expr"
 field_type = "IdExpr"
 
 [[nodes]]
-class = "IdExpr"
-field = "id"
-field_type = "Id"
+class = "WhileStmt"
+field = "stmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "IdExpr"
 field = "semantic_type"
 field_type = "BoolType"
+
+[[nodes]]
+class = "IdExpr"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -142,6 +142,11 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "IfStmt"
+field = "expr"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "IfStmt"
 field = "elseStmt"
 field_type = "CompoundStmt"
 
@@ -149,11 +154,6 @@ field_type = "CompoundStmt"
 class = "IfStmt"
 field = "thenStmt"
 field_type = "CompoundStmt"
-
-[[nodes]]
-class = "IfStmt"
-field = "expr"
-field_type = "IdExpr"
 
 [[nodes]]
 class = "CompoundStmt"

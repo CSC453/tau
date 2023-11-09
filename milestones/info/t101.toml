@@ -1,6 +1,6 @@
 source = "tau/tests/t101.tau"
 hash = "3cd30ed7b3e2c8f4dc7a7e2f37b3243cd23e53ad8490315a07fffdd4c02d61e5"
-tokens = [")", "}", "int", "(", "{", "void", "EOF", "func", ":", "ID"]
+tokens = ["func", "int", "ID", ":", "}", "(", "void", "{", "EOF", ")"]
 error = "NameError"
 
 [[nodes]]
@@ -10,8 +10,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,8 +25,8 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,17 +39,6 @@ field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
-
-[[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
@@ -55,9 +49,10 @@ field = "symbol"
 field_type = "Phony_Symbol"
 
 [[nodes]]
-class = "ParamDecl"
-field = "id"
-field_type = "Id"
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
 
 [[nodes]]
 class = "ParamDecl"
@@ -66,8 +61,18 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "ParamDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "ParamDecl"
 field = "type_ast"
 field_type = "IntType"
+
+[[nodes]]
+class = "IntType"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntType"
@@ -76,7 +81,7 @@ field_type = "Token"
 token = "int"
 
 [[nodes]]
-class = "IntType"
+class = "VoidType"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -87,16 +92,6 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
-class = "VoidType"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "<empty>"
-
-[[nodes]]
 class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
@@ -105,4 +100,9 @@ field_type = "<empty>"
 class = "CompoundStmt"
 field = "local_scope"
 field_type = "Phony_Scope"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "<empty>"
 

@@ -1,16 +1,11 @@
 source = "tau/tests/t370.tau"
 hash = "de5c79809fa6f6fb5816e7d10336ca18b1f4f3420b0cfcfbdb612ab5c7006825"
-tokens = ["void", "}", "(", ")", "func", "int", "print", "var", "=", ":", "ID", "INT", "EOF", "*", "{"]
+tokens = ["var", "}", ":", "=", "EOF", "(", "*", "INT", ")", "{", "void", "int", "ID", "print", "func"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,6 +19,16 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
@@ -33,19 +38,14 @@ field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -86,6 +86,11 @@ field_type = "PrintStmt"
 
 [[nodes]]
 class = "VarDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "VarDecl"
 field = "semantic_type"
 field_type = "IntType"
 
@@ -93,11 +98,6 @@ field_type = "IntType"
 class = "VarDecl"
 field = "type_ast"
 field_type = "IntType"
-
-[[nodes]]
-class = "VarDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "Id"
@@ -127,13 +127,13 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "IdExpr"
-field = "semantic_type"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "IdExpr"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IntLiteral"
@@ -153,11 +153,6 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "IdExpr"
-
-[[nodes]]
-class = "BinaryOp"
 field = "right"
 field_type = "IntLiteral"
 
@@ -166,6 +161,11 @@ class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "*"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"

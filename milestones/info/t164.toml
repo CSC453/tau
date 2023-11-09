@@ -1,6 +1,6 @@
 source = "tau/tests/t164.tau"
 hash = "290ad753e8c500131fdd395bdc866f0423fe563a2150bfd081324cfbe47ba0e0"
-tokens = ["return", "EOF", "int", "func", "{", "+", "ID", "INT", "}", "(", ")", ":"]
+tokens = ["return", ")", "INT", "}", "ID", "func", "EOF", "int", "+", ":", "{", "("]
 error = "NameError"
 
 [[nodes]]
@@ -10,8 +10,23 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "func_scope"
+field_type = "Phony_Scope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "IntType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,19 +39,10 @@ field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "Phony_Scope"
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
 
 [[nodes]]
 class = "Id"
@@ -49,10 +55,10 @@ field = "symbol"
 field_type = "Phony_Symbol"
 
 [[nodes]]
-class = "Id"
+class = "IntType"
 field = "token"
 field_type = "Token"
-token = "ID"
+token = "int"
 
 [[nodes]]
 class = "IntType"
@@ -60,10 +66,9 @@ field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
-class = "IntType"
-field = "token"
-field_type = "Token"
-token = "int"
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -76,9 +81,9 @@ field = "decls"
 field_type = "<empty>"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "Phony_Scope"
+class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "NoneType"
 
 [[nodes]]
 class = "ReturnStmt"
@@ -86,9 +91,14 @@ field = "expr"
 field_type = "BinaryOp"
 
 [[nodes]]
-class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "NoneType"
+class = "BinaryOp"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
@@ -98,23 +108,8 @@ token = "+"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "IntLiteral"
-
-[[nodes]]
-class = "BinaryOp"
 field = "right"
 field_type = "CallExpr"
-
-[[nodes]]
-class = "BinaryOp"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "IntLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntLiteral"
@@ -123,14 +118,19 @@ field_type = "Token"
 token = "INT"
 
 [[nodes]]
-class = "CallExpr"
-field = "args"
-field_type = "<empty>"
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "CallExpr"
 field = "semantic_type"
 field_type = "Phony_Type"
+
+[[nodes]]
+class = "CallExpr"
+field = "args"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CallExpr"
@@ -139,11 +139,11 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "IdExpr"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "Phony_Type"
 

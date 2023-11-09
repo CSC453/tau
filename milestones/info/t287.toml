@@ -1,6 +1,6 @@
 source = "tau/tests/t287.tau"
 hash = "e313077e8dd37f6e29e702d4b78123b282fa0f1a270d47c65cbd7a822d866611"
-tokens = ["ID", "func", "(", ":", "INT", "int", "{", "call", "print", "}", ")", "void", "EOF", "return"]
+tokens = ["}", "func", "return", "ID", "print", "void", "(", ":", "INT", "call", "int", "EOF", "{", ")"]
 
 [[nodes]]
 class = "Program"
@@ -14,6 +14,16 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
 
@@ -24,28 +34,18 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
 field = "symbol"
 field_type = "Symbol"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -76,13 +76,13 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "PrintStmt"
@@ -133,13 +133,13 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "<empty>"
+field = "semantic_type"
+field_type = "VoidType"
 
 [[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "VoidType"
+field = "args"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CallExpr"

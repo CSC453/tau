@@ -1,6 +1,6 @@
 source = "tau/tests/t318.tau"
 hash = "753c7f41cd889376fe9da8ebb2d838f89f9c34a39fa88fed79a9b4e2a4bd27a0"
-tokens = ["<", "int", "+", "ID", "else", "{", "(", "while", "EOF", "true", "print", "void", "==", "var", ":", "=", ")", "INT", "}", "func", "if"]
+tokens = ["(", "+", "func", "else", "int", "ID", ":", "INT", "{", "}", "if", "<", "==", "var", "void", "EOF", "print", "true", "while", "=", ")"]
 error = "TypeError"
 
 [[nodes]]
@@ -10,8 +10,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,24 +30,13 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
-class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
@@ -55,10 +49,10 @@ field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
-class = "VoidType"
+class = "Id"
 field = "token"
 field_type = "Token"
-token = "void"
+token = "ID"
 
 [[nodes]]
 class = "VoidType"
@@ -66,14 +60,15 @@ field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+class = "VoidType"
+field = "token"
+field_type = "Token"
+token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -86,9 +81,14 @@ field = "stmts"
 field_type = "WhileStmt"
 
 [[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
+
+[[nodes]]
 class = "VarDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "VarDecl"
@@ -97,6 +97,11 @@ field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "IntType"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -107,9 +112,9 @@ field_type = "Token"
 token = "int"
 
 [[nodes]]
-class = "IntType"
-field = "semantic_type"
-field_type = "Phony_Type"
+class = "AssignStmt"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "AssignStmt"
@@ -117,9 +122,9 @@ field = "rhs"
 field_type = "IntLiteral"
 
 [[nodes]]
-class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+class = "IdExpr"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IdExpr"
@@ -127,7 +132,7 @@ field = "id"
 field_type = "Id"
 
 [[nodes]]
-class = "IdExpr"
+class = "IntLiteral"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -138,24 +143,14 @@ field_type = "Token"
 token = "INT"
 
 [[nodes]]
-class = "IntLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "WhileStmt"
-field = "stmt"
-field_type = "CompoundStmt"
-
-[[nodes]]
 class = "WhileStmt"
 field = "expr"
 field_type = "BinaryOp"
 
 [[nodes]]
-class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
+class = "WhileStmt"
+field = "stmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "BinaryOp"
@@ -170,13 +165,13 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "right"
+field_type = "IntLiteral"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+class = "BinaryOp"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -184,9 +179,9 @@ field = "stmts"
 field_type = "IfStmt"
 
 [[nodes]]
-class = "IfStmt"
-field = "thenStmt"
-field_type = "CompoundStmt"
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "IfStmt"
@@ -197,6 +192,11 @@ field_type = "CompoundStmt"
 class = "IfStmt"
 field = "expr"
 field_type = "BinaryOp"
+
+[[nodes]]
+class = "IfStmt"
+field = "thenStmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "BinaryOp"
@@ -211,14 +211,14 @@ field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "token"
-field_type = "Token"
-token = "true"
+field = "value"
+field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "value"
-field_type = "bool"
+field = "token"
+field_type = "Token"
+token = "true"
 
 [[nodes]]
 class = "BoolLiteral"

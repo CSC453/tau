@@ -1,6 +1,6 @@
 source = "tau/tests/t197.tau"
 hash = "6279b88aa5d753a9960d83f62a4610fb832601aae7e8c405c36eae8e69dea7f6"
-tokens = ["EOF", "{", "ID", "INT", "/", "print", "void", ":", "+", "-", "int", ")", "(", "*", "=", "var", "func", "}"]
+tokens = ["func", "+", "EOF", "{", "-", "print", "}", "(", "*", ":", "/", ")", "int", "var", "=", "ID", "INT", "void"]
 
 [[nodes]]
 class = "Program"
@@ -14,18 +14,13 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -36,6 +31,11 @@ field_type = "VoidType"
 class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
@@ -91,12 +91,12 @@ field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
@@ -117,13 +117,13 @@ field_type = "IntType"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "IntLiteral"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "IdExpr"
@@ -158,8 +158,9 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "IntType"
+field = "op"
+field_type = "Token"
+token = "-"
 
 [[nodes]]
 class = "BinaryOp"
@@ -168,9 +169,8 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "-"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -212,11 +212,6 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
-class = "UnaryOp"
 field = "expr"
 field_type = "IdExpr"
 
@@ -225,6 +220,11 @@ class = "UnaryOp"
 field = "op"
 field_type = "Token"
 token = "-"
+
+[[nodes]]
+class = "UnaryOp"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "PrintStmt"

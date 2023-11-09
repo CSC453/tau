@@ -1,6 +1,6 @@
 source = "tau/tests/t280.tau"
 hash = "180d80e2f384c31a8ecfb23d2bbc1c937c23f1b13b2c584790000a8a0a497e89"
-tokens = ["INT", "print", "EOF", "call", "ID", ":", "int", "func", "{", "}", "void", "(", ")"]
+tokens = ["void", ")", "EOF", "call", "INT", "print", "(", "}", "int", "ID", "func", "{", ":"]
 error = "NameError"
 
 [[nodes]]
@@ -10,18 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "Phony_Scope"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -30,18 +20,23 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Phony_Symbol"
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "Phony_Scope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "ParamDecl"
 
 [[nodes]]
 class = "Id"
@@ -53,6 +48,11 @@ token = "ID"
 class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Phony_Symbol"
 
 [[nodes]]
 class = "ParamDecl"
@@ -93,6 +93,11 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "CallStmt"
 
@@ -100,11 +105,6 @@ field_type = "CallStmt"
 class = "CompoundStmt"
 field = "local_scope"
 field_type = "Phony_Scope"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
 
 [[nodes]]
 class = "CallStmt"

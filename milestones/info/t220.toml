@@ -1,6 +1,6 @@
 source = "tau/tests/t220.tau"
 hash = "e7c62bc30280795e9b581670a8af4821ee768209ad864892cdbdd50cea243394"
-tokens = ["false", "not", ":", "=", ")", "print", "bool", "func", "}", "return", "true", "ID", "{", "var", "(", "EOF", "void"]
+tokens = ["print", "var", "EOF", "}", "not", ":", "return", "ID", "{", "void", "(", "true", "false", ")", "=", "bool", "func"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "BoolType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,13 +19,13 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "params"
+field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -38,9 +33,9 @@ field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "BoolType"
 
 [[nodes]]
 class = "Id"
@@ -54,13 +49,18 @@ field = "symbol"
 field_type = "Symbol"
 
 [[nodes]]
-class = "ParamDecl"
+class = "Id"
 field = "semantic_type"
-field_type = "BoolType"
+field_type = "FuncType"
 
 [[nodes]]
 class = "ParamDecl"
 field = "type_ast"
+field_type = "BoolType"
+
+[[nodes]]
+class = "ParamDecl"
+field = "semantic_type"
 field_type = "BoolType"
 
 [[nodes]]
@@ -91,13 +91,13 @@ field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "ReturnStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "stmts"
+field_type = "ReturnStmt"
 
 [[nodes]]
 class = "ReturnStmt"
@@ -111,14 +111,14 @@ field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "value"
-field_type = "bool"
-
-[[nodes]]
-class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "false"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "value"
+field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -127,13 +127,13 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "VoidType"
@@ -148,6 +148,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
 
@@ -157,18 +162,13 @@ field = "stmts"
 field_type = "PrintStmt"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
-
-[[nodes]]
 class = "VarDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "BoolType"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "BoolType"
 
 [[nodes]]
@@ -209,6 +209,12 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
+field = "op"
+field_type = "Token"
+token = "not"
+
+[[nodes]]
+class = "UnaryOp"
 field = "expr"
 field_type = "CallExpr"
 
@@ -216,17 +222,6 @@ field_type = "CallExpr"
 class = "UnaryOp"
 field = "semantic_type"
 field_type = "BoolType"
-
-[[nodes]]
-class = "UnaryOp"
-field = "op"
-field_type = "Token"
-token = "not"
-
-[[nodes]]
-class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"
@@ -239,19 +234,24 @@ field = "semantic_type"
 field_type = "BoolType"
 
 [[nodes]]
+class = "CallExpr"
+field = "fn"
+field_type = "IdExpr"
+
+[[nodes]]
 class = "IdExpr"
 field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
 class = "Argument"
-field = "expr"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "Argument"
-field = "semantic_type"
-field_type = "BoolType"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "PrintStmt"

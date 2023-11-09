@@ -1,6 +1,6 @@
 source = "tau/tests/t165.tau"
 hash = "974ab61ae25ad9263cc75a6b7f44905984c8da4a8567e6ab6e06dcacf09afc60"
-tokens = ["{", "int", "return", "func", "ID", "}", ":", "(", "INT", "true", ")", "print", "EOF"]
+tokens = ["func", "ID", "true", "return", "{", "INT", "int", "}", "(", "print", ":", "EOF", ")"]
 error = "TypeError"
 
 [[nodes]]
@@ -10,8 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,18 +20,18 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -67,11 +67,6 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "stmts"
 field_type = "PrintStmt"
 
@@ -79,6 +74,11 @@ field_type = "PrintStmt"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "ReturnStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -103,18 +103,18 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "NoneType"
-
-[[nodes]]
-class = "ReturnStmt"
 field = "expr"
 field_type = "BoolLiteral"
 
 [[nodes]]
+class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "NoneType"
+
+[[nodes]]
 class = "BoolLiteral"
-field = "value"
-field_type = "bool"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -124,6 +124,6 @@ token = "true"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "value"
+field_type = "bool"
 

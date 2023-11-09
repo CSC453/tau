@@ -1,6 +1,6 @@
 source = "tau/tests/t110.tau"
 hash = "61354fa09e52d45a4b3e283ca889dda63b77cb1d29ba67f7a1697275b36bc0a3"
-tokens = ["ID", "(", "var", "void", "EOF", "}", "int", "{", ")", "func", ":"]
+tokens = [")", "ID", "{", "}", "EOF", ":", "var", "void", "(", "func", "int"]
 error = "NameError"
 
 [[nodes]]
@@ -10,8 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,13 +25,13 @@ field_type = "Phony_Scope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "params"
+field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -40,19 +40,24 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "symbol"
+field_type = "Phony_Symbol"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Phony_Symbol"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "ParamDecl"
+field = "type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "ParamDecl"
@@ -63,11 +68,6 @@ field_type = "Phony_Type"
 class = "ParamDecl"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "ParamDecl"
-field = "type_ast"
-field_type = "IntType"
 
 [[nodes]]
 class = "IntType"
@@ -93,6 +93,11 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "local_scope"
 field_type = "Phony_Scope"
 
@@ -102,9 +107,9 @@ field = "stmts"
 field_type = "<empty>"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
+class = "VarDecl"
+field = "type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
@@ -115,9 +120,4 @@ field_type = "Phony_Type"
 class = "VarDecl"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "VarDecl"
-field = "type_ast"
-field_type = "IntType"
 
