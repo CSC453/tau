@@ -11,6 +11,7 @@ def main() -> None:
     title: str = ""
     minutes: float = 0.0
     previous_score: float = 0.0
+    use_best: bool = args.use_best
     if args.title:
         title = args.title
     else:
@@ -36,7 +37,7 @@ def main() -> None:
             else:
                 print(f"Minutes early: {-minutes}")
             previous_score: float = 0.0
-            if len(previous_submissions) > 0:
+            if use_best and len(previous_submissions) > 0:
                 most_recent = max(
                     previous_submissions, key=lambda x: x["submission_time"]
                 )
@@ -77,9 +78,7 @@ def main() -> None:
             threshold: float = found["threshold"]
             do_gradescope(inputs, output, threshold, minutes, previous_score)
         case _:
-            raise NotImplementedError(
-                f"Unknown tester type: {found['tester']}"
-            )
+            raise NotImplementedError(f"Unknown tester type: {found['tester']}")
 
 
 def get_args():
@@ -95,6 +94,9 @@ def get_args():
         type=str,
         help="JSON output file",
         default="",
+    )
+    parser.add_argument(
+        "--use_best", action="store_true", default=False, help="Use best score so far"
     )
     return parser.parse_args()
 

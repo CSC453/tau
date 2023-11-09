@@ -8,6 +8,7 @@ func f(x:int):int{
 }
 func main():void{
     var x : int 
+    x = 101
     x = x + f(x)
     print x
 }
