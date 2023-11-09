@@ -1,6 +1,6 @@
 source = "tau/tests/t178.tau"
 hash = "464085af284911d9e133c6256b1e1c1dd4049eaecf9b982f839adca50ade77ab"
-tokens = [":", "(", "INT", ")", "[", "}", "ID", "int", "{", "EOF", "]", "=", "var", "void", "func"]
+tokens = ["EOF", "=", "void", "var", "int", "{", "func", ":", "}", "INT", "]", "[", "ID", "(", ")"]
 
 [[nodes]]
 class = "Program"
@@ -9,18 +9,18 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,8 +29,8 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -71,13 +71,13 @@ field_type = "VarDecl"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "stmts"
+field_type = "AssignStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "AssignStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "VarDecl"
@@ -86,12 +86,12 @@ field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "ArrayType"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "ArrayType"
 
 [[nodes]]
@@ -101,13 +101,13 @@ field_type = "ArrayType"
 
 [[nodes]]
 class = "ArrayType"
-field = "semantic_type"
-field_type = "ArrayType"
+field = "element_type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "ArrayType"
-field = "element_type_ast"
-field_type = "IntType"
+field = "semantic_type"
+field_type = "ArrayType"
 
 [[nodes]]
 class = "IntType"
@@ -122,18 +122,18 @@ field_type = "IntType"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "ArrayCell"
-
-[[nodes]]
-class = "AssignStmt"
 field = "rhs"
 field_type = "IntLiteral"
 
 [[nodes]]
+class = "AssignStmt"
+field = "lhs"
+field_type = "ArrayCell"
+
+[[nodes]]
 class = "ArrayCell"
-field = "semantic_type"
-field_type = "IntType"
+field = "arr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "ArrayCell"
@@ -142,8 +142,8 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "ArrayCell"
-field = "arr"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IdExpr"

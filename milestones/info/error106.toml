@@ -1,5 +1,5 @@
 source = "tau/tests/error106.tau"
 hash = "88eab66cdf6f83aa9384d917a2d9540d33913cbc3b0b74eafca9b3924173c1ff"
-tokens = ["INT", "ID", "EOF"]
+tokens = ["EOF", "INT", "ID"]
 error = "ParseErrorException"
 

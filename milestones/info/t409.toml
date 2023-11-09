@@ -1,6 +1,6 @@
 source = "tau/tests/t409.tau"
 hash = "ff5cccfe7d38927f38f513f8c676f462456bac415053273f140cfebc1c6baf7d"
-tokens = [":", "*", "<", "<=", ">", ">=", "INT", "(", "{", "void", "!=", "print", "-", "ID", "func", ")", "+", "==", "EOF", "}"]
+tokens = ["(", "{", "!=", ">", "}", ">=", "+", "void", "==", ")", ":", "*", "EOF", "<", "<=", "func", "ID", "-", "INT", "print"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,8 +19,13 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,11 +34,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
-class = "FuncDecl"
+class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
 
@@ -41,11 +46,6 @@ field_type = "FuncType"
 class = "Id"
 field = "symbol"
 field_type = "Symbol"
-
-[[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -96,11 +96,6 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "BinaryOp"
-
-[[nodes]]
-class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "<"
@@ -108,6 +103,11 @@ token = "<"
 [[nodes]]
 class = "BinaryOp"
 field = "right"
+field_type = "BinaryOp"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
 field_type = "BinaryOp"
 
 [[nodes]]
@@ -128,13 +128,13 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "IntLiteral"
+field = "right"
+field_type = "UnaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "UnaryOp"
+field = "left"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
@@ -149,11 +149,6 @@ token = "INT"
 
 [[nodes]]
 class = "UnaryOp"
-field = "expr"
-field_type = "IntLiteral"
-
-[[nodes]]
-class = "UnaryOp"
 field = "semantic_type"
 field_type = "IntType"
 
@@ -162,6 +157,11 @@ class = "UnaryOp"
 field = "op"
 field_type = "Token"
 token = "-"
+
+[[nodes]]
+class = "UnaryOp"
+field = "expr"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"

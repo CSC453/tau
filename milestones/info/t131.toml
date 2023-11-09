@@ -1,6 +1,6 @@
 source = "tau/tests/t131.tau"
 hash = "dd2049d3ec4c0fbb8aa12f77086edec3d4af740c9ad3d1e3d1a224543e8716e4"
-tokens = ["func", "true", "ID", "(", "not", "EOF", "}", "void", "{", "print", ")", ":"]
+tokens = ["{", "(", "void", "EOF", ":", ")", "print", "true", "not", "func", "}", "ID"]
 
 [[nodes]]
 class = "Program"
@@ -9,18 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -38,14 +33,19 @@ field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -86,12 +86,6 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
-field = "op"
-field_type = "Token"
-token = "not"
-
-[[nodes]]
-class = "UnaryOp"
 field = "expr"
 field_type = "UnaryOp"
 
@@ -99,6 +93,12 @@ field_type = "UnaryOp"
 class = "UnaryOp"
 field = "semantic_type"
 field_type = "BoolType"
+
+[[nodes]]
+class = "UnaryOp"
+field = "op"
+field_type = "Token"
+token = "not"
 
 [[nodes]]
 class = "UnaryOp"

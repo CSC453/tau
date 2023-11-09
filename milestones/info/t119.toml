@@ -1,6 +1,6 @@
 source = "tau/tests/t119.tau"
 hash = "51346ebd19ae5308fe3a5d831fc9148ab8c1bfe26c085a2adb7843a6b8019e0e"
-tokens = [")", "EOF", "ID", "{", "(", "print", "}", ":", "-", "void", "INT", "func"]
+tokens = ["void", "(", "print", "-", "ID", "}", ":", ")", "INT", "EOF", "func", "{"]
 
 [[nodes]]
 class = "Program"
@@ -14,13 +14,13 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,8 +29,8 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -44,14 +44,14 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "token"
+field_type = "Token"
+token = "ID"
 
 [[nodes]]
 class = "VoidType"

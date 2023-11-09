@@ -32,10 +32,6 @@ class = "ArrayType"
 
 [[exclude]]
 [[exclude.nodes]]
-class = "CallExpr"
-
-[[exclude]]
-[[exclude.nodes]]
 class = "IfStmt"
 
 [[exclude]]
