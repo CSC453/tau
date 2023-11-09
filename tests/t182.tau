@@ -1,5 +1,6 @@
 func main():void{
     var b : bool
+    b = true
     if b{
         print 1
     }else{
