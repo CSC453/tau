@@ -9,6 +9,10 @@ func foo():void{
     var b : int
     var c : int
     var d : int
+    a = 1
+    b = 2
+    c = 3
+    d = 4
     d = foo1(a,b,c)
     print(d)
 }

@@ -15,18 +15,24 @@ func foo2(a:int, b:int, c:int) : void{
 func foo1() : void{
     var a:int 
     var b : int
+    a = 1
+    b = 3
     {
         var c : int 
+	c = 7
         call foo2 (a,b,c)
     }
     {
         var d : int 
+	d = 11
         call foo2(a,b,d)
     }
     {   
         var d : int
+	d = 13
         {
             var c : int 
+	    c = 17
             call foo2 ( a, c, d)
         }
     }
