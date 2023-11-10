@@ -1,0 +1,31 @@
+func g(x:bool): int {
+    if x  {
+        print 88
+        return x
+    }
+    print 99
+    return 1
+}
+func f(x:bool): int {
+    call g(1)
+    call g(0)
+    call g(1)
+    if x {
+        print g(2)
+        return 2
+    } else {
+        print g(3)
+        return 3
+    }
+    print 3
+    call g(0)
+    print 5
+}
+func main(): int {
+    print 4
+    call f(1)
+    print 6
+    call g(2)
+    call g(8)
+    print 7
+}
