@@ -1,12 +1,22 @@
 source = "tau/tests/t300.tau"
 hash = "2413cc417cfd885d1f8e27d1a71b5959b182e70d4dc577fee64e456494d64419"
-tokens = ["var", "==", "{", "}", "return", "and", "INT", "+", "ID", "false", "bool", ":", "void", "true", "int", "EOF", "func", "if", "print", ")", "("]
+tokens = ["}", "print", "==", "func", "(", "INT", "if", "{", "return", "int", "EOF", ":", "var", "bool", "false", "ID", "void", "and", "+", ")", "true"]
 error = "TypeError"
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "BoolType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,23 +30,18 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "BoolType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -50,11 +55,6 @@ field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
 class = "BoolType"
 field = "semantic_type"
 field_type = "Phony_Type"
@@ -64,6 +64,11 @@ class = "BoolType"
 field = "token"
 field_type = "Token"
 token = "bool"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -81,9 +86,9 @@ field = "stmts"
 field_type = "ReturnStmt"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+class = "VarDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
@@ -94,11 +99,6 @@ field_type = "IntType"
 class = "VarDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
-
-[[nodes]]
-class = "VarDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "IntType"
@@ -113,13 +113,13 @@ token = "int"
 
 [[nodes]]
 class = "IfStmt"
-field = "elseStmt"
-field_type = "NoneType"
+field = "expr"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "IfStmt"
-field = "expr"
-field_type = "BinaryOp"
+field = "elseStmt"
+field_type = "NoneType"
 
 [[nodes]]
 class = "IfStmt"
@@ -128,13 +128,14 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
+field = "op"
+field_type = "Token"
+token = "=="
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "right"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
@@ -143,12 +144,6 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "=="
-
-[[nodes]]
-class = "IdExpr"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -156,6 +151,11 @@ field_type = "Phony_Type"
 class = "IdExpr"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "IdExpr"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntLiteral"
@@ -175,13 +175,18 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "ReturnStmt"
+field = "expr"
+field_type = "BoolLiteral"
+
+[[nodes]]
+class = "ReturnStmt"
 field = "enclosing_function"
 field_type = "NoneType"
 
 [[nodes]]
-class = "ReturnStmt"
-field = "expr"
-field_type = "BoolLiteral"
+class = "BoolLiteral"
+field = "value"
+field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -193,11 +198,6 @@ class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "false"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "value"
-field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -233,6 +233,12 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
+field = "op"
+field_type = "Token"
+token = "and"
+
+[[nodes]]
+class = "BinaryOp"
 field = "right"
 field_type = "BinaryOp"
 
@@ -245,18 +251,12 @@ field_type = "BoolLiteral"
 class = "BinaryOp"
 field = "op"
 field_type = "Token"
-token = "and"
+token = "+"
 
 [[nodes]]
 class = "BinaryOp"
 field = "left"
 field_type = "CallExpr"
-
-[[nodes]]
-class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "+"
 
 [[nodes]]
 class = "CallExpr"

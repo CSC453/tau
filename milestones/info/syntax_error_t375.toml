@@ -1,6 +1,6 @@
 source = "tau/tests/syntax_error_t375.tau"
 hash = "a3050cba6c6ef26f107ec42fad55c31b420c191c7b4f894fff0ed0ab2b43c330"
 pragmas = ["recursive"]
-tokens = ["<", "+", ",", "func", "ID", "-", "!=", "=", ")", "return", "(", "EOF", "var", "{", "if", "else", "void", ":", "}", "int", "INT", "print"]
+tokens = ["print", "var", ",", "{", "ID", "int", "func", "(", "return", "!=", "-", "=", "else", "INT", "+", "}", "<", "if", ")", ":", "EOF", "void"]
 error = "ParseErrorException"
 

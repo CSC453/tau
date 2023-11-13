@@ -1,16 +1,11 @@
 source = "tau/tests/t439.tau"
-hash = "de4cc0f45586fd520d355a21a716bfd5553fab57170f39916ac77bc26e98a8e9"
-tokens = ["var", ",", "ID", "void", "print", "(", "}", "return", ")", "INT", "EOF", ":", "func", "call", "{", "int"]
+hash = "e50cbbcf2fb68295ce99f8ba6bd79f12234af74b5b06dc3c81564edf15f401ea"
+tokens = ["print", "void", "func", "(", ":", "INT", "ID", "int", "var", "call", "EOF", "return", "}", ",", ")", "=", "{"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
@@ -38,9 +33,9 @@ field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+class = "FuncDecl"
+field = "params"
+field_type = "ParamDecl"
 
 [[nodes]]
 class = "Id"
@@ -52,6 +47,11 @@ token = "ID"
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "ParamDecl"
@@ -107,13 +107,13 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "PrintStmt"
@@ -194,6 +194,21 @@ field_type = "IntType"
 [[nodes]]
 class = "CompoundStmt"
 field = "stmts"
+field_type = "AssignStmt"
+
+[[nodes]]
+class = "AssignStmt"
+field = "lhs"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "AssignStmt"
+field = "rhs"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
 field_type = "CallStmt"
 
 [[nodes]]
@@ -203,13 +218,13 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
+field = "args"
+field_type = "Argument"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "Argument"
+field = "fn"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"

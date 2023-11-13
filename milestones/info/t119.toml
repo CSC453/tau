@@ -1,16 +1,11 @@
 source = "tau/tests/t119.tau"
 hash = "51346ebd19ae5308fe3a5d831fc9148ab8c1bfe26c085a2adb7843a6b8019e0e"
-tokens = ["void", "-", "print", "}", "{", "(", "INT", "func", "ID", ")", "EOF", ":"]
+tokens = ["print", "void", "-", "EOF", ")", ":", "INT", "{", "(", "ID", "}", "func"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -21,6 +16,11 @@ field_type = "<empty>"
 class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -39,11 +39,6 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
@@ -54,9 +49,9 @@ field = "symbol"
 field_type = "Symbol"
 
 [[nodes]]
-class = "VoidType"
+class = "Id"
 field = "semantic_type"
-field_type = "VoidType"
+field_type = "FuncType"
 
 [[nodes]]
 class = "VoidType"
@@ -65,14 +60,14 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+class = "VoidType"
+field = "semantic_type"
+field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -80,9 +75,19 @@ field = "decls"
 field_type = "<empty>"
 
 [[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
 class = "PrintStmt"
 field = "expr"
 field_type = "UnaryOp"
+
+[[nodes]]
+class = "UnaryOp"
+field = "expr"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "UnaryOp"
@@ -96,18 +101,13 @@ field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
-class = "UnaryOp"
-field = "expr"
-field_type = "IntLiteral"
+class = "IntLiteral"
+field = "token"
+field_type = "Token"
+token = "INT"
 
 [[nodes]]
 class = "IntLiteral"
 field = "semantic_type"
 field_type = "IntType"
-
-[[nodes]]
-class = "IntLiteral"
-field = "token"
-field_type = "Token"
-token = "INT"
 

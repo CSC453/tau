@@ -38,10 +38,12 @@ tau/tests/t136.tau
 tau/tests/t137.tau
 tau/tests/t138.tau
 tau/tests/t139.tau
+tau/tests/t140.tau
 tau/tests/t141.tau
 tau/tests/t142.tau
 tau/tests/t143.tau
 tau/tests/t144.tau
+tau/tests/t145.tau
 tau/tests/t146.tau
 tau/tests/t147.tau
 tau/tests/t148.tau
@@ -340,3 +342,4 @@ tau/tests/t445.tau
 tau/tests/t446.tau
 tau/tests/t500.tau
 tau/tests/t501.tau
+tau/tests/t502.tau

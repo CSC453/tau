@@ -1,5 +1,5 @@
 source = "tau/tests/t381.tau"
 hash = "d959607a6573dd254b6ac6c168982f2d4e2bc01f21b58b0091616eaa8322420b"
-tokens = ["}", "[", "int", "call", "(", "var", "EOF", "+", "void", ")", ":", "INT", "func", "{", "ID", "]", "="]
+tokens = ["=", "ID", "call", "INT", "}", "int", ")", "func", "{", "+", "EOF", "(", "[", "var", "void", "]", ":"]
 error = "ParseErrorException"
 

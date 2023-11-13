@@ -1,6 +1,6 @@
 source = "tau/tests/t162.tau"
-hash = "0b43835340a440ec23ecf71621830209c7a1de8de4f35c2de06971d1e7a0d830"
-tokens = ["ID", ":", "{", "EOF", "}", "func", "print", "void", "(", ")"]
+hash = "b53e8368288b7fa98d6ed76fb5a780ee14d56745fa79ed25a680bd0f7ddca2e7"
+tokens = ["void", "=", "(", "EOF", "print", "}", "func", "INT", "{", ":", "ID", ")"]
 error = "NameError"
 
 [[nodes]]
@@ -10,8 +10,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,18 +30,13 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
@@ -67,13 +67,18 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "local_scope"
 field_type = "Phony_Scope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "stmts"
+field_type = "AssignStmt"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -81,9 +86,19 @@ field = "stmts"
 field_type = "PrintStmt"
 
 [[nodes]]
-class = "PrintStmt"
-field = "expr"
+class = "AssignStmt"
+field = "lhs"
 field_type = "IdExpr"
+
+[[nodes]]
+class = "AssignStmt"
+field = "rhs"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "IdExpr"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "IdExpr"
@@ -91,7 +106,18 @@ field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
-class = "IdExpr"
-field = "id"
-field_type = "Id"
+class = "IntLiteral"
+field = "token"
+field_type = "Token"
+token = "INT"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "PrintStmt"
+field = "expr"
+field_type = "IdExpr"
 

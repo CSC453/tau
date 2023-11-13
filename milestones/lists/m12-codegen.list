@@ -9,6 +9,7 @@ tau/tests/t117.tau
 tau/tests/t118.tau
 tau/tests/t120.tau
 tau/tests/t133.tau
+tau/tests/t145.tau
 tau/tests/t154.tau
 tau/tests/t159.tau
 tau/tests/t171.tau
@@ -19,7 +20,6 @@ tau/tests/t234.tau
 tau/tests/t286.tau
 tau/tests/t287.tau
 tau/tests/t352.tau
-tau/tests/t373.tau
 tau/tests/t378.tau
 tau/tests/t386.tau
 tau/tests/t403.tau

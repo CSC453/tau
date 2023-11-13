@@ -1,6 +1,6 @@
 source = "tau/tests/t392.tau"
 hash = "50aaceaf097c855b6b0ff53f5c947924cca67e19aaa792bfbbfee29c9930a5aa"
-tokens = ["(", "{", "void", "}", "EOF", "var", "func", "int", ":", ",", "ID", ")", "=", "+"]
+tokens = ["int", ")", ":", "+", "EOF", "func", ",", "{", "=", "}", "var", "(", "ID", "void"]
 error = "NameError"
 
 [[nodes]]
@@ -10,23 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "Phony_Scope"
-
-[[nodes]]
-class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
@@ -35,18 +20,23 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Phony_Symbol"
+class = "FuncDecl"
+field = "func_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "Phony_Type"
+class = "FuncDecl"
+field = "params"
+field_type = "ParamDecl"
 
 [[nodes]]
 class = "Id"
@@ -55,7 +45,12 @@ field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "ParamDecl"
+class = "Id"
+field = "symbol"
+field_type = "Phony_Symbol"
+
+[[nodes]]
+class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -70,7 +65,7 @@ field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
-class = "IntType"
+class = "ParamDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -81,7 +76,7 @@ field_type = "Token"
 token = "int"
 
 [[nodes]]
-class = "VoidType"
+class = "IntType"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -90,6 +85,16 @@ class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -107,16 +112,6 @@ field = "decls"
 field_type = "VarDecl"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "Phony_Scope"
-
-[[nodes]]
-class = "VarDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
 class = "VarDecl"
 field = "id"
 field_type = "Id"
@@ -127,14 +122,19 @@ field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
-class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+class = "VarDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "AssignStmt"
 field = "rhs"
 field_type = "BinaryOp"
+
+[[nodes]]
+class = "AssignStmt"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"

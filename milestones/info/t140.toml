@@ -1,5 +1,113 @@
 source = "tau/tests/t140.tau"
-hash = "5d5e3c9cf9e7db494ae1ca4dad38f3798ec4a9214a995e5e18ffa6d50d7cfeec"
-tokens = ["bool", "{", "print", "}", "EOF", "func", "INT", "ID", ")", "(", ":"]
-error = "ParseErrorException"
+hash = "61320873bd6019a82776f7fc2fba4f543cd5e5e8793dceccb83cdd901d8030e4"
+tokens = ["(", "print", "}", "func", "ID", "INT", "{", "return", ")", "EOF", "bool", ":"]
+error = "TypeError"
+
+[[nodes]]
+class = "Program"
+field = "decls"
+field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "BoolType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "BoolType"
+field = "token"
+field_type = "Token"
+token = "bool"
+
+[[nodes]]
+class = "BoolType"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "ReturnStmt"
+
+[[nodes]]
+class = "PrintStmt"
+field = "expr"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "IntLiteral"
+field = "token"
+field_type = "Token"
+token = "INT"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "ReturnStmt"
+field = "expr"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "NoneType"
 

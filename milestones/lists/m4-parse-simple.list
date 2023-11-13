@@ -13,7 +13,9 @@ tau/tests/t117.tau
 tau/tests/t118.tau
 tau/tests/t120.tau
 tau/tests/t133.tau
+tau/tests/t140.tau
 tau/tests/t144.tau
+tau/tests/t145.tau
 tau/tests/t154.tau
 tau/tests/t157.tau
 tau/tests/t159.tau
@@ -36,11 +38,7 @@ tau/tests/t293.tau
 tau/tests/t296.tau
 tau/tests/t344.tau
 tau/tests/t352.tau
-tau/tests/t360.tau
-tau/tests/t373.tau
 tau/tests/t378.tau
-tau/tests/t380.tau
-tau/tests/t385.tau
 tau/tests/t386.tau
 tau/tests/t401.tau
 tau/tests/t403.tau
@@ -60,3 +58,4 @@ tau/tests/t440.tau
 tau/tests/t441.tau
 tau/tests/t446.tau
 tau/tests/t500.tau
+tau/tests/t502.tau
