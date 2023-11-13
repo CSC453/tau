@@ -1,6 +1,8 @@
 func g(a:int, b:int):int{
     var j : int
     var k : int
+    j = 88
+    k = 99
     print a 
     {
         print b
@@ -16,10 +18,13 @@ func g(a:int, b:int):int{
 func main() : void{
     var a : int 
     var b : int 
+    a = 10
+    b = 20
     {
         print 101
         {
             var a100: int 
+            a100 = 77
             print a100
         }
         {

@@ -6,6 +6,7 @@ func f2(x:int) : void{
     print x
 }
 func main() : void{
+    var x: int
     call f1(x)
 }
 //f2 should be defined above f1

@@ -10,6 +10,7 @@ func foo1(n:int):int{
 }
 func f1(i:int, j:int, k:int, m:int) : void{
     var n : int
+    n = 77
     print i
     print j 
     {
@@ -31,6 +32,10 @@ func main() : int{
         {
             var m : int
             {
+                i = 2
+                j = 3
+                k = 4
+                m = 5
                 call f1(i, j ,k ,m)
             }
         }

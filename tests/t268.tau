@@ -6,5 +6,7 @@ func foo(a : int, b : int) :void{
 func main():void{
     var a : int 
     var b : int
+    a = 9
+    b = 31
     call foo(a,b)
 }

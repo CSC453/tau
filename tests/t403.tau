@@ -21,6 +21,7 @@ func foo2(a:int):int{
 }
 func main() : void{ 
     var a : int 
+    a = 99
     print 1 
     print 2 
     print 3 

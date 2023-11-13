@@ -1,7 +1,9 @@
 func y():void{
     var z : bool
+    z = false
     while z {
         var x : bool
+        x = false
         while x {
             var a : bool
             while a{

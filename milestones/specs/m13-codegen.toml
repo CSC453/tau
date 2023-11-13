@@ -17,3 +17,6 @@ error = "TypeError"
 [[exclude]]
 pragmas = ["recursive"]
 
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayType"

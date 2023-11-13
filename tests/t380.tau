@@ -2,6 +2,9 @@ func main():void{
     var b : bool
     var c : bool
     var a : bool
+    a = false
+    b = a and a
+    c = a or true
     if a{
         print 1
     }

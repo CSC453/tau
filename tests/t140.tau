@@ -1,5 +1,5 @@
 func main() : bool {
     print 12
 
-    retrun 100
+    return 100
 }

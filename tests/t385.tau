@@ -1,8 +1,10 @@
 func main():void{
     var abcd : bool
+    abcd = true
     while abcd {
         if abcd{
             print 123
+            abcd = not abcd
         }else{
             var a : bool
             while a{

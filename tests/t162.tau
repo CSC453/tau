@@ -1,4 +1,4 @@
 func main() : void{
-    // printing x without initializing it
+    x = 999
     print x
 }

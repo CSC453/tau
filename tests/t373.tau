@@ -7,12 +7,15 @@ func foo(a:int):int{
     {
         var m : int
     }
-    return 10
+    return 10+a
 }
 func main() : void{
     var a: int
     var b : int 
     var c : int 
+    a = 10
+    b = 20
+    c = 30
     {
         print foo(a)
     }

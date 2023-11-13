@@ -38,6 +38,9 @@ func main() : void{
                 {
                     {
                         var c: int
+                        a = 1
+                        b = 2
+                        c = 3
                         call f1(a,b,c)
                     }
                 }
