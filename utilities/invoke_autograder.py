@@ -11,7 +11,7 @@ def main() -> None:
     title: str = ""
     minutes: float = 0.0
     previous_score: float = 0.0
-    use_best: bool = args.use_best
+    args.use_best
     if args.title:
         title = args.title
     else:
@@ -37,7 +37,7 @@ def main() -> None:
             else:
                 print(f"Minutes early: {-minutes}")
             previous_score: float = 0.0
-            if use_best and len(previous_submissions) > 0:
+            if len(previous_submissions) > 0:
                 most_recent = max(
                     previous_submissions, key=lambda x: x["submission_time"]
                 )
@@ -56,6 +56,10 @@ def main() -> None:
                 break
     print(f"Found grader: {found}")
     assert found is not None
+
+    use_best: bool = args.use_best or ("use_best" in found and found["use_best"])
+    if not use_best:
+        previous_score = 0.0
 
     if args.output:
         output: str = args.output

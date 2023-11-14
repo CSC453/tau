@@ -79,3 +79,4 @@ name = "M14"
 tester = "testerator"
 pickle = "m14-codegen.pickle"
 threshold = 0.80
+use_best = true

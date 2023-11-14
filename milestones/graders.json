@@ -80,7 +80,8 @@
       "name": "M14",
       "tester": "testerator",
       "pickle": "m14-codegen.pickle",
-      "threshold": 0.8
+      "threshold": 0.8,
+      "use_best": true
     }
   ]
 }
