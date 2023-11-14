@@ -1,6 +1,6 @@
 source = "tau/tests/t140.tau"
 hash = "61320873bd6019a82776f7fc2fba4f543cd5e5e8793dceccb83cdd901d8030e4"
-tokens = ["(", "print", "}", "func", "ID", "INT", "{", "return", ")", "EOF", "bool", ":"]
+tokens = ["func", ":", "print", "ID", "(", ")", "{", "}", "EOF", "return", "bool", "INT"]
 error = "TypeError"
 
 [[nodes]]
@@ -15,13 +15,8 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "ret_type_ast"
+field_type = "BoolType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -30,13 +25,18 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "BoolType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "Id"
@@ -46,13 +46,13 @@ token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "BoolType"
@@ -103,11 +103,11 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "expr"
-field_type = "IntLiteral"
+field = "enclosing_function"
+field_type = "NoneType"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "NoneType"
+field = "expr"
+field_type = "IntLiteral"
 

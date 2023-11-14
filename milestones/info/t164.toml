@@ -1,6 +1,6 @@
 source = "tau/tests/t164.tau"
 hash = "290ad753e8c500131fdd395bdc866f0423fe563a2150bfd081324cfbe47ba0e0"
-tokens = [":", "int", "func", "return", "ID", "{", "EOF", "INT", "+", "(", "}", ")"]
+tokens = ["ID", "(", ":", ")", "INT", "}", "int", "EOF", "func", "+", "{", "return"]
 error = "NameError"
 
 [[nodes]]
@@ -20,23 +20,23 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "IntType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "Phony_Scope"
-
-[[nodes]]
-class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "IntType"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "Id"
@@ -82,13 +82,13 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "expr"
-field_type = "BinaryOp"
+field = "enclosing_function"
+field_type = "NoneType"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "NoneType"
+field = "expr"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
@@ -103,13 +103,13 @@ token = "+"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "IntLiteral"
+field = "right"
+field_type = "CallExpr"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "CallExpr"
+field = "left"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
@@ -124,6 +124,11 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "CallExpr"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "CallExpr"
 field = "fn"
 field_type = "IdExpr"
 
@@ -131,11 +136,6 @@ field_type = "IdExpr"
 class = "CallExpr"
 field = "args"
 field_type = "<empty>"
-
-[[nodes]]
-class = "CallExpr"
-field = "semantic_type"
-field_type = "Phony_Type"
 
 [[nodes]]
 class = "IdExpr"

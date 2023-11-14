@@ -1,6 +1,6 @@
 source = "tau/tests/t266.tau"
 hash = "551ba2b8dc3ba5117b6f8e7599704cf317bc7fb04fb677c8383d521acc633c42"
-tokens = ["ID", "(", "var", "print", "}", ":", ")", "INT", "int", "{", "+", "EOF", "=", "void", "func"]
+tokens = ["+", "func", "print", "{", "var", "(", "=", "EOF", "ID", "void", ")", "int", "}", ":", "INT"]
 error = "NameError"
 
 [[nodes]]
@@ -10,8 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,18 +25,18 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
@@ -67,6 +67,16 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "Phony_Scope"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "CompoundStmt"
 
@@ -77,23 +87,13 @@ field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "Phony_Scope"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "decls"
-field_type = "<empty>"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
@@ -123,13 +123,13 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "IntLiteral"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -159,8 +159,8 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
+field = "left"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
@@ -170,13 +170,13 @@ token = "+"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "right"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "PrintStmt"

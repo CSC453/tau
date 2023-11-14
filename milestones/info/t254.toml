@@ -1,6 +1,6 @@
 source = "tau/tests/t254.tau"
 hash = "dc89ef0a3c75ed5f3666c78a3d5deabc155fd8b1eb62164f772ea72dfd88735d"
-tokens = ["ID", "print", ":", "}", "+", "void", "{", "EOF", "return", "(", ")", "INT", "int", ",", "func"]
+tokens = ["ID", ":", "int", "EOF", ",", "(", ")", "}", "+", "void", "print", "INT", "{", "return", "func"]
 
 [[nodes]]
 class = "Program"
@@ -14,13 +14,8 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "params"
+field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +24,18 @@ field_type = "IntType"
 
 [[nodes]]
 class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
@@ -44,14 +44,14 @@ field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "ParamDecl"
@@ -60,21 +60,16 @@ field_type = "Id"
 
 [[nodes]]
 class = "ParamDecl"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
-class = "ParamDecl"
 field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
-class = "Id"
+class = "ParamDecl"
 field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
-class = "IntType"
+class = "Id"
 field = "semantic_type"
 field_type = "IntType"
 
@@ -85,9 +80,9 @@ field_type = "Token"
 token = "int"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+class = "IntType"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -100,9 +95,9 @@ field = "stmts"
 field_type = "ReturnStmt"
 
 [[nodes]]
-class = "ReturnStmt"
-field = "expr"
-field_type = "BinaryOp"
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "ReturnStmt"
@@ -110,10 +105,20 @@ field = "enclosing_function"
 field_type = "FuncDecl"
 
 [[nodes]]
+class = "ReturnStmt"
+field = "expr"
+field_type = "BinaryOp"
+
+[[nodes]]
 class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "+"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
@@ -124,11 +129,6 @@ field_type = "IdExpr"
 class = "BinaryOp"
 field = "semantic_type"
 field_type = "IntType"
-
-[[nodes]]
-class = "BinaryOp"
-field = "left"
-field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -142,17 +142,12 @@ field_type = "IntType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
 
 [[nodes]]
-class = "VoidType"
-field = "semantic_type"
+class = "FuncDecl"
+field = "ret_type_ast"
 field_type = "VoidType"
 
 [[nodes]]
@@ -160,6 +155,11 @@ class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -173,23 +173,23 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "CallExpr"
-
-[[nodes]]
-class = "BinaryOp"
 field = "left"
 field_type = "CallExpr"
 
 [[nodes]]
-class = "CallExpr"
-field = "args"
-field_type = "Argument"
+class = "BinaryOp"
+field = "right"
+field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
 field = "fn"
 field_type = "IdExpr"
+
+[[nodes]]
+class = "CallExpr"
+field = "args"
+field_type = "Argument"
 
 [[nodes]]
 class = "CallExpr"
@@ -213,12 +213,12 @@ field_type = "IntType"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
-class = "IntLiteral"
 field = "token"
 field_type = "Token"
 token = "INT"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 

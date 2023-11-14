@@ -1,6 +1,6 @@
 source = "tau/tests/t396.tau"
 hash = "95df14390cfa5c6ad53789ba97a42a219638163a16ceabe23739b8b90585ef45"
-tokens = [",", "int", ")", "}", "func", "else", "(", "EOF", "<", "ID", "{", "if", "void", ":", "call", "INT", "print"]
+tokens = ["func", "(", "{", "}", "int", "<", ":", "else", "INT", "ID", "print", ",", "EOF", ")", "void", "if", "call"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,8 +24,8 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,8 +34,8 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "Id"
@@ -45,13 +45,13 @@ token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "VoidType"
@@ -66,11 +66,6 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
 
@@ -78,6 +73,11 @@ field_type = "LocalScope"
 class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "PrintStmt"
@@ -102,17 +102,17 @@ field_type = "ParamDecl"
 
 [[nodes]]
 class = "ParamDecl"
+field = "type_ast"
+field_type = "IntType"
+
+[[nodes]]
+class = "ParamDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "ParamDecl"
 field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
-class = "ParamDecl"
-field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
@@ -138,6 +138,11 @@ field_type = "IfStmt"
 
 [[nodes]]
 class = "IfStmt"
+field = "elseStmt"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "IfStmt"
 field = "expr"
 field_type = "BinaryOp"
 
@@ -147,14 +152,14 @@ field = "thenStmt"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "IfStmt"
-field = "elseStmt"
-field_type = "CompoundStmt"
-
-[[nodes]]
 class = "BinaryOp"
 field = "semantic_type"
 field_type = "BoolType"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
@@ -166,11 +171,6 @@ class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "<"
-
-[[nodes]]
-class = "BinaryOp"
-field = "left"
-field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -219,11 +219,11 @@ field_type = "Argument"
 
 [[nodes]]
 class = "Argument"
-field = "expr"
-field_type = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "Argument"
-field = "semantic_type"
-field_type = "IntType"
+field = "expr"
+field_type = "IntLiteral"
 

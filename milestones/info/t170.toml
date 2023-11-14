@@ -1,6 +1,6 @@
 source = "tau/tests/t170.tau"
 hash = "d83444d5d84c11d2f16003ab4c825eca0d16edb7db25cd0371c6d4d4155c6e30"
-tokens = ["ID", "-", "func", "{", "}", "/", "(", "void", "print", "+", "true", "INT", "*", "EOF", ":", ")"]
+tokens = ["}", ":", "{", "EOF", "func", "print", "/", "(", "ID", "INT", ")", "void", "+", "true", "*", "-"]
 error = "TypeError"
 
 [[nodes]]
@@ -10,13 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -25,8 +20,8 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -39,14 +34,14 @@ field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -55,7 +50,7 @@ field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "VoidType"
+class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -66,14 +61,19 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+class = "VoidType"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
 field = "stmts"
 field_type = "PrintStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -92,14 +92,14 @@ field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "+"
+
+[[nodes]]
+class = "BinaryOp"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "BinaryOp"
@@ -129,14 +129,14 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "IntLiteral"
 field = "token"
 field_type = "Token"
 token = "INT"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "BinaryOp"
@@ -152,9 +152,8 @@ token = "*"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "token"
-field_type = "Token"
-token = "true"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -163,6 +162,7 @@ field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "token"
+field_type = "Token"
+token = "true"
 

@@ -1,6 +1,6 @@
 source = "tau/tests/t137.tau"
 hash = "16a02f9ac5145fe6161726510bb379e06131a005670d40c8b2d5d1e5bfe9e66a"
-tokens = [")", "false", "{", "ID", "}", "void", "not", "print", "(", "EOF", "func", ":"]
+tokens = ["{", "not", "(", "func", ":", "}", "false", "ID", ")", "void", "EOF", "print"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +29,13 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "Id"
@@ -44,14 +44,14 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
-class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "VoidType"
@@ -66,8 +66,8 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -76,8 +76,8 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "PrintStmt"
@@ -107,11 +107,6 @@ field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "semantic_type"
-field_type = "BoolType"
-
-[[nodes]]
-class = "BoolLiteral"
 field = "value"
 field_type = "bool"
 
@@ -120,4 +115,9 @@ class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "false"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "semantic_type"
+field_type = "BoolType"
 

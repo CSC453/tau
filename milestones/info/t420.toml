@@ -1,6 +1,6 @@
 source = "tau/tests/t420.tau"
 hash = "687f4162431c9e9a069b66529b9fe4ab40562f91826ae835f9dce467475c8c3e"
-tokens = ["}", "{", "*", "print", "EOF", ":", "INT", "(", ")", "void", "ID", "func"]
+tokens = ["func", "EOF", "INT", "(", ":", ")", "}", "print", "{", "void", "ID", "*"]
 
 [[nodes]]
 class = "Program"
@@ -9,18 +9,23 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -33,15 +38,9 @@ field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
 class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -50,19 +49,20 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "token"
+field_type = "Token"
+token = "ID"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "VoidType"
 
 [[nodes]]
 class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
-
-[[nodes]]
-class = "VoidType"
-field = "semantic_type"
-field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -112,14 +112,14 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
-field = "token"
-field_type = "Token"
-token = "INT"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
+field = "token"
+field_type = "Token"
+token = "INT"
 
 [[nodes]]
 class = "BinaryOp"

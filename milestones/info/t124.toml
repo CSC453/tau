@@ -1,6 +1,6 @@
 source = "tau/tests/t124.tau"
 hash = "03f59acc48958c743923fad4e7add0c0c4305aa1d2089620dc8eb56116e2dad0"
-tokens = ["{", "print", "EOF", "func", "(", "INT", ")", "+", ":", "}", "ID", "void"]
+tokens = [")", "}", "print", "func", "INT", ":", "ID", "{", "void", "+", "(", "EOF"]
 
 [[nodes]]
 class = "Program"
@@ -9,18 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,8 +29,13 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
@@ -45,13 +45,13 @@ token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "VoidType"
@@ -86,8 +86,8 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -96,8 +96,8 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "IntType"
+field = "right"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"

@@ -1,6 +1,6 @@
 source = "tau/tests/t360.tau"
 hash = "b9b20a7d5f111db939d0cc3262411f53de3ea27cbaed3057e9860a29455103b7"
-tokens = ["if", "func", "+", "ID", ">=", "INT", "EOF", ":", "bool", "var", "else", "print", ")", "(", "return", "int", "call", "}", "{", "=", "void"]
+tokens = ["=", "EOF", "void", "}", "else", "(", "var", "INT", ")", "{", "+", "return", ">=", "if", "func", "ID", ":", "print", "bool", "call", "int"]
 
 [[nodes]]
 class = "Program"
@@ -14,13 +14,8 @@ field_type = "IntType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,8 +24,13 @@ field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -39,9 +39,8 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -50,17 +49,18 @@ field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "token"
+field_type = "Token"
+token = "ID"
 
 [[nodes]]
 class = "ParamDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
 class = "ParamDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
@@ -70,6 +70,11 @@ field_type = "Id"
 
 [[nodes]]
 class = "Id"
+field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
+class = "IntType"
 field = "semantic_type"
 field_type = "IntType"
 
@@ -80,14 +85,9 @@ field_type = "Token"
 token = "int"
 
 [[nodes]]
-class = "IntType"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -96,8 +96,8 @@ field_type = "ReturnStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "ReturnStmt"
@@ -111,24 +111,24 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "BinaryOp"
+field = "right"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "BinaryOp"
 field = "left"
 field_type = "IdExpr"
+
+[[nodes]]
+class = "BinaryOp"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "+"
-
-[[nodes]]
-class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
-
-[[nodes]]
-class = "BinaryOp"
-field = "semantic_type"
-field_type = "IntType"
 
 [[nodes]]
 class = "IdExpr"
@@ -142,14 +142,14 @@ field_type = "Id"
 
 [[nodes]]
 class = "IntLiteral"
-field = "token"
-field_type = "Token"
-token = "INT"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
+field = "token"
+field_type = "Token"
+token = "INT"
 
 [[nodes]]
 class = "FuncDecl"
@@ -163,14 +163,14 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "VoidType"
-field = "token"
-field_type = "Token"
-token = "void"
+field = "semantic_type"
+field_type = "VoidType"
 
 [[nodes]]
 class = "VoidType"
-field = "semantic_type"
-field_type = "VoidType"
+field = "token"
+field_type = "Token"
+token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -184,11 +184,6 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
 
@@ -198,13 +193,18 @@ field = "stmts"
 field_type = "IfStmt"
 
 [[nodes]]
-class = "VarDecl"
-field = "type_ast"
-field_type = "IntType"
+class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
 field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
+class = "VarDecl"
+field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
@@ -214,12 +214,12 @@ field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "BoolType"
 
 [[nodes]]
 class = "VarDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "BoolType"
 
 [[nodes]]
@@ -229,14 +229,14 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "BoolType"
-field = "token"
-field_type = "Token"
-token = "bool"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "BoolType"
-field = "semantic_type"
-field_type = "BoolType"
+field = "token"
+field_type = "Token"
+token = "bool"
 
 [[nodes]]
 class = "AssignStmt"
@@ -260,12 +260,6 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = ">="
-
-[[nodes]]
-class = "BinaryOp"
 field = "right"
 field_type = "IdExpr"
 
@@ -275,9 +269,15 @@ field = "semantic_type"
 field_type = "BoolType"
 
 [[nodes]]
+class = "BinaryOp"
+field = "op"
+field_type = "Token"
+token = ">="
+
+[[nodes]]
 class = "IfStmt"
-field = "thenStmt"
-field_type = "CompoundStmt"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IfStmt"
@@ -286,8 +286,8 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "IfStmt"
-field = "expr"
-field_type = "IdExpr"
+field = "thenStmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -301,11 +301,6 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
-
-[[nodes]]
-class = "CallExpr"
 field = "args"
 field_type = "Argument"
 
@@ -315,19 +310,24 @@ field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
+class = "CallExpr"
+field = "fn"
+field_type = "IdExpr"
+
+[[nodes]]
 class = "IdExpr"
 field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
 class = "Argument"
-field = "expr"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "Argument"
-field = "semantic_type"
-field_type = "IntType"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"

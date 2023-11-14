@@ -1,6 +1,6 @@
 source = "tau/tests/t352.tau"
 hash = "266bcb05459b19ea28626a4fc2d7b654b08a29efff917f38d337d66b9a1cccc9"
-tokens = ["INT", "print", "}", ")", "{", "func", "(", "void", "EOF", ":", "ID"]
+tokens = ["void", "(", "EOF", ":", "ID", "INT", "{", "}", "print", ")", "func"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,18 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +34,8 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -44,25 +44,25 @@ field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "Id"
+class = "VoidType"
 field = "semantic_type"
-field_type = "FuncType"
+field_type = "VoidType"
 
 [[nodes]]
 class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
-
-[[nodes]]
-class = "VoidType"
-field = "semantic_type"
-field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -76,13 +76,13 @@ field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "PrintStmt"
@@ -91,12 +91,12 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
-field = "token"
-field_type = "Token"
-token = "INT"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
+field = "token"
+field_type = "Token"
+token = "INT"
 

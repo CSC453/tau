@@ -1,6 +1,6 @@
 source = "tau/tests/t132.tau"
 hash = "1b9110cfea34ce62643f480e34207c9524b5ad92b8018372f8f6edce1760c4e1"
-tokens = ["(", "func", "INT", "{", "void", "print", "EOF", ":", "*", "}", ")", "/", "ID"]
+tokens = ["void", "ID", "INT", ":", "{", "*", "(", "print", "func", "/", "}", "EOF", ")"]
 
 [[nodes]]
 class = "Program"
@@ -14,8 +14,18 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -28,16 +38,6 @@ field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
 class = "Id"
 field = "token"
 field_type = "Token"
@@ -45,13 +45,13 @@ token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "VoidType"
@@ -66,13 +66,13 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -83,6 +83,12 @@ field_type = "PrintStmt"
 class = "PrintStmt"
 field = "expr"
 field_type = "BinaryOp"
+
+[[nodes]]
+class = "BinaryOp"
+field = "op"
+field_type = "Token"
+token = "*"
 
 [[nodes]]
 class = "BinaryOp"
@@ -103,18 +109,12 @@ field_type = "IntType"
 class = "BinaryOp"
 field = "op"
 field_type = "Token"
-token = "*"
+token = "/"
 
 [[nodes]]
 class = "BinaryOp"
 field = "left"
 field_type = "IntLiteral"
-
-[[nodes]]
-class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "/"
 
 [[nodes]]
 class = "IntLiteral"

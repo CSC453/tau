@@ -1,11 +1,26 @@
 source = "tau/tests/t122.tau"
 hash = "e0a36b5f6eb45a81b0481f632ba338a9e8a2d75ec6d3a96e15ae931342ab73b2"
-tokens = [":", "EOF", "(", "-", "INT", "print", "}", "void", "ID", ")", "func", "{"]
+tokens = ["INT", "(", ":", "func", "print", "ID", "-", "EOF", "void", "{", "}", ")"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,23 +34,13 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -49,9 +54,9 @@ field = "symbol"
 field_type = "Symbol"
 
 [[nodes]]
-class = "Id"
+class = "VoidType"
 field = "semantic_type"
-field_type = "FuncType"
+field_type = "VoidType"
 
 [[nodes]]
 class = "VoidType"
@@ -60,19 +65,14 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
-class = "VoidType"
-field = "semantic_type"
-field_type = "VoidType"
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -86,8 +86,9 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
-field = "expr"
-field_type = "UnaryOp"
+field = "op"
+field_type = "Token"
+token = "-"
 
 [[nodes]]
 class = "UnaryOp"
@@ -96,9 +97,8 @@ field_type = "IntType"
 
 [[nodes]]
 class = "UnaryOp"
-field = "op"
-field_type = "Token"
-token = "-"
+field = "expr"
+field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
@@ -107,12 +107,12 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
-field = "token"
-field_type = "Token"
-token = "INT"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
+field = "token"
+field_type = "Token"
+token = "INT"
 

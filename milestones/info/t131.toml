@@ -1,6 +1,6 @@
 source = "tau/tests/t131.tau"
 hash = "dd2049d3ec4c0fbb8aa12f77086edec3d4af740c9ad3d1e3d1a224543e8716e4"
-tokens = ["ID", ")", "print", "not", "func", "true", ":", "(", "}", "EOF", "{", "void"]
+tokens = ["ID", "true", "void", "}", "{", "EOF", "not", "print", ")", "(", ":", "func"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,8 +24,8 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,14 +34,8 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
@@ -54,10 +48,10 @@ field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
-class = "VoidType"
+class = "Id"
 field = "token"
 field_type = "Token"
-token = "void"
+token = "ID"
 
 [[nodes]]
 class = "VoidType"
@@ -65,14 +59,20 @@ field = "semantic_type"
 field_type = "VoidType"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+class = "VoidType"
+field = "token"
+field_type = "Token"
+token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -86,14 +86,14 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
-field = "semantic_type"
-field_type = "BoolType"
-
-[[nodes]]
-class = "UnaryOp"
 field = "op"
 field_type = "Token"
 token = "not"
+
+[[nodes]]
+class = "UnaryOp"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "UnaryOp"
@@ -107,13 +107,13 @@ field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "semantic_type"
-field_type = "BoolType"
+field = "value"
+field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "value"
-field_type = "bool"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "BoolLiteral"

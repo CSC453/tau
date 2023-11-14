@@ -1,6 +1,6 @@
 source = "tau/tests/t166.tau"
 hash = "6e4503b3408b28be3a82918925d5fd32971b79821da258d7dfb693fb3063e801"
-tokens = ["print", "+", "ID", "}", ")", "EOF", "{", "func", "(", ":", "void", "INT"]
+tokens = ["(", "+", "{", "void", "print", "EOF", ")", ":", "INT", "}", "func", "ID"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,18 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,26 +29,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
 
@@ -54,15 +49,20 @@ field = "symbol"
 field_type = "Symbol"
 
 [[nodes]]
-class = "VoidType"
+class = "Id"
 field = "semantic_type"
-field_type = "VoidType"
+field_type = "FuncType"
 
 [[nodes]]
 class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -86,24 +86,24 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
+field = "right"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "BinaryOp"
+
+[[nodes]]
+class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "+"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
-
-[[nodes]]
-class = "BinaryOp"
 field = "semantic_type"
 field_type = "IntType"
-
-[[nodes]]
-class = "BinaryOp"
-field = "left"
-field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
@@ -114,15 +114,15 @@ field_type = "BinaryOp"
 class = "BinaryOp"
 field = "left"
 field_type = "IntLiteral"
-
-[[nodes]]
-class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
 
 [[nodes]]
 class = "IntLiteral"
 field = "token"
 field_type = "Token"
 token = "INT"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 

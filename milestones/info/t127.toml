@@ -1,6 +1,6 @@
 source = "tau/tests/t127.tau"
 hash = "91bf8c212a408640ee11737c0f0c266b6100b749dcf99f6187d4fb79b084dbf1"
-tokens = ["func", "print", "ID", "}", ":", "EOF", "INT", "void", "-", ")", "{", "("]
+tokens = [")", "INT", "func", "EOF", "}", "print", "(", "-", "void", "{", ":", "ID"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,23 +24,28 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
 field = "symbol"
 field_type = "Symbol"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -66,13 +66,13 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -92,13 +92,13 @@ token = "-"
 
 [[nodes]]
 class = "UnaryOp"
-field = "semantic_type"
-field_type = "IntType"
+field = "expr"
+field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
-field = "expr"
-field_type = "UnaryOp"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "UnaryOp"

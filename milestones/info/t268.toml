@@ -1,6 +1,6 @@
 source = "tau/tests/t268.tau"
 hash = "a5b55011cd3743db1f9766a4983398817cf48c318f61de83c29353538d785567"
-tokens = ["var", "}", "EOF", "int", "ID", "(", "{", "func", "call", ",", "void", "+", "=", "INT", "print", ")", ":"]
+tokens = ["=", "call", "var", ")", "ID", "(", "void", ",", "{", "+", ":", "EOF", "int", "func", "}", "print", "INT"]
 
 [[nodes]]
 class = "Program"
@@ -9,23 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
-
-[[nodes]]
-class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,8 +19,23 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
+field = "params"
+field_type = "ParamDecl"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
@@ -44,14 +44,14 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
-class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "ParamDecl"
@@ -158,11 +158,6 @@ token = "+"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "BinaryOp"
-
-[[nodes]]
-class = "BinaryOp"
 field = "semantic_type"
 field_type = "IntType"
 
@@ -174,11 +169,16 @@ field_type = "IntLiteral"
 [[nodes]]
 class = "BinaryOp"
 field = "left"
-field_type = "IdExpr"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
 field = "right"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
 field_type = "IdExpr"
 
 [[nodes]]
@@ -224,13 +224,13 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "Argument"
+field = "semantic_type"
+field_type = "VoidType"
 
 [[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "VoidType"
+field = "args"
+field_type = "Argument"
 
 [[nodes]]
 class = "IdExpr"
@@ -239,11 +239,11 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "Argument"
-field = "expr"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "Argument"
-field = "semantic_type"
-field_type = "IntType"
+field = "expr"
+field_type = "IdExpr"
 

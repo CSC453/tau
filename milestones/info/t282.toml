@@ -1,6 +1,6 @@
 source = "tau/tests/t282.tau"
 hash = "95540282efd8024c412cffa521d2792dd645be1c231346bf685aa0964e6e34f6"
-tokens = ["func", "{", "(", "}", ")", "var", "=", "void", ":", "-", "EOF", "INT", "ID", "int", "+", "print"]
+tokens = ["(", "print", "var", ")", "INT", "func", "void", "}", "+", "EOF", ":", "=", "ID", "-", "int", "{"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,8 +19,8 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -36,6 +31,11 @@ field_type = "Id"
 class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
@@ -91,12 +91,12 @@ field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
@@ -117,13 +117,13 @@ field_type = "IntType"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "IntLiteral"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "IdExpr"
@@ -153,6 +153,11 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
+field = "right"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "BinaryOp"
 field = "left"
 field_type = "IdExpr"
 
@@ -170,17 +175,12 @@ token = "-"
 [[nodes]]
 class = "BinaryOp"
 field = "right"
-field_type = "IdExpr"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
 field = "left"
 field_type = "BinaryOp"
-
-[[nodes]]
-class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"

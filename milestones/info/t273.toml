@@ -1,6 +1,6 @@
 source = "tau/tests/t273.tau"
 hash = "59720718ad6e143d7fdc9e85619c74fb5174808b054bd87df1dad912fb3ee49a"
-tokens = ["var", "func", "void", "+", "print", "int", "}", ":", "ID", "(", "{", ")", "*", "return", "-", "EOF", "INT", "="]
+tokens = ["EOF", "=", "return", "print", "{", "func", "*", ":", "+", "-", "var", "INT", "}", "int", "ID", ")", "(", "void"]
 
 [[nodes]]
 class = "Program"
@@ -9,18 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "ret_type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +19,28 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "params"
+field_type = "ParamDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -49,9 +54,9 @@ field = "symbol"
 field_type = "Symbol"
 
 [[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+class = "ParamDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "ParamDecl"
@@ -62,11 +67,6 @@ field_type = "IntType"
 class = "ParamDecl"
 field = "semantic_type"
 field_type = "IntType"
-
-[[nodes]]
-class = "ParamDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "Id"
@@ -106,18 +106,13 @@ field_type = "LocalScope"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "BinaryOp"
-
-[[nodes]]
-class = "AssignStmt"
 field = "lhs"
 field_type = "IdExpr"
 
 [[nodes]]
-class = "IdExpr"
-field = "semantic_type"
-field_type = "IntType"
+class = "AssignStmt"
+field = "rhs"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "IdExpr"
@@ -125,9 +120,20 @@ field = "id"
 field_type = "Id"
 
 [[nodes]]
+class = "IdExpr"
+field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
 class = "BinaryOp"
 field = "right"
 field_type = "IntLiteral"
+
+[[nodes]]
+class = "BinaryOp"
+field = "op"
+field_type = "Token"
+token = "*"
 
 [[nodes]]
 class = "BinaryOp"
@@ -138,12 +144,6 @@ field_type = "IdExpr"
 class = "BinaryOp"
 field = "semantic_type"
 field_type = "IntType"
-
-[[nodes]]
-class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "*"
 
 [[nodes]]
 class = "IntLiteral"
@@ -168,13 +168,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "VoidType"
@@ -199,6 +199,11 @@ field_type = "PrintStmt"
 
 [[nodes]]
 class = "VarDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "VarDecl"
 field = "type_ast"
 field_type = "IntType"
 
@@ -206,11 +211,6 @@ field_type = "IntType"
 class = "VarDecl"
 field = "semantic_type"
 field_type = "IntType"
-
-[[nodes]]
-class = "VarDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "AssignStmt"
@@ -224,11 +224,6 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
-class = "CallExpr"
 field = "fn"
 field_type = "IdExpr"
 
@@ -236,6 +231,11 @@ field_type = "IdExpr"
 class = "CallExpr"
 field = "args"
 field_type = "Argument"
+
+[[nodes]]
+class = "CallExpr"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IdExpr"
@@ -259,14 +259,14 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "BinaryOp"
-
-[[nodes]]
-class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "-"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"

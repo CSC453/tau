@@ -1,6 +1,6 @@
 source = "tau/tests/t174.tau"
 hash = "4ec2a4dd7e194659d9b364523ee2770e84ad914eff922662bfc376a4f218fc03"
-tokens = ["true", "ID", "}", "func", "not", "void", "print", "var", "EOF", "(", "=", ")", ":", "bool", "{"]
+tokens = ["{", "bool", "not", "var", "}", ":", ")", "void", "true", "print", "=", "ID", "(", "EOF", "func"]
 
 [[nodes]]
 class = "Program"
@@ -9,18 +9,18 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,24 +29,24 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -86,17 +86,17 @@ field_type = "LocalScope"
 
 [[nodes]]
 class = "VarDecl"
+field = "type_ast"
+field_type = "BoolType"
+
+[[nodes]]
+class = "VarDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
 field = "semantic_type"
-field_type = "BoolType"
-
-[[nodes]]
-class = "VarDecl"
-field = "type_ast"
 field_type = "BoolType"
 
 [[nodes]]
@@ -117,13 +117,13 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "BoolLiteral"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "BoolLiteral"
 
 [[nodes]]
 class = "IdExpr"
@@ -137,6 +137,11 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "BoolLiteral"
+field = "value"
+field_type = "bool"
+
+[[nodes]]
+class = "BoolLiteral"
 field = "semantic_type"
 field_type = "BoolType"
 
@@ -145,11 +150,6 @@ class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "true"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "value"
-field_type = "bool"
 
 [[nodes]]
 class = "PrintStmt"
@@ -163,6 +163,12 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
+field = "op"
+field_type = "Token"
+token = "not"
+
+[[nodes]]
+class = "UnaryOp"
 field = "expr"
 field_type = "IdExpr"
 
@@ -170,10 +176,4 @@ field_type = "IdExpr"
 class = "UnaryOp"
 field = "semantic_type"
 field_type = "BoolType"
-
-[[nodes]]
-class = "UnaryOp"
-field = "op"
-field_type = "Token"
-token = "not"
 

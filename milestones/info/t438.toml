@@ -1,6 +1,6 @@
 source = "tau/tests/t438.tau"
 hash = "640a679ad5dee06b8e29d688e01202f04278aea75f536724a2be83a871ed4461"
-tokens = ["}", "EOF", "func", "INT", "{", ")", "print", "void", ":", "(", "call", "ID"]
+tokens = ["ID", "EOF", "call", ")", ":", "void", "{", "func", "INT", "(", "}", "print"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,23 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -23,35 +38,20 @@ field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "VoidType"
@@ -71,11 +71,6 @@ field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "stmts"
 field_type = "PrintStmt"
 
@@ -83,6 +78,11 @@ field_type = "PrintStmt"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "CompoundStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "PrintStmt"
@@ -112,6 +112,11 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
+field = "args"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CallExpr"
 field = "semantic_type"
 field_type = "VoidType"
 
@@ -121,17 +126,12 @@ field = "fn"
 field_type = "IdExpr"
 
 [[nodes]]
-class = "CallExpr"
-field = "args"
-field_type = "<empty>"
+class = "IdExpr"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "IdExpr"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "IdExpr"
-field = "semantic_type"
-field_type = "FuncType"
 

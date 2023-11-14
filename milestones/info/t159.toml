@@ -1,6 +1,6 @@
 source = "tau/tests/t159.tau"
 hash = "a36eaab8f49c4b4a27b89af7cfba485731c1ba03a12a4678db0c0827b7b4e3d8"
-tokens = ["INT", ")", "func", "call", "print", "{", ":", "}", "ID", "void", "EOF", "("]
+tokens = ["}", "void", "func", "(", "INT", "ID", ":", "EOF", "{", "call", ")", "print"]
 
 [[nodes]]
 class = "Program"
@@ -14,18 +14,8 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -36,6 +26,16 @@ field_type = "FuncType"
 class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "Id"

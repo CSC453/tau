@@ -1,6 +1,6 @@
 source = "tau/tests/t343.tau"
 hash = "f921b1b2d9a6ec7cc37cc9560628a4a2c714485ef6d043186400d2ae78afbffe"
-tokens = ["INT", "}", "(", ")", "bool", "+", "false", ":", ",", "print", "EOF", "int", "ID", "else", "return", "func", "==", "if", "true", "{", "void"]
+tokens = ["else", "func", "{", ",", "print", "ID", "true", "bool", "(", "void", "EOF", "}", ":", "INT", "return", "int", "if", "==", "false", ")", "+"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "BoolType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,8 +34,8 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "ret_type_ast"
+field_type = "BoolType"
 
 [[nodes]]
 class = "Id"
@@ -45,18 +45,18 @@ token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
-class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
 class = "ParamDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "ParamDecl"
@@ -65,8 +65,8 @@ field_type = "IntType"
 
 [[nodes]]
 class = "ParamDecl"
-field = "semantic_type"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "Id"
@@ -102,13 +102,18 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "IfStmt"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+class = "IfStmt"
+field = "thenStmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "IfStmt"
@@ -121,14 +126,9 @@ field = "elseStmt"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "IfStmt"
-field = "thenStmt"
-field_type = "CompoundStmt"
-
-[[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "BinaryOp"
+field = "right"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
@@ -143,12 +143,12 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
+field = "left"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
+field = "right"
 field_type = "IdExpr"
 
 [[nodes]]
@@ -164,18 +164,18 @@ field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
+field = "left"
 field_type = "IdExpr"
-
-[[nodes]]
-class = "IdExpr"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "IdExpr"
 field = "semantic_type"
 field_type = "IntType"
+
+[[nodes]]
+class = "IdExpr"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "IntLiteral"
@@ -195,24 +195,24 @@ field_type = "ReturnStmt"
 
 [[nodes]]
 class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "FuncDecl"
+
+[[nodes]]
+class = "ReturnStmt"
 field = "expr"
 field_type = "BoolLiteral"
 
 [[nodes]]
-class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "FuncDecl"
+class = "BoolLiteral"
+field = "value"
+field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "true"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "value"
-field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -227,13 +227,13 @@ token = "false"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "VoidType"
@@ -253,13 +253,13 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "Argument"
+field = "fn"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
+field = "args"
+field_type = "Argument"
 
 [[nodes]]
 class = "CallExpr"
@@ -273,13 +273,13 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "Argument"
-field = "expr"
-field_type = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "Argument"
-field = "semantic_type"
-field_type = "IntType"
+field = "expr"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "CompoundStmt"

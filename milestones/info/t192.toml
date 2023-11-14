@@ -1,6 +1,6 @@
 source = "tau/tests/t192.tau"
 hash = "cef29d14a002b119e77e9b3ed6261f6822329a8399c9de5e7a1183a91e4d2bf5"
-tokens = ["INT", "print", "void", "{", "func", ":", "ID", "true", "}", "(", "false", ")", "EOF"]
+tokens = [")", "false", "func", "print", "{", "INT", "true", ":", "void", "}", "EOF", "(", "ID"]
 
 [[nodes]]
 class = "Program"
@@ -24,6 +24,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
 
@@ -33,25 +38,20 @@ field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
-class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "VoidType"
@@ -66,11 +66,6 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "stmts"
 field_type = "PrintStmt"
 
@@ -78,6 +73,11 @@ field_type = "PrintStmt"
 class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "PrintStmt"

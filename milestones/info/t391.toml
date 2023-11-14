@@ -1,6 +1,6 @@
 source = "tau/tests/t391.tau"
 hash = "b45d71887565e6b31a546c8c3a19fb1820ebb4330033fcdf827a509ec043cc37"
-tokens = ["=", ")", "{", ":", "int", "var", "void", "while", "EOF", "func", "(", "+", "INT", "}", "==", "print", "ID"]
+tokens = ["(", "func", "print", "while", "==", "{", "int", "ID", "+", "EOF", "INT", "}", "=", ":", "var", ")", "void"]
 
 [[nodes]]
 class = "Program"
@@ -14,16 +14,6 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
 
@@ -34,18 +24,28 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -76,13 +76,13 @@ field_type = "WhileStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "VarDecl"
@@ -169,13 +169,13 @@ token = "=="
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "BoolType"
+field = "left"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "CompoundStmt"

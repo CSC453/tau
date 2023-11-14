@@ -1,6 +1,6 @@
 source = "tau/tests/t419.tau"
 hash = "749079baa2c605c8c8c41745aba46dfc05cc468ce6cce27b2a5ec6365571ab6c"
-tokens = ["print", "+", "var", "INT", "void", "ID", "}", "EOF", "{", "int", "=", ":", "func", ")", "("]
+tokens = ["EOF", ":", "void", "print", "{", "}", "var", "int", "(", "=", "ID", "INT", ")", "func", "+"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +29,18 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -47,11 +52,6 @@ token = "ID"
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
 
 [[nodes]]
 class = "VoidType"
@@ -86,13 +86,13 @@ field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
-field = "id"
-field_type = "Id"
+field = "type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
@@ -153,9 +153,8 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "+"
+field = "right"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
@@ -164,8 +163,9 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
+field = "op"
+field_type = "Token"
+token = "+"
 
 [[nodes]]
 class = "BinaryOp"

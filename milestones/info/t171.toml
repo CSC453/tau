@@ -1,6 +1,6 @@
 source = "tau/tests/t171.tau"
 hash = "d6e72052e9511bb9e0dd33277eb238a039a14ce2c597e2e83d7f484334d3d7d6"
-tokens = ["}", "void", ")", "print", "func", "ID", "EOF", "INT", "(", "{", "false", ":"]
+tokens = ["INT", "print", "}", ":", "(", "void", "ID", "false", "{", "func", "EOF", ")"]
 
 [[nodes]]
 class = "Program"
@@ -9,18 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,18 +24,18 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
@@ -52,6 +47,11 @@ token = "ID"
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "VoidType"
@@ -66,6 +66,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
 
@@ -73,11 +78,6 @@ field_type = "<empty>"
 class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
 
 [[nodes]]
 class = "PrintStmt"
@@ -108,11 +108,11 @@ token = "false"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "value"
-field_type = "bool"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "semantic_type"
-field_type = "BoolType"
+field = "value"
+field_type = "bool"
 

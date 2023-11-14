@@ -1,6 +1,6 @@
 source = "tau/tests/t201.tau"
 hash = "9ec2edcc6d76d8212a1f20e4a5bbbe84ba8d622c7ef841071de501be9aa591e2"
-tokens = ["/", "ID", "int", "}", "=", ")", "var", "*", "+", "void", "EOF", "INT", "(", "func", "{", ":", "print", "-"]
+tokens = [")", ":", "{", "/", "print", "}", "*", "ID", "int", "func", "var", "(", "+", "void", "EOF", "INT", "=", "-"]
 
 [[nodes]]
 class = "Program"
@@ -14,8 +14,8 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,18 +29,13 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "Id"
@@ -52,6 +47,11 @@ token = "ID"
 class = "Id"
 field = "symbol"
 field_type = "Symbol"
+
+[[nodes]]
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "VoidType"
@@ -66,6 +66,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
 
@@ -73,11 +78,6 @@ field_type = "AssignStmt"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "PrintStmt"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -137,7 +137,7 @@ field_type = "Id"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
+field = "right"
 field_type = "BinaryOp"
 
 [[nodes]]
@@ -148,24 +148,24 @@ token = "-"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
-class = "BinaryOp"
-field = "right"
+field = "left"
 field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "+"
+
+[[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
@@ -180,14 +180,14 @@ field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "/"
+field = "right"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
+field = "op"
+field_type = "Token"
+token = "/"
 
 [[nodes]]
 class = "BinaryOp"

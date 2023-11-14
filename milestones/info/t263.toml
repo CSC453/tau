@@ -1,6 +1,6 @@
 source = "tau/tests/t263.tau"
 hash = "b46720789d22f963f85cbef73b0fb72b7839df3b2b6177106aab80692e64e3ab"
-tokens = ["func", "}", "false", "void", "EOF", "bool", "print", "=", "ID", "return", "true", "and", "var", "(", ":", "INT", ")", "{"]
+tokens = [":", "bool", "}", "false", "INT", "EOF", "return", "var", "(", "and", "ID", "{", "func", "=", ")", "true", "print", "void"]
 
 [[nodes]]
 class = "Program"
@@ -11,6 +11,11 @@ field_type = "FuncDecl"
 class = "FuncDecl"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -26,11 +31,6 @@ field_type = "CompoundStmt"
 class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -76,13 +76,13 @@ field_type = "ReturnStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "PrintStmt"
@@ -154,7 +154,7 @@ field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "BoolType"
 
 [[nodes]]
@@ -164,7 +164,7 @@ field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "BoolType"
 
 [[nodes]]
@@ -174,23 +174,23 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
-
-[[nodes]]
-class = "AssignStmt"
 field = "rhs"
 field_type = "BoolLiteral"
 
 [[nodes]]
-class = "IdExpr"
-field = "id"
-field_type = "Id"
+class = "AssignStmt"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
 field = "semantic_type"
 field_type = "BoolType"
+
+[[nodes]]
+class = "IdExpr"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -211,13 +211,13 @@ token = "and"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "BoolType"
+field = "left"
+field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
-field_type = "BoolLiteral"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -231,13 +231,13 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
+field = "args"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "<empty>"
+field = "fn"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"

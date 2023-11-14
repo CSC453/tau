@@ -1,6 +1,6 @@
 source = "tau/tests/t196.tau"
 hash = "2fe2d36f08405db5184c61e478b2779388f7385a1b2f69004470e3b38e976696"
-tokens = [")", "EOF", ":", "func", "=", "else", "==", "}", "{", "print", "var", "ID", "void", "(", "INT", "int", "if"]
+tokens = ["{", ":", "==", "INT", "else", "=", "EOF", "}", "print", ")", "(", "ID", "if", "var", "int", "func", "void"]
 
 [[nodes]]
 class = "Program"
@@ -19,8 +19,8 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,18 +29,18 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -50,8 +50,8 @@ token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "VoidType"
@@ -71,11 +71,6 @@ field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
 
@@ -83,6 +78,11 @@ field_type = "AssignStmt"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "IfStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
@@ -184,13 +184,13 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "PrintStmt"

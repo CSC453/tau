@@ -1,6 +1,6 @@
 source = "tau/tests/t500.tau"
 hash = "a763dc22628f9c80181dfb0d977c6a5271e425e0942650a6884f0aca5614b63b"
-tokens = ["func", "(", "void", "INT", ":", "print", "{", "}", "EOF", ")", "call", "ID"]
+tokens = [")", "void", "func", "call", "(", ":", "print", "}", "EOF", "ID", "INT", "{"]
 
 [[nodes]]
 class = "Program"
@@ -9,23 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -38,6 +23,27 @@ field = "ret_type_ast"
 field_type = "VoidType"
 
 [[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
+
+[[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
@@ -48,21 +54,15 @@ field = "symbol"
 field_type = "Symbol"
 
 [[nodes]]
-class = "Id"
+class = "VoidType"
 field = "token"
 field_type = "Token"
-token = "ID"
+token = "void"
 
 [[nodes]]
 class = "VoidType"
 field = "semantic_type"
 field_type = "VoidType"
-
-[[nodes]]
-class = "VoidType"
-field = "token"
-field_type = "Token"
-token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -86,14 +86,14 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
-class = "IntLiteral"
 field = "token"
 field_type = "Token"
 token = "INT"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -107,6 +107,11 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
+field = "fn"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "CallExpr"
 field = "args"
 field_type = "<empty>"
 
@@ -116,17 +121,12 @@ field = "semantic_type"
 field_type = "VoidType"
 
 [[nodes]]
-class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
+class = "IdExpr"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "IdExpr"
 field = "semantic_type"
 field_type = "FuncType"
-
-[[nodes]]
-class = "IdExpr"
-field = "id"
-field_type = "Id"
 

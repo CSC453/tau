@@ -1,6 +1,6 @@
 source = "tau/tests/t229.tau"
 hash = "ef612887f392dc49ce3fca17c7fec1226e24d855c2e0936d63bec738e5963762"
-tokens = ["(", "void", "var", "INT", "}", ")", "int", "{", "print", "ID", "+", "=", "func", ":", "EOF"]
+tokens = ["ID", "print", "void", "int", "(", "+", "INT", ")", "{", "}", ":", "func", "=", "EOF", "var"]
 
 [[nodes]]
 class = "Program"
@@ -19,8 +19,8 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +29,13 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
@@ -66,13 +66,13 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -86,13 +86,13 @@ field_type = "PrintStmt"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
-field = "id"
-field_type = "Id"
+field = "type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
@@ -153,8 +153,9 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IdExpr"
+field = "op"
+field_type = "Token"
+token = "+"
 
 [[nodes]]
 class = "BinaryOp"
@@ -163,14 +164,13 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "+"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "IntType"
+field = "right"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "PrintStmt"

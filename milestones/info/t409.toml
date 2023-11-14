@@ -1,11 +1,26 @@
 source = "tau/tests/t409.tau"
 hash = "ff5cccfe7d38927f38f513f8c676f462456bac415053273f140cfebc1c6baf7d"
-tokens = ["(", ")", "ID", "EOF", "-", "}", "print", "==", "!=", "<=", ":", ">=", "INT", ">", "void", "*", "func", "+", "<", "{"]
+tokens = ["<=", "==", ")", ">=", "}", ">", "{", "ID", "func", "void", "-", "!=", "print", "*", "EOF", "<", "(", ":", "+", "INT"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -16,21 +31,6 @@ field_type = "Id"
 class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -66,16 +66,6 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
 
@@ -83,6 +73,16 @@ field_type = "LocalScope"
 class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "stmts"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "PrintStmt"
@@ -97,13 +97,13 @@ token = "<"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "BinaryOp"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "BoolType"
+field = "right"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
@@ -155,13 +155,13 @@ token = "-"
 
 [[nodes]]
 class = "UnaryOp"
-field = "expr"
-field_type = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "UnaryOp"
-field = "semantic_type"
-field_type = "IntType"
+field = "expr"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
