@@ -21,7 +21,10 @@ def main() -> None:
 
     try:
         _, _, _, insns = compile(input)
-        vm_utils.invoke_vm(insns, args.args, verbose)
+        if args.asm:
+            vm_utils.dump_insns(insns)
+        else:
+            vm_utils.invoke_vm(insns, args.args, verbose)
     except parse.ParseErrorException as e:
         print(e, file=sys.stderr)
         if verbose:
@@ -37,9 +40,8 @@ def main() -> None:
 def get_args() -> Namespace:
     ap: ArgumentParser = ArgumentParser(description="Compile Tau files")
     ap.add_argument("--file", required=True, help="source file")
-    ap.add_argument(
-        "--verbose", action="store_true", help="verbose interpretation"
-    )
+    ap.add_argument("--verbose", action="store_true", help="verbose interpretation")
+    ap.add_argument("--asm", action="store_true", help="(only) generate asm")
     ap.add_argument(
         "args", nargs="*", help="Arguments to pass to the program as integers"
     )
