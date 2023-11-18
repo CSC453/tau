@@ -1,0 +1,24 @@
+root = "tau.asts.AST"
+inside_class = false
+field_excludes = ["func_scope", "span", "local_scope","semantic_type","id", "token"]
+field_opaques = [
+    "register_pool",
+    "register",
+    "op",
+    "value",
+    "enclosing_function",
+    "size",
+]
+
+prologue = """
+"""
+
+
+[[emit]]
+roots = ["tau.asts.Expr"]
+type_opaques = ["tau.asts.TypeAST", "tau.asts.Id"]
+include_self = true
+prefix = "_flow_"
+rettype = "list[Insn]"
+call = [["lab", "str"], ["condition", "bool"]]
+decl = [["lab", "str"], ["condition", "bool"]]

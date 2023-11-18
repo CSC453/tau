@@ -9,9 +9,7 @@ from .error import CompileError
 # pyright: basic
 
 
-def test_scanner(
-    student: List[Token], expected: List[Token], crash: bool
-) -> bool:
+def test_scanner(student: List[Token], expected: List[Token], crash: bool) -> bool:
     try:
         return student == expected
     except:
@@ -165,6 +163,7 @@ def test_typecheck(student: Any, expected: Any, crash: bool) -> bool:
         CompoundStmt,
         VarDecl,
         ParamDecl,
+        Argument,
         Expr,
         TypeAST,
         Decl,
@@ -179,9 +178,7 @@ def test_typecheck(student: Any, expected: Any, crash: bool) -> bool:
     )
 
     def assert_same_type(student: SemanticType, expected: SemanticType):
-        assert type(student) == type(
-            expected
-        ), f"{type(student)} != {type(expected)}"
+        assert type(student) == type(expected), f"{type(student)} != {type(expected)}"
         match (student, expected):
             case (ArrayType(), ArrayType()):
                 assert_same_type(student.element_type, expected.element_type)
@@ -196,9 +193,7 @@ def test_typecheck(student: Any, expected: Any, crash: bool) -> bool:
         if isinstance(expected, Id):
             assert isinstance(student, Id)
             assert_same_type(student.semantic_type, expected.semantic_type)
-            assert_same_type(
-                student.symbol.get_type(), expected.symbol.get_type()
-            )
+            assert_same_type(student.symbol.get_type(), expected.symbol.get_type())
         if isinstance(expected, Expr):
             assert isinstance(student, Expr)
             assert_same_type(student.semantic_type, expected.semantic_type)
@@ -207,6 +202,9 @@ def test_typecheck(student: Any, expected: Any, crash: bool) -> bool:
             assert_same_type(student.semantic_type, expected.semantic_type)
         if isinstance(expected, Decl):
             assert isinstance(student, Decl)
+            assert_same_type(student.semantic_type, expected.semantic_type)
+        if isinstance(expected, Argument):
+            assert isinstance(student, Argument)
             assert_same_type(student.semantic_type, expected.semantic_type)
         return True
 

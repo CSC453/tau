@@ -7,3 +7,7 @@ error = "ParseErrorException"
 
 [[exclude]]
 error = "ScanError"
+
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayType"
