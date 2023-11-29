@@ -1,8 +1,8 @@
 from typing import Callable, List, Any, Optional
 
-from tau.asts import BinaryOp, IntType
+from tau.asts import BinaryOp, BoolLiteral, IntType
 
-from .tokens import Token
+from .tokens import Token, Span, Coord
 from .compare import assert_equal
 from .error import CompileError
 
@@ -276,8 +276,70 @@ def test_codegen(student: Any, expected: Any, crash: bool) -> bool:
         return False
 
 
+def test_codegen_flow(student: Any, expected: Any, crash: bool) -> bool:
+    try:
+        v = test_assign(student, expected, crash)
+        test_flow(student, expected, crash)
+        return v
+    except:
+        if crash:
+            raise
+        return False
+
+
 def test_errors(student: Any, expected: Any, crash: bool) -> bool:
     return student == expected
+
+
+def test_flow(student: Any, expected: Any, crash: bool) -> bool:
+    coord = Coord(0, 0)
+    span = Span(coord, coord)
+    from .asts import (
+        WhileStmt,
+        IfStmt,
+        CompoundStmt,
+        BinaryOp,
+        UnaryOp,
+        BoolLiteral,
+    )
+
+    t = Token("true", "true", span)
+    f = Token("false", "false", span)
+    a = Token("and", "and", span)
+    o = Token("or", "or", span)
+    n = Token("not", "not", span)
+    tl = BoolLiteral(span, t, True)
+    fl = BoolLiteral(span, f, False)
+    cs = CompoundStmt(span, [], [])
+    nottexpr = UnaryOp(span, n, tl)
+    notfexpr = UnaryOp(span, n, fl)
+    notnottexpr = UnaryOp(span, n, nottexpr)
+    notnotfexpr = UnaryOp(span, n, notfexpr)
+    andexpr = BinaryOp(span, a, notnottexpr, notnotfexpr)
+    orexpr = BinaryOp(span, o, nottexpr, notfexpr)
+    complexexpr = BinaryOp(span, a, andexpr, orexpr)
+    notcomplexexpr = UnaryOp(span, n, complexexpr)
+    expr = UnaryOp(span, n, notcomplexexpr)
+    whilestmt = WhileStmt(span, expr, cs)
+    ifstmt = IfStmt(span, expr, cs, cs)
+    ifstmt2 = IfStmt(span, expr, cs, None)
+    from codegen import _Stmt
+    from vm.vm_insns import Insn
+
+    def basic(insns: list[Insn], limit: int) -> None:
+        exclude = ["Noop", "Label"]
+        keep = [i for i in insns if i.__class__.__name__ not in exclude]
+        assert (
+            len(keep) <= limit
+        ), f"Too many instructions: {len(keep)} > {limit}, {keep}"
+
+    whilecode = _Stmt(whilestmt)
+    basic(whilecode, 5)
+    ifcode = _Stmt(ifstmt)
+    basic(ifcode, 5)
+    ifcode2 = _Stmt(ifstmt2)
+    basic(ifcode2, 5)
+    return True
 
 
 def run_ast(input: str) -> Any:

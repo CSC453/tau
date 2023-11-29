@@ -63,9 +63,7 @@ class ArrayType(SemanticType):
         return f"{self.__class__.__name__}(element_type={self.element_type.shallow_representation()})"
 
     def __repr__(self) -> str:
-        return (
-            f"ArrayType(count={self.count}, element_type={self.element_type})"
-        )
+        return f"ArrayType(count={self.count}, element_type={self.element_type})"
 
 
 class FuncType(SemanticType):
@@ -170,7 +168,7 @@ class LocalScope(Scope):
     __slots__: list[str] = []
 
     def __init__(self, parent: Scope, span: Span) -> None:
-        self.parent: Scope = parent
+        self.parent = parent
         self.span: Span = span
         self.symtab: dict[str, Symbol] = {}
 
