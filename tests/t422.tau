@@ -2,10 +2,12 @@ func f1(a:int,b:int, c: int):int{
     {
         {
             var c:int
+            print b
         }
         {
             {
                 var b: int
+                b = 31415
                 print b
             }
         }
@@ -16,6 +18,7 @@ func main() : void{
     var a : int
     var b: int
     var c: int 
+    b = 666
     {
         print 11 
         print 12
