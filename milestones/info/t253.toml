@@ -1,31 +1,11 @@
 source = "tau/tests/t253.tau"
 hash = "6eed56c37f4fa255cd0011b101d5a9d2294d6262ae7153db8cfb1e40f6948019"
-tokens = ["func", "(", "ID", "var", "INT", "/", "EOF", "void", "=", "}", "int", ")", ":", "{", "print"]
+tokens = ["(", "ID", "}", "print", "EOF", "void", "/", "INT", "int", ")", "=", "{", "func", ":", "var"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -38,20 +18,40 @@ field = "params"
 field_type = "<empty>"
 
 [[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
 class = "Id"
 field = "symbol"
 field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
+field = "token"
+field_type = "Token"
+token = "ID"
 
 [[nodes]]
 class = "VoidType"
@@ -63,11 +63,6 @@ class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -85,14 +80,19 @@ field = "local_scope"
 field_type = "LocalScope"
 
 [[nodes]]
-class = "VarDecl"
-field = "id"
-field_type = "Id"
+class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
 field = "semantic_type"
 field_type = "IntType"
+
+[[nodes]]
+class = "VarDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
@@ -127,13 +127,13 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IdExpr"
-field = "semantic_type"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "IntLiteral"
@@ -153,11 +153,6 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
-class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "/"
@@ -166,6 +161,11 @@ token = "/"
 class = "BinaryOp"
 field = "left"
 field_type = "BinaryOp"
+
+[[nodes]]
+class = "BinaryOp"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"

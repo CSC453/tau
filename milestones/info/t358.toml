@@ -1,6 +1,6 @@
 source = "tau/tests/t358.tau"
 hash = "baeca6dfaf97995c6fad3940275582d5c31e6d1defa3664e352c0ad43982aae3"
-tokens = ["void", "(", "INT", "-", "EOF", "*", ")", "ID", "true", ":", "print", "+", "{", "/", "false", "func", "}"]
+tokens = [")", "void", "func", "false", "INT", "+", "}", "EOF", "{", ":", "*", "-", "/", "true", "print", "(", "ID"]
 
 [[nodes]]
 class = "Program"
@@ -24,13 +24,13 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -44,25 +44,25 @@ field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "VoidType"
+class = "Id"
 field = "semantic_type"
-field_type = "VoidType"
+field_type = "FuncType"
 
 [[nodes]]
 class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
+
+[[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -129,14 +129,14 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
-
-[[nodes]]
-class = "IntLiteral"
 field = "token"
 field_type = "Token"
 token = "INT"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -145,14 +145,14 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
-field = "expr"
-field_type = "IntLiteral"
-
-[[nodes]]
-class = "UnaryOp"
 field = "op"
 field_type = "Token"
 token = "-"
+
+[[nodes]]
+class = "UnaryOp"
+field = "expr"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "UnaryOp"

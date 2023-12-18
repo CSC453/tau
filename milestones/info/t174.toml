@@ -1,21 +1,11 @@
 source = "tau/tests/t174.tau"
 hash = "4ec2a4dd7e194659d9b364523ee2770e84ad914eff922662bfc376a4f218fc03"
-tokens = ["{", "bool", "not", "var", "}", ":", ")", "void", "true", "print", "=", "ID", "(", "EOF", "func"]
+tokens = ["(", "var", "not", "=", "{", "bool", ")", "void", ":", "ID", "func", "EOF", "true", "}", "print"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,6 +19,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
 
@@ -38,15 +33,20 @@ field = "id"
 field_type = "Id"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -66,6 +66,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "decls"
 field_type = "VarDecl"
 
@@ -80,19 +85,14 @@ field = "stmts"
 field_type = "PrintStmt"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+class = "VarDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
 field = "type_ast"
 field_type = "BoolType"
-
-[[nodes]]
-class = "VarDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
@@ -137,6 +137,12 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "BoolLiteral"
+field = "token"
+field_type = "Token"
+token = "true"
+
+[[nodes]]
+class = "BoolLiteral"
 field = "value"
 field_type = "bool"
 
@@ -144,12 +150,6 @@ field_type = "bool"
 class = "BoolLiteral"
 field = "semantic_type"
 field_type = "BoolType"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "token"
-field_type = "Token"
-token = "true"
 
 [[nodes]]
 class = "PrintStmt"
@@ -163,9 +163,8 @@ field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"
-field = "op"
-field_type = "Token"
-token = "not"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "UnaryOp"
@@ -174,6 +173,7 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "UnaryOp"
-field = "semantic_type"
-field_type = "BoolType"
+field = "op"
+field_type = "Token"
+token = "not"
 

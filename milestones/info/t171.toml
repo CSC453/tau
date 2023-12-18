@@ -1,6 +1,6 @@
 source = "tau/tests/t171.tau"
 hash = "d6e72052e9511bb9e0dd33277eb238a039a14ce2c597e2e83d7f484334d3d7d6"
-tokens = ["INT", "print", "}", ":", "(", "void", "ID", "false", "{", "func", "EOF", ")"]
+tokens = ["ID", ")", "}", "EOF", "print", "(", "{", "void", "INT", "false", "func", ":"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,18 +24,13 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -102,6 +102,11 @@ field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BoolLiteral"
+field = "value"
+field_type = "bool"
+
+[[nodes]]
+class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "false"
@@ -110,9 +115,4 @@ token = "false"
 class = "BoolLiteral"
 field = "semantic_type"
 field_type = "BoolType"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "value"
-field_type = "bool"
 

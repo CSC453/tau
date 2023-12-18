@@ -1,6 +1,6 @@
 source = "tau/tests/t107.tau"
 hash = "a38a649ebc373391c571d1df8e61a2a2fcfc6befee23c41d224d8c92752dd733"
-tokens = ["(", ":", "{", ")", "print", "ID", "true", "EOF", "void", "func", "}"]
+tokens = ["ID", "print", "{", "void", "EOF", "(", "}", ":", ")", "func", "true"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,8 +19,18 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -28,14 +38,9 @@ field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
+class = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -47,11 +52,6 @@ class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
-
-[[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
 
 [[nodes]]
 class = "VoidType"
@@ -71,13 +71,13 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "PrintStmt"

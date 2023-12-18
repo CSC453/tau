@@ -1,6 +1,6 @@
 source = "tau/tests/t401.tau"
 hash = "1d80cd121596841653b65cb704703c371488309be0a7ba4f2b2bfcef40dc677e"
-tokens = ["var", "EOF", "if", "call", "{", "print", "}", "bool", "func", "ID", ",", "(", "=", ":", ")", "return", "else", "true", "void", "false"]
+tokens = ["func", "{", "print", "call", "void", "return", "=", "if", ",", "bool", "else", "(", "false", "ID", "var", "EOF", ":", ")", "true", "}"]
 
 [[nodes]]
 class = "Program"
@@ -9,8 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "ParamDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,23 +19,23 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
+field = "params"
+field_type = "ParamDecl"
+
+[[nodes]]
+class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
@@ -86,11 +86,6 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "ReturnStmt"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
 
@@ -100,14 +95,19 @@ field = "local_scope"
 field_type = "LocalScope"
 
 [[nodes]]
-class = "ReturnStmt"
-field = "expr"
-field_type = "IdExpr"
+class = "CompoundStmt"
+field = "stmts"
+field_type = "ReturnStmt"
 
 [[nodes]]
 class = "ReturnStmt"
 field = "enclosing_function"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "ReturnStmt"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -121,13 +121,13 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "VoidType"
@@ -142,6 +142,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
 
@@ -149,11 +154,6 @@ field_type = "AssignStmt"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "IfStmt"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
@@ -172,13 +172,13 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "BoolLiteral"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -188,13 +188,13 @@ token = "true"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "value"
-field_type = "bool"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "BoolLiteral"
-field = "semantic_type"
-field_type = "BoolType"
+field = "value"
+field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -204,8 +204,8 @@ token = "false"
 
 [[nodes]]
 class = "IfStmt"
-field = "expr"
-field_type = "IdExpr"
+field = "thenStmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "IfStmt"
@@ -214,8 +214,8 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "IfStmt"
-field = "thenStmt"
-field_type = "CompoundStmt"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -229,13 +229,13 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "BoolType"
+field = "fn"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"
@@ -249,13 +249,13 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "Argument"
-field = "expr"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "Argument"
-field = "semantic_type"
-field_type = "BoolType"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "PrintStmt"

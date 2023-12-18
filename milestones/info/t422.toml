@@ -1,11 +1,16 @@
 source = "tau/tests/t422.tau"
 hash = "9ec16004a6de36982a3bf5a90d1d6a356f5d6b67c77e1357d7a33c26589bb924"
-tokens = [":", "void", "return", "INT", ",", "int", "(", ")", "var", "}", "EOF", "print", "{", "ID", "func"]
+tokens = ["int", "EOF", "print", "void", "(", "INT", ")", ",", ":", "}", "ID", "var", "return", "func", "{"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,28 +24,18 @@ field_type = "ParamDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "IntType"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -54,6 +49,16 @@ field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
+class = "ParamDecl"
+field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
 class = "ParamDecl"
 field = "type_ast"
 field_type = "IntType"
@@ -62,11 +67,6 @@ field_type = "IntType"
 class = "ParamDecl"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "ParamDecl"
-field = "semantic_type"
-field_type = "IntType"
 
 [[nodes]]
 class = "Id"
@@ -86,16 +86,6 @@ field_type = "IntType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "stmts"
 field_type = "CompoundStmt"
 
@@ -106,13 +96,28 @@ field_type = "ReturnStmt"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "decls"
-field_type = "VarDecl"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
 field = "stmts"
 field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
+
+[[nodes]]
+class = "VarDecl"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
@@ -123,11 +128,6 @@ field_type = "IntType"
 class = "VarDecl"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "VarDecl"
-field = "semantic_type"
-field_type = "IntType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -141,13 +141,13 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IdExpr"
-field = "semantic_type"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "ReturnStmt"
@@ -203,8 +203,8 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "CallExpr"
@@ -213,8 +213,8 @@ field_type = "Argument"
 
 [[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "IntType"
+field = "fn"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"

@@ -79,7 +79,7 @@ def main() -> None:
         case "testerator":
             fname = "./tau/milestones/" + found["pickle"]
             inputs: list[str] = [fname]
-            threshold: float = found["threshold"]
+            threshold: Optional[float] = found["threshold"] if "threshold" in found else None
             do_gradescope(inputs, output, threshold, minutes, previous_score)
         case _:
             raise NotImplementedError(f"Unknown tester type: {found['tester']}")

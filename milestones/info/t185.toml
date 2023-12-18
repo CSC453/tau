@@ -1,6 +1,6 @@
 source = "tau/tests/t185.tau"
 hash = "86a2c40ffb3a09f3647b041b87d64250b28f3c81f995576425c93cd58bc9582b"
-tokens = [":", "INT", "ID", "EOF", ")", "func", "}", "void", "(", "{", "print"]
+tokens = ["{", "}", "ID", "func", "(", ":", "void", "print", "INT", "EOF", ")"]
 error = "NameError"
 
 [[nodes]]
@@ -10,8 +10,18 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
+field = "func_scope"
+field_type = "Phony_Scope"
+
+[[nodes]]
+class = "FuncDecl"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,23 +30,13 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "Phony_Scope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
@@ -45,12 +45,17 @@ field_type = "Phony_Symbol"
 
 [[nodes]]
 class = "Id"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "Id"
+class = "VoidType"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -61,24 +66,19 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
-class = "VoidType"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
 class = "CompoundStmt"
 field = "stmts"
 field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "Phony_Scope"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "PrintStmt"
@@ -87,12 +87,12 @@ field_type = "IntLiteral"
 
 [[nodes]]
 class = "IntLiteral"
-field = "token"
-field_type = "Token"
-token = "INT"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "token"
+field_type = "Token"
+token = "INT"
 

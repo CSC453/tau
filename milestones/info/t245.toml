@@ -1,6 +1,6 @@
 source = "tau/tests/t245.tau"
 hash = "6e99feaee48019ae3ab714dc647b4db773a8f444c27d7616e8bfd74f720c2d26"
-tokens = ["ID", ":", "}", "call", "=", ",", "print", "INT", "EOF", "not", "(", "int", ")", "func", "void", "{"]
+tokens = ["int", "void", ",", "func", ")", "=", "}", "call", "INT", "print", "not", "EOF", ":", "{", "(", "ID"]
 error = "TypeError"
 
 [[nodes]]
@@ -15,13 +15,13 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -40,22 +40,17 @@ field_type = "Id"
 
 [[nodes]]
 class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
+class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "ParamDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -63,6 +58,11 @@ field_type = "Phony_Type"
 class = "ParamDecl"
 field = "type_ast"
 field_type = "IntType"
+
+[[nodes]]
+class = "ParamDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "ParamDecl"
@@ -93,6 +93,11 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
 
@@ -105,11 +110,6 @@ field_type = "PrintStmt"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
 
 [[nodes]]
 class = "PrintStmt"
@@ -174,16 +174,11 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "Phony_Type"
-
-[[nodes]]
-class = "CallExpr"
 field = "args"
 field_type = "Argument"
 
 [[nodes]]
-class = "Argument"
+class = "CallExpr"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -191,6 +186,11 @@ field_type = "Phony_Type"
 class = "Argument"
 field = "expr"
 field_type = "IntLiteral"
+
+[[nodes]]
+class = "Argument"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntLiteral"

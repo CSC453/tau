@@ -334,11 +334,11 @@ def test_flow(student: Any, expected: Any, crash: bool) -> bool:
         ), f"Too many instructions: {len(keep)} > {limit}, {keep}"
 
     whilecode = _Stmt(whilestmt)
-    basic(whilecode, 5)
+    basic(whilecode, 8)
     ifcode = _Stmt(ifstmt)
-    basic(ifcode, 5)
+    basic(ifcode, 8)
     ifcode2 = _Stmt(ifstmt2)
-    basic(ifcode2, 5)
+    basic(ifcode2, 8)
     return True
 
 

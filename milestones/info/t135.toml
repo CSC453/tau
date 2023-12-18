@@ -1,6 +1,6 @@
 source = "tau/tests/t135.tau"
 hash = "ee5bddf031b46766232cf5cdc940d1b7051c001e2dce6d776f0b4beff5de7858"
-tokens = ["EOF", "(", "void", "ID", "func", "{", "}", "*", ":", "print", "INT", ")"]
+tokens = ["print", "func", "{", "INT", "}", ")", "(", "void", "EOF", "ID", ":", "*"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +24,18 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
@@ -86,6 +86,16 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
+field = "left"
+field_type = "IntLiteral"
+
+[[nodes]]
+class = "BinaryOp"
+field = "right"
+field_type = "BinaryOp"
+
+[[nodes]]
+class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "*"
@@ -94,16 +104,6 @@ token = "*"
 class = "BinaryOp"
 field = "semantic_type"
 field_type = "IntType"
-
-[[nodes]]
-class = "BinaryOp"
-field = "left"
-field_type = "IntLiteral"
-
-[[nodes]]
-class = "BinaryOp"
-field = "right"
-field_type = "BinaryOp"
 
 [[nodes]]
 class = "IntLiteral"

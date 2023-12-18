@@ -1,6 +1,6 @@
 source = "tau/tests/t286.tau"
 hash = "9379664691c463ddb1bbb5ca08f7e5f2a760c701fcd81c2b4d3ef76c6ac0b22b"
-tokens = ["void", "ID", ")", "{", "(", "}", ":", "EOF", "func"]
+tokens = ["EOF", "ID", "}", "(", ")", "{", "func", ":", "void"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,8 +24,13 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -33,7 +38,13 @@ field = "id"
 field_type = "Id"
 
 [[nodes]]
-class = "FuncDecl"
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
+
+[[nodes]]
+class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
 
@@ -43,26 +54,15 @@ field = "symbol"
 field_type = "Symbol"
 
 [[nodes]]
-class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
+class = "VoidType"
 field = "token"
 field_type = "Token"
-token = "ID"
+token = "void"
 
 [[nodes]]
 class = "VoidType"
 field = "semantic_type"
 field_type = "VoidType"
-
-[[nodes]]
-class = "VoidType"
-field = "token"
-field_type = "Token"
-token = "void"
 
 [[nodes]]
 class = "CompoundStmt"

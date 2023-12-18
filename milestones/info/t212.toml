@@ -1,11 +1,31 @@
 source = "tau/tests/t212.tau"
 hash = "0c0c47cefcb8005bd2bb9fb8b5d6aa1ca7818de8242da10b34507e0a9b518177"
-tokens = ["EOF", ")", "(", "INT", "ID", "int", "<", "{", "var", "=", "if", "}", ":", "print", "void", "func"]
+tokens = ["int", "var", "<", "ID", ":", "if", "INT", "{", "EOF", "void", "func", "=", "}", "print", "(", ")"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -16,26 +36,6 @@ field_type = "<empty>"
 class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
 
 [[nodes]]
 class = "Id"
@@ -91,12 +91,12 @@ field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
@@ -168,8 +168,9 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "BoolType"
+field = "op"
+field_type = "Token"
+token = "<"
 
 [[nodes]]
 class = "BinaryOp"
@@ -183,9 +184,8 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "<"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "CompoundStmt"

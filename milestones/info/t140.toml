@@ -1,6 +1,6 @@
 source = "tau/tests/t140.tau"
 hash = "61320873bd6019a82776f7fc2fba4f543cd5e5e8793dceccb83cdd901d8030e4"
-tokens = ["func", ":", "print", "ID", "(", ")", "{", "}", "EOF", "return", "bool", "INT"]
+tokens = ["INT", "}", "bool", ")", "print", "EOF", "(", ":", "{", "ID", "func", "return"]
 error = "TypeError"
 
 [[nodes]]
@@ -10,13 +10,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "ret_type_ast"
+field_type = "BoolType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "BoolType"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -40,12 +40,6 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
-
-[[nodes]]
-class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
 
@@ -55,10 +49,10 @@ field = "symbol"
 field_type = "Symbol"
 
 [[nodes]]
-class = "BoolType"
+class = "Id"
 field = "token"
 field_type = "Token"
-token = "bool"
+token = "ID"
 
 [[nodes]]
 class = "BoolType"
@@ -66,14 +60,10 @@ field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+class = "BoolType"
+field = "token"
+field_type = "Token"
+token = "bool"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -86,9 +76,24 @@ field = "stmts"
 field_type = "ReturnStmt"
 
 [[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
 class = "PrintStmt"
 field = "expr"
 field_type = "IntLiteral"
+
+[[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntLiteral"
@@ -97,17 +102,12 @@ field_type = "Token"
 token = "INT"
 
 [[nodes]]
-class = "IntLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
+class = "ReturnStmt"
+field = "expr"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "ReturnStmt"
 field = "enclosing_function"
 field_type = "NoneType"
-
-[[nodes]]
-class = "ReturnStmt"
-field = "expr"
-field_type = "IntLiteral"
 

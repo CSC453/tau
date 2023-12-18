@@ -1,6 +1,6 @@
 source = "tau/tests/t157.tau"
 hash = "52a1fc39d617bca198b65212c931ff27abab968ac5d30d58e6cc77b37c7885c6"
-tokens = ["}", "void", "print", "if", "(", "ID", "INT", ":", ")", "EOF", "func", "false", "{"]
+tokens = ["print", "(", "}", "EOF", "func", "{", "void", "ID", "if", "INT", ")", ":", "false"]
 
 [[nodes]]
 class = "Program"
@@ -14,18 +14,13 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,19 +29,24 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
 
 [[nodes]]
 class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -66,6 +66,11 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "IfStmt"
 
@@ -76,13 +81,13 @@ field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
+
+[[nodes]]
+class = "IfStmt"
+field = "elseStmt"
+field_type = "NoneType"
 
 [[nodes]]
 class = "IfStmt"
@@ -95,9 +100,9 @@ field = "thenStmt"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "IfStmt"
-field = "elseStmt"
-field_type = "NoneType"
+class = "BoolLiteral"
+field = "value"
+field_type = "bool"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -109,11 +114,6 @@ class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "false"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "value"
-field_type = "bool"
 
 [[nodes]]
 class = "PrintStmt"

@@ -1,11 +1,16 @@
 source = "tau/tests/t402.tau"
 hash = "c473fc2e49145e265a841d56876a6d9c2eaca776d5f2b3223c2b4aab64bbcfa7"
-tokens = ["void", ":", "func", "=", ",", "+", "}", "var", "int", "EOF", "INT", "print", "ID", "{", "(", "*", ")", "return", "-", "/"]
+tokens = ["-", "(", "int", "*", ",", "print", "{", "var", "EOF", "/", ":", "=", "void", ")", "+", "return", "}", "func", "INT", "ID"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,18 +24,13 @@ field_type = "IntType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "ParamDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -55,12 +55,12 @@ token = "ID"
 
 [[nodes]]
 class = "ParamDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
 class = "ParamDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
@@ -101,13 +101,19 @@ field_type = "LocalScope"
 
 [[nodes]]
 class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "FuncDecl"
+
+[[nodes]]
+class = "ReturnStmt"
 field = "expr"
 field_type = "BinaryOp"
 
 [[nodes]]
-class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "FuncDecl"
+class = "BinaryOp"
+field = "op"
+field_type = "Token"
+token = "+"
 
 [[nodes]]
 class = "BinaryOp"
@@ -123,12 +129,6 @@ field_type = "IdExpr"
 class = "BinaryOp"
 field = "left"
 field_type = "IdExpr"
-
-[[nodes]]
-class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = "+"
 
 [[nodes]]
 class = "IdExpr"
@@ -196,12 +196,12 @@ field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
 class = "VarDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]

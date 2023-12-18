@@ -1,11 +1,16 @@
 source = "tau/tests/t182.tau"
 hash = "a7a788b0d69ec349a2c80bcdd60732e04a2a9a3911dc802d80383822c290d9d5"
-tokens = [")", "true", "}", "var", "(", ":", "void", "=", "if", "bool", "{", "print", "EOF", "else", "ID", "func", "INT"]
+tokens = ["=", ":", "true", "else", "func", "(", "INT", "}", "EOF", "void", "var", "if", "bool", "{", ")", "ID", "print"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,8 +24,8 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,13 +34,13 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -47,11 +52,6 @@ class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
-
-[[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
 
 [[nodes]]
 class = "VoidType"
@@ -66,8 +66,8 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -81,17 +81,17 @@ field_type = "IfStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
-
-[[nodes]]
-class = "VarDecl"
-field = "semantic_type"
-field_type = "BoolType"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
 field = "type_ast"
+field_type = "BoolType"
+
+[[nodes]]
+class = "VarDecl"
+field = "semantic_type"
 field_type = "BoolType"
 
 [[nodes]]
@@ -117,13 +117,13 @@ token = "bool"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "BoolLiteral"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "BoolLiteral"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -153,6 +153,11 @@ token = "true"
 
 [[nodes]]
 class = "IfStmt"
+field = "expr"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "IfStmt"
 field = "elseStmt"
 field_type = "CompoundStmt"
 
@@ -162,19 +167,14 @@ field = "thenStmt"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "IfStmt"
-field = "expr"
-field_type = "IdExpr"
+class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
 field = "decls"
 field_type = "<empty>"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
 
 [[nodes]]
 class = "PrintStmt"

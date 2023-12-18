@@ -1,6 +1,6 @@
 source = "tau/tests/t154.tau"
 hash = "39d652c24c134062a6ff9e05123f5b2dede88c030c6c10ae9ad8aa0f9baf9cdb"
-tokens = ["void", "var", "INT", ")", ":", "func", "}", "bool", "ID", "{", "(", "EOF", "print"]
+tokens = ["INT", "print", "ID", "void", "{", "func", "var", "bool", ":", "EOF", "}", ")", "("]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,23 +24,18 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "<empty>"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
@@ -52,6 +47,11 @@ class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "VoidType"
@@ -66,6 +66,11 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "stmts"
+field_type = "PrintStmt"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
 
@@ -73,16 +78,6 @@ field_type = "LocalScope"
 class = "CompoundStmt"
 field = "decls"
 field_type = "VarDecl"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
-
-[[nodes]]
-class = "VarDecl"
-field = "id"
-field_type = "Id"
 
 [[nodes]]
 class = "VarDecl"
@@ -93,6 +88,11 @@ field_type = "BoolType"
 class = "VarDecl"
 field = "semantic_type"
 field_type = "BoolType"
+
+[[nodes]]
+class = "VarDecl"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "Id"

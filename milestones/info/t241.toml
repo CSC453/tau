@@ -1,12 +1,22 @@
 source = "tau/tests/t241.tau"
 hash = "469a3024b680c77c06fc5ad1fef06780f5484fed52bedf400b86e0b2b05bb4ad"
 pragmas = ["recursive"]
-tokens = ["return", "+", "INT", "{", "}", "-", "EOF", ")", "<=", "func", "int", ":", "void", "print", "if", "(", "ID"]
+tokens = ["-", "int", "(", ":", "func", "if", "+", "print", ")", "EOF", "}", "{", "void", "INT", "<=", "return", "ID"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,18 +30,8 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "IntType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "params"
 field_type = "ParamDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -46,17 +46,17 @@ token = "ID"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
-class = "Id"
 field = "semantic_type"
 field_type = "FuncType"
 
 [[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
+
+[[nodes]]
 class = "ParamDecl"
-field = "type_ast"
+field = "semantic_type"
 field_type = "IntType"
 
 [[nodes]]
@@ -66,7 +66,7 @@ field_type = "Id"
 
 [[nodes]]
 class = "ParamDecl"
-field = "semantic_type"
+field = "type_ast"
 field_type = "IntType"
 
 [[nodes]]
@@ -87,13 +87,13 @@ field_type = "IntType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -107,8 +107,8 @@ field_type = "ReturnStmt"
 
 [[nodes]]
 class = "IfStmt"
-field = "elseStmt"
-field_type = "NoneType"
+field = "thenStmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "IfStmt"
@@ -117,8 +117,13 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "IfStmt"
-field = "thenStmt"
-field_type = "CompoundStmt"
+field = "elseStmt"
+field_type = "NoneType"
+
+[[nodes]]
+class = "BinaryOp"
+field = "right"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "BinaryOp"
@@ -132,24 +137,19 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IntLiteral"
-
-[[nodes]]
-class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "<="
 
 [[nodes]]
 class = "IdExpr"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "IdExpr"
-field = "semantic_type"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "IntLiteral"
@@ -164,18 +164,23 @@ field_type = "IntType"
 
 [[nodes]]
 class = "ReturnStmt"
+field = "expr"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "ReturnStmt"
 field = "enclosing_function"
 field_type = "FuncDecl"
 
 [[nodes]]
 class = "ReturnStmt"
 field = "expr"
-field_type = "IdExpr"
+field_type = "BinaryOp"
 
 [[nodes]]
-class = "ReturnStmt"
-field = "expr"
-field_type = "BinaryOp"
+class = "BinaryOp"
+field = "right"
+field_type = "CallExpr"
 
 [[nodes]]
 class = "BinaryOp"
@@ -189,19 +194,14 @@ field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "CallExpr"
-
-[[nodes]]
-class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "+"
 
 [[nodes]]
 class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
+field = "args"
+field_type = "Argument"
 
 [[nodes]]
 class = "CallExpr"
@@ -210,8 +210,8 @@ field_type = "IntType"
 
 [[nodes]]
 class = "CallExpr"
-field = "args"
-field_type = "Argument"
+field = "fn"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "IdExpr"
@@ -220,13 +220,13 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "Argument"
-field = "expr"
-field_type = "BinaryOp"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "Argument"
-field = "semantic_type"
-field_type = "IntType"
+field = "expr"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"

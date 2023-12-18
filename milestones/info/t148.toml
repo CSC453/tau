@@ -1,6 +1,6 @@
 source = "tau/tests/t148.tau"
 hash = "13865e1b5afae7b7f8c67c2fb271a32f05f9637063e1036fdb344a048c20940d"
-tokens = ["{", "-", "INT", "EOF", "void", "}", "print", "func", "(", ":", ")", "ID"]
+tokens = ["{", "func", ")", "(", "EOF", "-", "INT", ":", "print", "void", "ID", "}"]
 
 [[nodes]]
 class = "Program"
@@ -14,18 +14,13 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -34,8 +29,13 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "semantic_type"
+field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
@@ -44,19 +44,14 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
-class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "VoidType"
-field = "semantic_type"
-field_type = "VoidType"
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "VoidType"
@@ -65,9 +60,9 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+class = "VoidType"
+field = "semantic_type"
+field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -80,14 +75,14 @@ field = "decls"
 field_type = "<empty>"
 
 [[nodes]]
+class = "CompoundStmt"
+field = "local_scope"
+field_type = "LocalScope"
+
+[[nodes]]
 class = "PrintStmt"
 field = "expr"
 field_type = "IntLiteral"
-
-[[nodes]]
-class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
 
 [[nodes]]
 class = "IntLiteral"
@@ -96,25 +91,25 @@ field_type = "Token"
 token = "INT"
 
 [[nodes]]
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
+
+[[nodes]]
 class = "PrintStmt"
 field = "expr"
 field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "UnaryOp"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
 field = "op"
 field_type = "Token"
 token = "-"
-
-[[nodes]]
-class = "BinaryOp"
-field = "semantic_type"
-field_type = "IntType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -122,6 +117,16 @@ field = "left"
 field_type = "IntLiteral"
 
 [[nodes]]
+class = "BinaryOp"
+field = "right"
+field_type = "UnaryOp"
+
+[[nodes]]
+class = "UnaryOp"
+field = "expr"
+field_type = "UnaryOp"
+
+[[nodes]]
 class = "UnaryOp"
 field = "op"
 field_type = "Token"
@@ -131,11 +136,6 @@ token = "-"
 class = "UnaryOp"
 field = "semantic_type"
 field_type = "IntType"
-
-[[nodes]]
-class = "UnaryOp"
-field = "expr"
-field_type = "UnaryOp"
 
 [[nodes]]
 class = "UnaryOp"

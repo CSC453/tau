@@ -1,6 +1,6 @@
 source = "tau/tests/t100.tau"
 hash = "558a9f534ba1cd9608f0ebb4257ae41a70ef9f061debcdc20eb9bd08e09a9008"
-tokens = ["EOF", "void", "(", ")", "{", "}", ":", "ID", "func"]
+tokens = ["ID", ")", "void", "{", "EOF", ":", "(", "func", "}"]
 error = "NameError"
 
 [[nodes]]
@@ -15,13 +15,13 @@ field_type = "Phony_Scope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"

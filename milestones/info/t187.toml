@@ -1,6 +1,6 @@
 source = "tau/tests/t187.tau"
 hash = "8ffcd5d9f1e192d041b57270dc6b9c5e5ab13124268df5129af7056b8a242113"
-tokens = ["EOF", "func", "void", "{", ":", "(", "}", "false", "ID", "=", "true", "print", "bool", ">", ")", "var"]
+tokens = ["EOF", "{", ")", "true", "}", ">", "func", "false", "print", "var", "(", "void", "=", "bool", "ID", ":"]
 
 [[nodes]]
 class = "Program"
@@ -14,8 +14,8 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,24 +29,24 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
 
 [[nodes]]
 class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -137,6 +137,11 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "BoolLiteral"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "true"
@@ -145,11 +150,6 @@ token = "true"
 class = "BoolLiteral"
 field = "value"
 field_type = "bool"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "semantic_type"
-field_type = "BoolType"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -164,14 +164,8 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "IdExpr"
-
-[[nodes]]
-class = "BinaryOp"
-field = "op"
-field_type = "Token"
-token = ">"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -180,6 +174,12 @@ field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "BoolType"
+field = "right"
+field_type = "IdExpr"
+
+[[nodes]]
+class = "BinaryOp"
+field = "op"
+field_type = "Token"
+token = ">"
 

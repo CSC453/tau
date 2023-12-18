@@ -1,12 +1,22 @@
 source = "tau/tests/t164.tau"
 hash = "290ad753e8c500131fdd395bdc866f0423fe563a2150bfd081324cfbe47ba0e0"
-tokens = ["ID", "(", ":", ")", "INT", "}", "int", "EOF", "func", "+", "{", "return"]
+tokens = ["}", "INT", "int", ")", "(", "EOF", "ID", "return", "func", ":", "{", "+"]
 error = "NameError"
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,8 +30,8 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -29,25 +39,15 @@ field = "ret_type_ast"
 field_type = "IntType"
 
 [[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "Phony_Scope"
+class = "Id"
+field = "token"
+field_type = "Token"
+token = "ID"
 
 [[nodes]]
 class = "Id"
 field = "symbol"
 field_type = "Phony_Symbol"
-
-[[nodes]]
-class = "Id"
-field = "token"
-field_type = "Token"
-token = "ID"
 
 [[nodes]]
 class = "Id"
@@ -67,8 +67,8 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "ReturnStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -77,18 +77,18 @@ field_type = "Phony_Scope"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
-
-[[nodes]]
-class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "NoneType"
+field = "stmts"
+field_type = "ReturnStmt"
 
 [[nodes]]
 class = "ReturnStmt"
 field = "expr"
 field_type = "BinaryOp"
+
+[[nodes]]
+class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "NoneType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -124,13 +124,13 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "CallExpr"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "fn"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "CallExpr"
-field = "fn"
-field_type = "IdExpr"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "CallExpr"
@@ -139,11 +139,11 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "IdExpr"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IdExpr"
-field = "semantic_type"
-field_type = "Phony_Type"
+field = "id"
+field_type = "Id"
 

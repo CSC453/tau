@@ -1,6 +1,6 @@
 source = "tau/tests/t299.tau"
 hash = "e1cfb38def873bb8b76853cf2b2214b2a2eff03d8cc8c58d713675846ebaf910"
-tokens = [">", ":", "print", "INT", "else", "true", "=", "if", "func", "{", ")", "int", "bool", "(", "EOF", "}", "ID", "not", "or", "and", "void", "var"]
+tokens = ["void", "func", "and", "int", "print", ">", "(", "EOF", ":", "var", ")", "or", "{", "=", "}", "bool", "else", "if", "true", "ID", "not", "INT"]
 
 [[nodes]]
 class = "Program"
@@ -9,23 +9,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "func_scope"
 field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
@@ -36,6 +21,26 @@ field_type = "Id"
 class = "FuncDecl"
 field = "semantic_type"
 field_type = "FuncType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -49,11 +54,6 @@ field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
-
-[[nodes]]
 class = "VoidType"
 field = "semantic_type"
 field_type = "VoidType"
@@ -63,11 +63,6 @@ class = "VoidType"
 field = "token"
 field_type = "Token"
 token = "void"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "VarDecl"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -85,14 +80,19 @@ field = "local_scope"
 field_type = "LocalScope"
 
 [[nodes]]
-class = "VarDecl"
-field = "type_ast"
-field_type = "BoolType"
+class = "CompoundStmt"
+field = "decls"
+field_type = "VarDecl"
 
 [[nodes]]
 class = "VarDecl"
 field = "id"
 field_type = "Id"
+
+[[nodes]]
+class = "VarDecl"
+field = "type_ast"
+field_type = "BoolType"
 
 [[nodes]]
 class = "VarDecl"
@@ -143,13 +143,13 @@ token = "int"
 
 [[nodes]]
 class = "AssignStmt"
-field = "rhs"
-field_type = "BoolLiteral"
+field = "lhs"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "AssignStmt"
-field = "lhs"
-field_type = "IdExpr"
+field = "rhs"
+field_type = "BoolLiteral"
 
 [[nodes]]
 class = "IdExpr"
@@ -158,6 +158,11 @@ field_type = "Id"
 
 [[nodes]]
 class = "IdExpr"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
+class = "BoolLiteral"
 field = "semantic_type"
 field_type = "BoolType"
 
@@ -173,13 +178,13 @@ field_type = "Token"
 token = "true"
 
 [[nodes]]
-class = "BoolLiteral"
-field = "semantic_type"
-field_type = "BoolType"
+class = "IfStmt"
+field = "thenStmt"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "IfStmt"
-field = "thenStmt"
+field = "elseStmt"
 field_type = "CompoundStmt"
 
 [[nodes]]
@@ -188,9 +193,9 @@ field = "expr"
 field_type = "BinaryOp"
 
 [[nodes]]
-class = "IfStmt"
-field = "elseStmt"
-field_type = "CompoundStmt"
+class = "BinaryOp"
+field = "right"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
@@ -199,8 +204,8 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
-field_type = "BinaryOp"
+field = "semantic_type"
+field_type = "BoolType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -210,18 +215,13 @@ token = "and"
 
 [[nodes]]
 class = "BinaryOp"
-field = "semantic_type"
-field_type = "BoolType"
+field = "right"
+field_type = "UnaryOp"
 
 [[nodes]]
 class = "BinaryOp"
 field = "left"
 field_type = "IdExpr"
-
-[[nodes]]
-class = "BinaryOp"
-field = "right"
-field_type = "UnaryOp"
 
 [[nodes]]
 class = "BinaryOp"
@@ -236,14 +236,14 @@ field_type = "BoolType"
 
 [[nodes]]
 class = "UnaryOp"
-field = "expr"
-field_type = "IdExpr"
-
-[[nodes]]
-class = "UnaryOp"
 field = "op"
 field_type = "Token"
 token = "not"
+
+[[nodes]]
+class = "UnaryOp"
+field = "expr"
+field_type = "IdExpr"
 
 [[nodes]]
 class = "BinaryOp"
@@ -274,13 +274,13 @@ token = "INT"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "PrintStmt"

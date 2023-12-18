@@ -1,32 +1,12 @@
 source = "tau/tests/t156.tau"
 hash = "9cf95667ed8e269745434b2c02b32b67de7b76a4db326fa1f8ff853fc20e03ce"
-tokens = [":", "func", ")", "print", "}", "(", "void", "and", "false", "EOF", "true", "ID", "or", "INT", "{", "+"]
+tokens = [":", "func", "void", "false", "and", "INT", "}", "ID", "(", "true", "or", ")", "EOF", "+", "{", "print"]
 error = "TypeError"
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
-
-[[nodes]]
-class = "FuncDecl"
-field = "id"
-field_type = "Id"
-
-[[nodes]]
-class = "FuncDecl"
-field = "params"
-field_type = "<empty>"
-
-[[nodes]]
-class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -39,14 +19,34 @@ field = "ret_type_ast"
 field_type = "VoidType"
 
 [[nodes]]
-class = "Id"
-field = "symbol"
-field_type = "Symbol"
+class = "FuncDecl"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "params"
+field_type = "<empty>"
+
+[[nodes]]
+class = "FuncDecl"
+field = "id"
+field_type = "Id"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "Id"
 field = "semantic_type"
 field_type = "Phony_Type"
+
+[[nodes]]
+class = "Id"
+field = "symbol"
+field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
@@ -67,8 +67,8 @@ token = "void"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "local_scope"
-field_type = "LocalScope"
+field = "stmts"
+field_type = "PrintStmt"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -77,8 +77,8 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "stmts"
-field_type = "PrintStmt"
+field = "local_scope"
+field_type = "LocalScope"
 
 [[nodes]]
 class = "PrintStmt"
@@ -87,7 +87,7 @@ field_type = "BinaryOp"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
+field = "left"
 field_type = "BinaryOp"
 
 [[nodes]]
@@ -97,7 +97,7 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
+field = "right"
 field_type = "BinaryOp"
 
 [[nodes]]
@@ -108,13 +108,18 @@ token = "or"
 
 [[nodes]]
 class = "BinaryOp"
-field = "right"
+field = "left"
 field_type = "BoolLiteral"
 
 [[nodes]]
 class = "BinaryOp"
-field = "left"
+field = "right"
 field_type = "BoolLiteral"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "BoolLiteral"
@@ -126,11 +131,6 @@ class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "true"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "semantic_type"
-field_type = "Phony_Type"
 
 [[nodes]]
 class = "BoolLiteral"

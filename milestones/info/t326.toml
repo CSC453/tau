@@ -1,6 +1,6 @@
 source = "tau/tests/t326.tau"
 hash = "93b03fe61334ca23e1086c45b422f1562a4964e85a1d69798859486149b45b2d"
-tokens = [":", "func", "and", "void", "or", "{", "false", "if", "(", "true", "return", "}", "int", "EOF", "print", ")", "INT", "ID"]
+tokens = [")", "{", "void", "return", "print", "and", "ID", "or", "int", "EOF", "}", "(", "false", "true", "if", "INT", ":", "func"]
 
 [[nodes]]
 class = "Program"
@@ -9,13 +9,13 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
@@ -24,18 +24,18 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "FuncScope"
-
-[[nodes]]
-class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
+field = "func_scope"
+field_type = "FuncScope"
+
+[[nodes]]
+class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "IntType"
 
 [[nodes]]
 class = "Id"
@@ -44,25 +44,25 @@ field_type = "Symbol"
 
 [[nodes]]
 class = "Id"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "Id"
 field = "token"
 field_type = "Token"
 token = "ID"
 
 [[nodes]]
-class = "IntType"
+class = "Id"
 field = "semantic_type"
-field_type = "IntType"
+field_type = "FuncType"
 
 [[nodes]]
 class = "IntType"
 field = "token"
 field_type = "Token"
 token = "int"
+
+[[nodes]]
+class = "IntType"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
 class = "CompoundStmt"
@@ -81,18 +81,13 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "FuncDecl"
-
-[[nodes]]
-class = "ReturnStmt"
 field = "expr"
 field_type = "IntLiteral"
 
 [[nodes]]
-class = "IntLiteral"
-field = "semantic_type"
-field_type = "IntType"
+class = "ReturnStmt"
+field = "enclosing_function"
+field_type = "FuncDecl"
 
 [[nodes]]
 class = "IntLiteral"
@@ -101,13 +96,13 @@ field_type = "Token"
 token = "INT"
 
 [[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
+class = "IntLiteral"
+field = "semantic_type"
+field_type = "IntType"
 
 [[nodes]]
-class = "VoidType"
-field = "semantic_type"
+class = "FuncDecl"
+field = "ret_type_ast"
 field_type = "VoidType"
 
 [[nodes]]
@@ -117,14 +112,19 @@ field_type = "Token"
 token = "void"
 
 [[nodes]]
+class = "VoidType"
+field = "semantic_type"
+field_type = "VoidType"
+
+[[nodes]]
 class = "CompoundStmt"
 field = "stmts"
 field_type = "IfStmt"
 
 [[nodes]]
 class = "IfStmt"
-field = "elseStmt"
-field_type = "NoneType"
+field = "expr"
+field_type = "BinaryOp"
 
 [[nodes]]
 class = "IfStmt"
@@ -133,13 +133,8 @@ field_type = "CompoundStmt"
 
 [[nodes]]
 class = "IfStmt"
-field = "expr"
-field_type = "BinaryOp"
-
-[[nodes]]
-class = "BinaryOp"
-field = "left"
-field_type = "BoolLiteral"
+field = "elseStmt"
+field_type = "NoneType"
 
 [[nodes]]
 class = "BinaryOp"
@@ -158,6 +153,16 @@ field = "semantic_type"
 field_type = "BoolType"
 
 [[nodes]]
+class = "BinaryOp"
+field = "left"
+field_type = "BoolLiteral"
+
+[[nodes]]
+class = "BoolLiteral"
+field = "semantic_type"
+field_type = "BoolType"
+
+[[nodes]]
 class = "BoolLiteral"
 field = "value"
 field_type = "bool"
@@ -167,11 +172,6 @@ class = "BoolLiteral"
 field = "token"
 field_type = "Token"
 token = "false"
-
-[[nodes]]
-class = "BoolLiteral"
-field = "semantic_type"
-field_type = "BoolType"
 
 [[nodes]]
 class = "BoolLiteral"

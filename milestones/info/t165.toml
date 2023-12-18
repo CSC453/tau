@@ -1,6 +1,6 @@
 source = "tau/tests/t165.tau"
 hash = "974ab61ae25ad9263cc75a6b7f44905984c8da4a8567e6ab6e06dcacf09afc60"
-tokens = ["func", "true", "}", ")", ":", "{", "return", "ID", "int", "(", "EOF", "INT", "print"]
+tokens = ["{", ":", "print", "return", "true", "EOF", "INT", ")", "func", "ID", "int", "}", "("]
 error = "TypeError"
 
 [[nodes]]
@@ -10,8 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "id"
-field_type = "Id"
+field = "body"
+field_type = "CompoundStmt"
 
 [[nodes]]
 class = "FuncDecl"
@@ -20,18 +20,18 @@ field_type = "<empty>"
 
 [[nodes]]
 class = "FuncDecl"
+field = "ret_type_ast"
+field_type = "IntType"
+
+[[nodes]]
+class = "FuncDecl"
 field = "semantic_type"
 field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "IntType"
+field = "id"
+field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"

@@ -82,6 +82,11 @@
       "pickle": "m14-codegen.pickle",
       "threshold": 0.8,
       "use_best": true
+    },
+    {
+      "name": "Final",
+      "tester": "testerator",
+      "pickle": "final-project.pickle"
     }
   ]
 }

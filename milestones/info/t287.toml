@@ -1,11 +1,21 @@
 source = "tau/tests/t287.tau"
 hash = "e313077e8dd37f6e29e702d4b78123b282fa0f1a270d47c65cbd7a822d866611"
-tokens = ["print", "void", ")", "int", "return", "EOF", "(", "INT", "}", "func", ":", "{", "ID", "call"]
+tokens = ["(", ")", ":", "func", "void", "int", "print", "INT", "ID", "EOF", "call", "}", "return", "{"]
 
 [[nodes]]
 class = "Program"
 field = "decls"
 field_type = "FuncDecl"
+
+[[nodes]]
+class = "FuncDecl"
+field = "body"
+field_type = "CompoundStmt"
+
+[[nodes]]
+class = "FuncDecl"
+field = "semantic_type"
+field_type = "FuncType"
 
 [[nodes]]
 class = "FuncDecl"
@@ -19,23 +29,13 @@ field_type = "FuncScope"
 
 [[nodes]]
 class = "FuncDecl"
-field = "ret_type_ast"
-field_type = "VoidType"
-
-[[nodes]]
-class = "FuncDecl"
 field = "id"
 field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
-field = "semantic_type"
-field_type = "FuncType"
-
-[[nodes]]
-class = "FuncDecl"
-field = "body"
-field_type = "CompoundStmt"
+field = "ret_type_ast"
+field_type = "VoidType"
 
 [[nodes]]
 class = "Id"
@@ -66,11 +66,6 @@ field_type = "VoidType"
 
 [[nodes]]
 class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
-
-[[nodes]]
-class = "CompoundStmt"
 field = "local_scope"
 field_type = "LocalScope"
 
@@ -83,6 +78,11 @@ field_type = "PrintStmt"
 class = "CompoundStmt"
 field = "stmts"
 field_type = "CompoundStmt"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
 
 [[nodes]]
 class = "PrintStmt"
@@ -133,6 +133,11 @@ field_type = "CallExpr"
 
 [[nodes]]
 class = "CallExpr"
+field = "semantic_type"
+field_type = "VoidType"
+
+[[nodes]]
+class = "CallExpr"
 field = "fn"
 field_type = "IdExpr"
 
@@ -140,11 +145,6 @@ field_type = "IdExpr"
 class = "CallExpr"
 field = "args"
 field_type = "<empty>"
-
-[[nodes]]
-class = "CallExpr"
-field = "semantic_type"
-field_type = "VoidType"
 
 [[nodes]]
 class = "IdExpr"
@@ -158,11 +158,11 @@ field_type = "FuncType"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "enclosing_function"
-field_type = "FuncDecl"
+field = "expr"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "ReturnStmt"
-field = "expr"
-field_type = "IntLiteral"
+field = "enclosing_function"
+field_type = "FuncDecl"
 

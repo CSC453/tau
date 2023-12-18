@@ -1,6 +1,6 @@
 source = "tau/tests/t162.tau"
 hash = "b53e8368288b7fa98d6ed76fb5a780ee14d56745fa79ed25a680bd0f7ddca2e7"
-tokens = ["INT", "ID", ")", "print", "(", "void", "{", "EOF", ":", "=", "func", "}"]
+tokens = ["void", "INT", "func", "ID", "{", ")", "print", "EOF", ":", "=", "(", "}"]
 error = "NameError"
 
 [[nodes]]
@@ -10,18 +10,8 @@ field_type = "FuncDecl"
 
 [[nodes]]
 class = "FuncDecl"
-field = "func_scope"
-field_type = "Phony_Scope"
-
-[[nodes]]
-class = "FuncDecl"
 field = "body"
 field_type = "CompoundStmt"
-
-[[nodes]]
-class = "FuncDecl"
-field = "semantic_type"
-field_type = "Phony_Type"
 
 [[nodes]]
 class = "FuncDecl"
@@ -30,8 +20,18 @@ field_type = "Id"
 
 [[nodes]]
 class = "FuncDecl"
+field = "semantic_type"
+field_type = "Phony_Type"
+
+[[nodes]]
+class = "FuncDecl"
 field = "ret_type_ast"
 field_type = "VoidType"
+
+[[nodes]]
+class = "FuncDecl"
+field = "func_scope"
+field_type = "Phony_Scope"
 
 [[nodes]]
 class = "FuncDecl"
@@ -67,6 +67,16 @@ field_type = "Phony_Type"
 
 [[nodes]]
 class = "CompoundStmt"
+field = "local_scope"
+field_type = "Phony_Scope"
+
+[[nodes]]
+class = "CompoundStmt"
+field = "decls"
+field_type = "<empty>"
+
+[[nodes]]
+class = "CompoundStmt"
 field = "stmts"
 field_type = "AssignStmt"
 
@@ -76,14 +86,9 @@ field = "stmts"
 field_type = "PrintStmt"
 
 [[nodes]]
-class = "CompoundStmt"
-field = "decls"
-field_type = "<empty>"
-
-[[nodes]]
-class = "CompoundStmt"
-field = "local_scope"
-field_type = "Phony_Scope"
+class = "AssignStmt"
+field = "rhs"
+field_type = "IntLiteral"
 
 [[nodes]]
 class = "AssignStmt"
@@ -91,19 +96,14 @@ field = "lhs"
 field_type = "IdExpr"
 
 [[nodes]]
-class = "AssignStmt"
-field = "rhs"
-field_type = "IntLiteral"
+class = "IdExpr"
+field = "semantic_type"
+field_type = "Phony_Type"
 
 [[nodes]]
 class = "IdExpr"
 field = "id"
 field_type = "Id"
-
-[[nodes]]
-class = "IdExpr"
-field = "semantic_type"
-field_type = "Phony_Type"
 
 [[nodes]]
 class = "IntLiteral"
