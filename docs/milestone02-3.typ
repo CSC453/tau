@@ -3,7 +3,7 @@
 
 == Goal:
 <goal>
-These milestones is writing a scanner for Tau.
+These milestones are writing a scanner for Tau.
 
 == Specifications
 <specifications>
