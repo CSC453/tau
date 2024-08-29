@@ -1,0 +1,14 @@
+function = "tau.testers.run_typecheck"
+compare = "tau.testers.test_typecheck"
+
+[[exclude]]
+error = "ParseErrorException"
+
+[[exclude]]
+error = "ScanError"
+
+[[exclude]]
+error = "NameError"
+
+[[exclude]]
+error = "TypeError"

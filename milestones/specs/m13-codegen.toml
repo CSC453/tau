@@ -1,0 +1,22 @@
+function = "tau.testers.run_codegen"
+compare = "tau.testers.test_codegen"
+
+
+[[exclude]]
+error = "ParseErrorException"
+
+[[exclude]]
+error = "ScanError"
+
+[[exclude]]
+error = "NameError"
+
+[[exclude]]
+error = "TypeError"
+
+[[exclude]]
+pragmas = ["recursive"]
+
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayType"

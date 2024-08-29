@@ -1,0 +1,12 @@
+func foo(a : int, b : int) :void{
+    var c : int
+    c = a + b + 11
+    print c
+}
+func main():void{
+    var a : int 
+    var b : int
+    a = 9
+    b = 31
+    call foo(a,b)
+}

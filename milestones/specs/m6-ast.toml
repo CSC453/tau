@@ -1,0 +1,9 @@
+function = "tau.testers.run_ast"
+compare = "tau.testers.test_ast"
+
+[[exclude]]
+error = "ParseErrorException"
+
+[[exclude]]
+error = "ScanException"
+

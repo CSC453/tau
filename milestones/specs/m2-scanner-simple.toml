@@ -1,0 +1,52 @@
+function = "tau.testers.run_scanner"
+compare = "tau.testers.test_scanner"
+
+[[exclude]]
+error = "ScanError"
+
+[[exclude]]
+tokens = [
+    ":",
+    ",",
+    "!=",
+    "&",
+    "*",
+    "/",
+    "%",
+    "<=",
+    "<",
+    ">=",
+    ">",
+    "==",
+    "|",
+    "=",
+    "+",
+    "-",
+    "[",
+    "]",
+    "{",
+    "}",
+    "(",
+    ")",
+]
+
+[[exclude]]
+tokens = [
+    "and",
+    "bool",
+    "call",
+    "else",
+    "false",
+    "func",
+    "if",
+    "int",
+    "length",
+    "not",
+    "or",
+    "print",
+    "return",
+    "true",
+    "var",
+    "void",
+    "while",
+]

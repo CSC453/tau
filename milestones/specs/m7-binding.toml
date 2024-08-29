@@ -1,0 +1,14 @@
+function = "tau.testers.run_binding"
+compare = "tau.testers.test_binding"
+
+[[exclude]]
+error = "ParseErrorException"
+
+[[exclude]]
+error = "ScanException"
+
+[[exclude]]
+error = "NameException"
+
+[[exclude]]
+error = "NameError"

@@ -1,0 +1,50 @@
+root = "tau.asts.AST"
+inside_class = false
+field_messages.symbol = "<--- set this!!"
+field_messages.func_scope = "<--- set this!!"
+field_messages.local_scope = "<--- set this!!"
+field_excludes = [
+    "semantic_type",
+    "register_pool",
+    "enclosing_function",
+    "ar_size",
+    "length",
+    "register",
+]
+field_opaques = [
+    "span",
+    "symbol",
+    "token",
+    "func_scope",
+    "local_scope",
+    "op",
+    "value",
+]
+
+prologue = """
+# REMEMBER TO REMOVE THE pyright DIRECTIVE ABOVE!!!!!!
+
+from tau import asts, symbols
+
+def process(ast: asts.Program) -> None:
+    _Program(ast)
+
+"""
+
+[[emit]]
+roots = ["tau.asts.Program"]
+include_self = true
+prefix = "_"
+initialize.scope = "symbols.GlobalScope(ast.span)"
+rettype = "None"
+call = [["scope", "symbols.Scope"]]
+decl = []
+
+[[emit]]
+roots = ["tau.asts.AST"]
+type_excludes = ["tau.asts.Program"]
+include_self = false
+call = [["scope", "symbols.Scope"]]
+decl = [["scope", "symbols.Scope"]]
+prefix = "_"
+rettype = "None"

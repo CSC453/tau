@@ -1,0 +1,49 @@
+root = "tau.asts.AST"
+inside_class = false
+field_messages.semantic_type = "<--- set this!!"
+field_excludes = [
+    "register_pool",
+    "enclosing_function",
+    "ar_size",
+    "length",
+    "span",
+    "register",
+    "semantic_type",
+    "func_scope",
+    "local_scope",
+]
+field_opaques = ["symbol", "token", "op", "value"]
+
+
+prologue = """
+# REMEMBER TO REMOVE THE pyright DIRECTIVE ABOVE!!!!!!
+
+from tau import asts
+
+# Context is placeholder class for your use.
+# You can add whatever you want to it.
+class Context:
+    pass
+
+def process(ast: asts.Program) -> None:
+    _Program(ast)
+
+"""
+
+[[emit]]
+roots = ["tau.asts.Program"]
+include_self = true
+prefix = "_"
+initialize.ctx = "Context() # <--- fix this!!!"
+rettype = "None"
+call = [["ctx", "Context"]]
+decl = []
+
+[[emit]]
+roots = ["tau.asts.AST"]
+type_excludes = ["tau.asts.Program"]
+include_self = false
+call = [["ctx", "Context"]]
+decl = [["ctx", "Context"]]
+prefix = "_"
+rettype = "None"

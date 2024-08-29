@@ -1,0 +1,49 @@
+root = "tau.asts.AST"
+inside_class = false
+field_messages.symbol = "<--- update offset!!"
+field_excludes = [
+    "register_pool",
+    "enclosing_function",
+    "ar_size",
+    "length",
+    "token",
+    "span",
+    "register",
+    "semantic_type",
+    "func_scope",
+    "local_scope",
+    "token",
+    "op",
+    "value",
+]
+field_opaques = ["symbol"]
+prologue = """
+# REMEMBER TO REMOVE THE pyright DIRECTIVE ABOVE!!!!!!
+
+from tau import asts
+
+
+
+def process(ast: asts.Program) -> None:
+    _Program(ast)
+
+"""
+
+[[emit]]
+roots = ["tau.asts.Program"]
+include_self = true
+prefix = "_"
+initialize.current = "-9999 # <--- fix this!!!"
+rettype = "int"
+call = [["current", "int"]]
+decl = []
+
+[[emit]]
+roots = ["tau.asts.Decl", "tau.asts.Stmt"]
+type_opaques = ["tau.asts.TypeAST", "tau.asts.Id"]
+type_excludes = ["tau.asts.Expr"]
+include_self = true
+call = [["current", "int"]]
+decl = [["current", "int"]]
+prefix = "_"
+rettype = "int"

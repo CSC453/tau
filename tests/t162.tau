@@ -1,0 +1,4 @@
+func main() : void{
+    x = 999
+    print x
+}

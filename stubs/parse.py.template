@@ -1,0 +1,33 @@
+# THIS IS A STUB FILE FOR THE PARSER
+# STUDENTS WILL BE GENERATING THIS FILE FROM A GRAMMAR
+# AND, EDITING THAT GENERATED FILE TO CREATE AN AST
+
+
+from tau.tokens import Token, Span, Coord
+from tau.asts import Program
+from typing import Iterable
+
+
+class ParseErrorException(Exception):
+    msg: str
+    token: Token
+    expected: set[str]
+
+    def __init__(self, msg: str, current: Token, expected: set[str]):
+        self.msg = msg
+        self.current: Token = current
+        self.expected = expected
+
+    def __str__(self) -> str:
+        return f"Parse error {self.msg} at {self.current}:  Expected {self.expected}"
+
+
+class Parser:
+    def __init__(
+        self,
+        scanner: Iterable[Token],
+    ):
+        pass
+
+    def parse(self) -> Program:
+        return Program(Span(Coord(0, 0), Coord(0, 0)), [])

@@ -1,0 +1,87 @@
+[[graders]]
+name = "M1:"
+tester = "pass"
+
+[[graders]]
+name = "M2"
+tester = "testerator"
+pickle = "m2-scanner-simple.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M3"
+tester = "testerator"
+pickle = "m3-scanner.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M4"
+tester = "testerator"
+pickle = "m4-parse-simple.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M5"
+tester = "testerator"
+pickle = "m5-parse.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M6"
+tester = "testerator"
+pickle = "m6-ast.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M7"
+tester = "testerator"
+pickle = "m7-binding.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M8"
+tester = "testerator"
+pickle = "m8-typecheck.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M9"
+tester = "testerator"
+pickle = "m9-offsets.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M10"
+tester = "testerator"
+pickle = "m10-assign.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M11"
+tester = "testerator"
+pickle = "m11-codegen.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M12"
+tester = "testerator"
+pickle = "m12-codegen.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M13"
+tester = "testerator"
+pickle = "m13-codegen.pickle"
+threshold = 0.80
+
+[[graders]]
+name = "M14"
+tester = "testerator"
+pickle = "m14-codegen.pickle"
+threshold = 0.80
+use_best = true
+
+[[graders]]
+name = "Final"
+tester = "testerator"
+pickle = "final-project.pickle"

@@ -1,0 +1,19 @@
+function = "tau.testers.run_codegen"
+compare = "tau.testers.test_codegen"
+
+
+[[exclude]]
+error = "ParseErrorException"
+
+[[exclude]]
+error = "ScanError"
+
+[[exclude]]
+error = "NameError"
+
+[[exclude]]
+error = "TypeError"
+
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayType"

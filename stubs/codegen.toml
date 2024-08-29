@@ -1,0 +1,49 @@
+root = "tau.asts.AST"
+inside_class = false
+field_excludes = ["func_scope", "span", "local_scope"]
+field_opaques = [
+    "register_pool",
+    "register",
+    "id",
+    "op",
+    "value",
+    "token",
+    "enclosing_function",
+    "semantic_type",
+    "ar_size",
+    "length",
+]
+
+prologue = """
+# REMEMBER TO REMOVE THE pyright DIRECTIVE ABOVE!!!!!!
+
+from tau import asts
+from vm.vm_insns import *
+
+
+def process(ast: asts.Program) -> list[Insn]:
+    return _Program(ast)
+
+"""
+
+
+[[emit]]
+roots = ["tau.asts.Program", "tau.asts.Decl", "tau.asts.Stmt"]
+type_opaques = ["tau.asts.TypeAST", "tau.asts.Id", "tau.asts.Expr"]
+include_self = true
+prefix = "_"
+rettype = "list[Insn]"
+
+[[emit]]
+roots = ["tau.asts.Expr", "tau.asts.Argument"]
+type_opaques = ["tau.asts.TypeAST", "tau.asts.Id"]
+include_self = true
+prefix = "_rval_"
+rettype = "list[Insn]"
+
+[[emit]]
+roots = ["tau.asts.Expr", "tau.asts.Argument"]
+type_opaques = ["tau.asts.TypeAST", "tau.asts.Id"]
+include_self = true
+prefix = "_lval_"
+rettype = "list[Insn]"

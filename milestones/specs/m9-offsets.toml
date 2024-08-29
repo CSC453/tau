@@ -1,0 +1,18 @@
+function = "tau.testers.run_offsets"
+compare = "tau.testers.test_offsets"
+
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayType"
+
+[[exclude]]
+error = "ParseErrorException"
+
+[[exclude]]
+error = "ScanError"
+
+[[exclude]]
+error = "NameError"
+
+[[exclude]]
+error = "TypeError"

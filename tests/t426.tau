@@ -1,0 +1,37 @@
+func g(a:int, b:int):int{
+    var j : int
+    var k : int
+    j = 88
+    k = 99
+    print a 
+    {
+        print b
+        {
+            print j
+        }
+        {
+            print 100
+        }
+    }
+    return 800
+}
+func main() : void{
+    var a : int 
+    var b : int 
+    a = 10
+    b = 20
+    {
+        print 101
+        {
+            var a100: int 
+            a100 = 77
+            print a100
+        }
+        {
+            var j : int
+            var k: int
+        }
+    }
+    print 102
+    print g(a, b)
+}

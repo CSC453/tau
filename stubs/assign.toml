@@ -1,0 +1,48 @@
+root = "tau.asts.AST"
+inside_class = false
+field_messages.register = "<--- set this!!"
+field_excludes = [
+    "enclosing_function",
+    "ar_size",
+    "length",
+    "token",
+    "span",
+    "semantic_type",
+    "func_scope",
+    "local_scope",
+    "token",
+    "op",
+    "value",
+]
+field_opaques = ["register_pool", "register"]
+prologue = """
+# REMEMBER TO REMOVE THE pyright DIRECTIVE ABOVE!!!!!!
+
+from tau import asts
+
+class Context:
+    pass
+
+
+def process(ast: asts.Program) -> None:
+    _Program(ast)
+
+"""
+
+[[emit]]
+roots = ["tau.asts.Program"]
+include_self = true
+prefix = "_"
+rettype = "None"
+initialize.ctx = "Context()  # <--- fix this!!"
+call = [["ctx", "Context"]]
+decl = []
+
+[[emit]]
+roots = ["tau.asts.Decl", "tau.asts.Stmt", "tau.asts.Expr", "tau.asts.Argument"]
+type_opaques = ["tau.asts.TypeAST", "tau.asts.Id"]
+include_self = true
+call = [["ctx", "Context"]]
+decl = [["ctx", "Context"]]
+prefix = "_"
+rettype = "None"

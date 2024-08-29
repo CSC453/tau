@@ -1,0 +1,24 @@
+func a( i: int):int {
+    return i+1
+}
+func b( i: int):int {
+    return i+2
+}
+func foo() :void{
+    print 1
+}
+func main():void{
+    var c : int 
+    var d : int
+    var e : bool
+    c = 1
+    d = 2
+    e = c >= d
+    if e{
+        call a(c)
+    }else{
+        call a(c)
+        call b(d)
+        call foo()
+    }
+}

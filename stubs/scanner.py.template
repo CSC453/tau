@@ -1,0 +1,15 @@
+# THIS IS A STUB FILE FOR THE SCANNER
+# STUDENTS WILL BE FILLING IN THE DETAILS
+
+from tau.tokens import Token
+from typing import Iterator
+
+
+class Scanner:
+    tokens: list[Token]
+
+    def __init__(self, input: str):
+        pass
+
+    def __iter__(self) -> Iterator[Token]:
+        return iter(self.tokens)

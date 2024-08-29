@@ -1,0 +1,17 @@
+func main() : void{
+     24 400 var x : int 
+    x = 10 
+    if x > 2 {
+        if x >= 10{
+            if x < 20 {
+                if x <= 20{
+                    if x == 10{
+                        if x != 0{
+                            print 200
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
