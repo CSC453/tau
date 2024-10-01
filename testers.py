@@ -137,7 +137,7 @@ def test_any(
         result: bool
         if type(student) != type(expected):
             e = Exception(f"Expected {type(expected)}, but got {type(student)}")
-            note = mk_note(type(student), type(expected), "TYPE")
+            note = mk_note(student, expected, "TYPE")
             e.add_note(note)
             raise e
         if isinstance(student, list):
