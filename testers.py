@@ -53,7 +53,7 @@ fields: dict[str, list[tuple[type, list[str]]]] = {
     "ast": [
         (VarDecl, ["id", "type_ast"]),
         (ParamDecl, ["id", "type_ast"]),
-        (ArrayType, ["element_type", "size"]),
+        (ArrayType, ["element_type", "count"]),
         (BoolTypeAST, []),
         (IntTypeAST, []),
         (VoidTypeAST, []),
@@ -85,7 +85,7 @@ fields: dict[str, list[tuple[type, list[str]]]] = {
         (UnaryOp, ["op"]),
         (IntLiteral, ["token"]),
         (BoolLiteral, ["token", "value"]),
-        (ArrayType, ["size"]),
+        (ArrayType, ["count"]),
     ],
     "binding": [
         (Id, ["symbol"]),
@@ -141,13 +141,12 @@ def test_any(
             e.add_note(note)
             raise e
         if isinstance(student, list):
-            length:int = min(len(student), len(expected))
-            for i in range(length):
+            test_any(len(student), len(expected), crash, fields, "len()")
+            for i in range(len(student)):
                 field = f"[{i}]"
                 result = test_any(student[i], expected[i], crash, fields, field)
                 if not result:
                     return False
-            test_any(len(student), len(expected), crash, fields, "len()")
             return True
         if isinstance(student, dict):
             test_any(set(student.keys()), set(expected.keys()), crash, fields, "keys()")

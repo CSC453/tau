@@ -1,0 +1,5 @@
+func f(): void {
+	var a: bool
+	a = true
+	print 10 <= a
+}

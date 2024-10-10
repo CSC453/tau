@@ -1,0 +1,5 @@
+func f(): void {
+	var a: int
+	a = 8
+	print 9 >= a
+}

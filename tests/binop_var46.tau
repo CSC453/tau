@@ -1,0 +1,5 @@
+func f(): void {
+	var a: bool
+	a = false
+	print a / true
+}

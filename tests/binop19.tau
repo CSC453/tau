@@ -1,0 +1,3 @@
+func f(): void {
+	print 0 * (false != 2)
+}
