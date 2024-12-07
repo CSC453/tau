@@ -17,6 +17,10 @@ error = "TypeError"
 [[exclude]]
 pragmas = ["recursive"]
 
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayTypeAST"
+
 
 [[exclude]]
 [[exclude.nodes]]
@@ -37,4 +41,3 @@ class = "IfStmt"
 [[exclude]]
 [[exclude.nodes]]
 class = "WhileStmt"
-

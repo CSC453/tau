@@ -1,4 +1,4 @@
-func f(): void {
+func main(): void {
 	var a: int
 	a = 6
 	print a * 4

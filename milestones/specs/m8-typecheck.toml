@@ -12,3 +12,7 @@ error = "NameError"
 
 [[exclude]]
 error = "TypeError"
+
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayTypeAST"

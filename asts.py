@@ -72,7 +72,7 @@ class VoidTypeAST(TypeAST):
 
 @dataclass(slots=True)
 class ArrayTypeAST(TypeAST):
-    length: Token
+    length: Optional[Token]
     element_type_ast: TypeAST
 
 

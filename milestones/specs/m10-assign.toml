@@ -6,6 +6,11 @@ compare = "tau.testers.test_assign"
 class = "ArrayType"
 
 [[exclude]]
+[[exclude.nodes]]
+class = "ArrayTypeAST"
+
+
+[[exclude]]
 error = "ParseErrorException"
 
 [[exclude]]

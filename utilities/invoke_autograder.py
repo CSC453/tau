@@ -68,7 +68,7 @@ def main() -> None:
         output = "/autograder/results/results.json"
     match found["tester"]:
         case "pass":
-            results = {
+            results: dict[str, Any] = {
                 "score": 100.0,
                 "output": "Test passed",
                 "output_format": "simple_format",

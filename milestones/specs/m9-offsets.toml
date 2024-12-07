@@ -6,6 +6,10 @@ compare = "tau.testers.test_offsets"
 class = "ArrayType"
 
 [[exclude]]
+[[exclude.nodes]]
+class = "ArrayTypeAST"
+
+[[exclude]]
 error = "ParseErrorException"
 
 [[exclude]]

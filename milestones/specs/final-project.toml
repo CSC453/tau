@@ -11,3 +11,7 @@ error = "ScanError"
 [[exclude]]
 [[exclude.nodes]]
 class = "ArrayType"
+
+[[exclude]]
+[[exclude.nodes]]
+class = "ArrayTypeAST"
